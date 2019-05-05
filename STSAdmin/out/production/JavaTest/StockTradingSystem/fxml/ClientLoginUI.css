@@ -1,0 +1,8 @@
+#background {
+	-fx-background-image: url("../img/ClientLoginBg.jpg");
+}
+
+#button {
+	-fx-background-image: url("../img/Bg.jpg");
+    -fx-background-repeat: stretch;   
+}
