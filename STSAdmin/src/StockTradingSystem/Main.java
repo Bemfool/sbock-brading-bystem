@@ -18,14 +18,12 @@ public class Main extends Application {
     public Stage stage;
     public Stage floatStage;
 
-    double x0, y0, x_stage, y_stage;
+    private double x0, y0, x_stage, y_stage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        //ClientUIController clientUI = (ClientUIController)replaceSceneContent("fxml/ClientUI.fxml");
-        //clientUI.setApp(this);
-        gotoLoginUI();
+        gotoAdminLoginUI();
         stage.show();
     }
 
@@ -50,7 +48,7 @@ public class Main extends Application {
         changePasswordUI.setApp(this);
     }
 
-    public void gotoLoginUI() throws Exception {
+    public void gotoAdminLoginUI() throws Exception {
         stage.setResizable(false);
         stage.initStyle(StageStyle.TRANSPARENT);
         AdminLoginUIController loginUI = (AdminLoginUIController)replaceSceneContent("fxml/AdminLoginUI.fxml");
@@ -68,11 +66,6 @@ public class Main extends Application {
         });
     }
 
-    public void xgotoLoginUI() throws Exception {
-        stage.setResizable(false);
-        ClientLoginUIController loginUI = (ClientLoginUIController)replaceSceneContent("fxml/ClientLoginUI.fxml");
-        loginUI.setApp(this);
-    }
 
     public void gotoAdminUI() throws Exception {
         stage.setResizable(true);

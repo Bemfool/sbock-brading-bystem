@@ -43,7 +43,7 @@ public class AdminUIControlller implements Initializable {
     }
 
     public void logout(ActionEvent actionEvent) throws Exception {
-        application.gotoLoginUI();
+        //application.gotoLoginUI();
     }
 
     public void quit(ActionEvent actionEvent) throws Exception {
