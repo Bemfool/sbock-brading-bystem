@@ -23,6 +23,7 @@ public class InterManageUIController  implements Initializable {
     }
 
     public void quit(ActionEvent actionEvent) {
+        application.stage.close();
     }
 
     public void modifyPassword(ActionEvent actionEvent) {

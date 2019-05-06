@@ -22,4 +22,7 @@ public class AdminLoginUIController implements Initializable {
         application.stage.close();
     }
 
+    public void login(ActionEvent actionEvent) throws Exception {
+        application.gotoAdminMainUI();
+    }
 }

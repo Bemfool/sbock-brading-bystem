@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="background"  stylesheets="@AdminLoginUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.AdminLoginUIController">
+<AnchorPane id="background" stylesheets="@../css/AdminLoginUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.AdminLoginUIController">
    <children>
       <VBox layoutX="-17.0" layoutY="-102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -58,7 +58,7 @@
                
                                <HBox spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                   <children>
-                        <JFXButton id="button" prefHeight="38.0" prefWidth="257.0" text="登    陆" textFill="WHITE">
+                        <JFXButton id="button" fx:id="loginBtn" onAction="#login" prefHeight="38.0" prefWidth="257.0" text="登    陆" textFill="WHITE">
                            <font>
                               <Font name="Microsoft YaHei Light" size="16.0" />
                            </font>

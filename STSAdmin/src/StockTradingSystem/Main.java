@@ -67,10 +67,13 @@ public class Main extends Application {
         });
     }
 
-    public void gotoAdminUI() throws Exception {
-        stage.setResizable(true);
+    public void gotoAdminMainUI() throws Exception {
+        stage.close();
+        stage = new Stage();
+        stage.setTitle("股票交易系统(管理员) Stock Trading System(Admin) - B");
         AdminMainUIController adminMainUI = (AdminMainUIController)replaceSceneContent("fxml/AdminMainUI.fxml");
         adminMainUI.setApp(this);
+        stage.show();
     }
 
     public void gotoInternalManageUI() throws Exception {
