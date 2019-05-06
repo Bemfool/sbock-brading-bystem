@@ -112,7 +112,7 @@
                                  <children>
                                     <HBox prefHeight="744.0" prefWidth="737.0">
                                        <children>
-                                          <StackPane fx:id="securitiesBusinessBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMousePressed="#pressSecuritiesBussiness" onMouseReleased="#releaseSecuritiesBussiness" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                          <StackPane fx:id="securitiesBusinessBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMousePressed="#pressSecuritiesBusiness" onMouseReleased="#releaseSecuritiesBusiness" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                              <HBox.margin>
                                                 <Insets bottom="40.0" left="20.0" top="40.0" />
                                              </HBox.margin>
@@ -141,7 +141,7 @@
                                                 <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
                                              </effect>
                                           </StackPane>
-                                          <StackPane fx:id="fundBusinessBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMousePressed="#pressFundBussiness" onMouseReleased="#releaseFundBussiness" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                          <StackPane fx:id="fundBusinessBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMousePressed="#pressFundBusiness" onMouseReleased="#releaseFundBusiness" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                              <HBox.margin>
                                                 <Insets left="20.0" top="40.0" />
                                              </HBox.margin>

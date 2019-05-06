@@ -42,19 +42,19 @@ public class AdminMainUIController implements Initializable {
     public void modifyPassword(ActionEvent actionEvent) {
     }
 
-    public void pressSecuritiesBussiness() {
+    public void pressSecuritiesBusiness() {
         ControllerUtils.btnPress(securitiesBusinessBtn);
     }
 
-    public void releaseSecuritiesBussiness() {
+    public void releaseSecuritiesBusiness() {
         ControllerUtils.btnRelase(securitiesBusinessBtn);
     }
 
-    public void pressFundBussiness() {
+    public void pressFundBusiness() {
         ControllerUtils.btnPress(fundBusinessBtn);
     }
 
-    public void releaseFundBussiness() {
+    public void releaseFundBusiness() {
         ControllerUtils.btnRelase(fundBusinessBtn);
     }
 
