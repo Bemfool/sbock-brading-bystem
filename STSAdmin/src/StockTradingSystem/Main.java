@@ -18,6 +18,7 @@ public class Main extends Application {
     public Stage stage;
     public Stage floatStage;
 
+    /* 用于界面拖拽 */
     private double x0, y0, x_stage, y_stage;
 
     @Override
@@ -66,11 +67,16 @@ public class Main extends Application {
         });
     }
 
-
     public void gotoAdminUI() throws Exception {
         stage.setResizable(true);
-        AdminUIControlller AdminUI = (AdminUIControlller)replaceSceneContent("fxml/AdminUI.fxml");
-        AdminUI.setApp(this);
+        AdminMainUIController adminMainUI = (AdminMainUIController)replaceSceneContent("fxml/AdminMainUI.fxml");
+        adminMainUI.setApp(this);
+    }
+
+    public void gotoInternalManageUI() throws Exception {
+        stage.setResizable(true);
+        InterManageUIController interManageUI = (InterManageUIController)replaceSceneContent("fxml/InterManageUI.fxml");
+        interManageUI.setApp(this);
     }
 
     private Initializable replaceSceneContent(String fxml) throws Exception {

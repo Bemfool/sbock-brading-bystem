@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminUIControlller implements Initializable {
+public class AdminMainUIController implements Initializable {
     public Text welcome;
     private Main application;
     @FXML private HBox menuBarParent;
