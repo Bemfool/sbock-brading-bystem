@@ -16,7 +16,7 @@ public class ControllerUtils {
         btn.setEffect(dropShadow);
     }
 
-    static public void btnRelase(StackPane btn) {
+    static public void btnRelease(StackPane btn) {
         DropShadow dropShadow = new DropShadow();
         dropShadow.setColor(Color.color(0,0,0, 0.3));
         dropShadow.setWidth(30);

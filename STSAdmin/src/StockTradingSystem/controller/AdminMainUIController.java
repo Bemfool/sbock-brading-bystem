@@ -47,7 +47,7 @@ public class AdminMainUIController implements Initializable {
     }
 
     public void releaseSecuritiesBusiness() {
-        ControllerUtils.btnRelase(securitiesBusinessBtn);
+        ControllerUtils.btnRelease(securitiesBusinessBtn);
     }
 
     public void pressFundBusiness() {
@@ -55,7 +55,7 @@ public class AdminMainUIController implements Initializable {
     }
 
     public void releaseFundBusiness() {
-        ControllerUtils.btnRelase(fundBusinessBtn);
+        ControllerUtils.btnRelease(fundBusinessBtn);
     }
 
     public void pressInterManage() {
@@ -63,7 +63,7 @@ public class AdminMainUIController implements Initializable {
     }
 
     public void releaseInterManage() throws Exception {
-        ControllerUtils.btnRelase(interManageBtn);
+        ControllerUtils.btnRelease(interManageBtn);
         application.gotoInternalManageUI();
     }
 }
