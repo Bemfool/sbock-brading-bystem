@@ -124,7 +124,7 @@
                                                             <Insets left="5.0" top="5.0" />
                                                          </VBox.margin>
                                                          <image>
-                                                            <Image url="@../img/securities.jpg" />
+                                                            <Image url="@../img/human_icon/securities.jpg" />
                                                          </image></ImageView>
                                                       <Label alignment="CENTER" prefHeight="15.0" prefWidth="219.0" text="证 券 业 务">
                                                          <font>
@@ -150,7 +150,7 @@
                                                    <children>
                                                       <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../img/fund.jpg" />
+                                                            <Image url="@../img/human_icon/fund.jpg" />
                                                          </image>
                                                          <VBox.margin>
                                                             <Insets left="5.0" top="5.0" />
@@ -182,7 +182,7 @@
                                                    <children>
                                                       <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../img/inter_manage.jpg" />
+                                                            <Image url="@../img/human_icon/inter_manage.jpg" />
                                                          </image>
                                                          <VBox.margin>
                                                             <Insets left="5.0" top="5.0" />
