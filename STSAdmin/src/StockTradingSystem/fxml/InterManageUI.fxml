@@ -128,7 +128,7 @@
                                               </TableView>
                                           <HBox prefHeight="46.0" prefWidth="737.0">
                                              <children>
-                                                <JFXButton id="button" alignment="CENTER" prefHeight="36.0" prefWidth="194.0" stylesheets="@../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
+                                                <JFXButton id="button" alignment="CENTER" buttonType="RAISED" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -136,7 +136,7 @@
                                                       <Insets bottom="10.0" left="450.0" right="10.0" top="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
-                                                <JFXButton id="button" alignment="CENTER" prefHeight="36.0" prefWidth="197.0" stylesheets="@../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
+                                                <JFXButton id="button" alignment="CENTER" buttonType="RAISED" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
