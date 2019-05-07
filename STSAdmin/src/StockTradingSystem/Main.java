@@ -25,7 +25,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         gotoAdminLoginUI();
-        stage.show();
     }
 
     public void createChangePasswordUI() throws Exception {
@@ -50,6 +49,7 @@ public class Main extends Application {
     }
 
     public void gotoAdminLoginUI() throws Exception {
+        stage = new Stage();
         stage.setResizable(false);
         stage.initStyle(StageStyle.TRANSPARENT);
         AdminLoginUIController loginUI = (AdminLoginUIController)replaceSceneContent("fxml/AdminLoginUI.fxml");
@@ -65,6 +65,7 @@ public class Main extends Application {
             x_stage = stage.getX();
             y_stage = stage.getY();
         });
+        stage.show();
     }
 
     public void gotoAdminMainUI() throws Exception {

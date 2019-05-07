@@ -22,6 +22,7 @@ public class AdminUIController implements Initializable {
 
     public void logout() throws Exception {
         // TODO: 跳转前还需要对用户信息进行清除
+        application.stage.close();
         application.gotoAdminLoginUI();
     }
 
