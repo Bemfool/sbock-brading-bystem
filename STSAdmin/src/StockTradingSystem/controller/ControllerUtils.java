@@ -1,4 +1,4 @@
-package StockTradingSystem;
+package StockTradingSystem.controller;
 
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;

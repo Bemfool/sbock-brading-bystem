@@ -7,18 +7,9 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ChangePasswordUIController implements Initializable {
-    private Main application;
-    public void setApp(Main app) {
-        this.application = app;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb){
-    }
-
+public class ChangePasswordUIController  extends AdminUIController {
     public void confirm(ActionEvent actionEvent) {
         // TODO
-        application.floatStage.close();
+        getApp().floatStage.close();
     }
 }

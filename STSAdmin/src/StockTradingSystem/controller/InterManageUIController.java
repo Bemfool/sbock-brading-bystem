@@ -7,15 +7,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InterManageUIController  implements Initializable {
-    private Main application;
-    public void setApp(Main app) {
-        this.application = app;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb){}
-
+public class InterManageUIController extends AdminUIController {
     public void personalInfo(ActionEvent actionEvent) {
     }
 
@@ -23,7 +15,7 @@ public class InterManageUIController  implements Initializable {
     }
 
     public void quit(ActionEvent actionEvent) {
-        application.stage.close();
+        getApp().stage.close();
     }
 
     public void modifyPassword(ActionEvent actionEvent) {

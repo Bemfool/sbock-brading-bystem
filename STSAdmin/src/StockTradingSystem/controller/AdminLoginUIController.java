@@ -9,20 +9,14 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminLoginUIController implements Initializable {
-    private Main application;
-    public void setApp(Main app) {
-        this.application = app;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb){}
+public class AdminLoginUIController extends AdminUIController {
 
     public void close() {
-        application.stage.close();
+        getApp().stage.close();
     }
 
-    public void login(ActionEvent actionEvent) throws Exception {
-        application.gotoAdminMainUI();
+    public void login() throws Exception {
+        // TODO: 登陆判断
+        getApp().gotoAdminMainUI();
     }
 }
