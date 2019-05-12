@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -96,7 +97,7 @@
                            <children>
                               <HBox>
                                  <children>
-                                    <JFXButton ripplerFill="#3c0294" text="工作人员主界面" textFill="WHITE">
+                                    <JFXButton onAction="#gotoMainUI" ripplerFill="#3c0294" text="工作人员主界面" textFill="WHITE">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -128,14 +129,24 @@
                                               </TableView>
                                           <HBox prefHeight="46.0" prefWidth="737.0">
                                              <children>
+                                                <JFXTextField fx:id="limit">
+                                                   <HBox.margin>
+                                                      <Insets left="300.0" top="15.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
                                                 <JFXButton id="button" alignment="CENTER" buttonType="RAISED" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                    <HBox.margin>
-                                                      <Insets bottom="10.0" left="450.0" right="10.0" top="10.0" />
+                                                      <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                                    </HBox.margin>
                                                 </JFXButton>
+                                                <JFXTextField fx:id="state">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" top="15.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
                                                 <JFXButton id="button" alignment="CENTER" buttonType="RAISED" prefHeight="36.0" prefWidth="197.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
