@@ -4,15 +4,15 @@
 
 先创建一个表格，命名为stock，内容如下：
 
-![1](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/1.png)
+![1](https://imgchr.com/i/ETv5ZV)
 
 然后再右键表格：
 
-![2](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/2.png)
+![2](https://imgchr.com/i/ETvIaT)
 
 注意与下面方法不同的地方：
 
-![3](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/3.png)
+![3](https://imgchr.com/i/ETvcGQ)
 
 其余点击下一步即可。
 
@@ -24,23 +24,23 @@
 
 在Table位置右键，点击Table Data Import Wizard。
 
-![4](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/4.png)
+![4](https://imgchr.com/i/ETvhq0)
 
 选择从群文件里下载的`股票信息(精简-用于导入).csv`
 
-![5](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93库/assets/5.png)
+![5](https://imgchr.com/i/ETv2xs)
 
 修改表名为stock
 
-![6](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/6.png)
+![6](https://imgchr.com/i/ETvg2j)
 
 确定encoding选择utf-8，下一步。结束后，点下面这个按钮刷新。
 
-![7](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/7.png)
+![7](https://imgchr.com/i/ETvWMn)
 
 查看是否成功导入。
 
-![8](https://github.com/Great-Keith/SbockBradingBystem/raw/master/%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE%E5%BA%93/assets/8.png)
+![8](https://imgchr.com/i/ETvfrq)
 
 
 
