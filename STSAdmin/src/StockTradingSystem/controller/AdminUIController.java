@@ -29,4 +29,6 @@ public class AdminUIController implements Initializable {
     public void quit() {
         application.stage.close();
     }
+
+    public void modifyPassword() { }
 }

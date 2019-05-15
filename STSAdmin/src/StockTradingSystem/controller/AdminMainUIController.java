@@ -1,17 +1,12 @@
 package StockTradingSystem.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 public class AdminMainUIController extends AdminUIController {
     @FXML private StackPane securitiesBusinessBtn;
     @FXML private StackPane fundBusinessBtn;
     @FXML private StackPane interManageBtn;
-
-    public void modifyPassword(ActionEvent actionEvent) {
-    }
 
     /* 按钮特效 */
     public void pressSecuritiesBusiness() { ControllerUtils.btnPress(securitiesBusinessBtn); }

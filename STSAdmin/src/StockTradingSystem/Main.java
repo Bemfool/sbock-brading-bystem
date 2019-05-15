@@ -2,12 +2,10 @@ package StockTradingSystem;
 
 import StockTradingSystem.controller.*;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,27 +23,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         gotoAdminLoginUI();
-    }
-
-    public void createChangePasswordUI() throws Exception {
-        floatStage = new Stage();
-        floatStage.setTitle("Change Password");
-        floatStage.setResizable(false);
-        FXMLLoader loader = new FXMLLoader();
-        InputStream in = Main.class.getResourceAsStream("fxml/ChangePasswordUI.fxml");
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(Main.class.getResource("fxml/ChangePasswordUI.fxml"));
-        AnchorPane page;
-        try {
-            page = loader.load(in);
-        } finally {
-            in.close();
-        }
-        Scene scene = new Scene(page);
-        floatStage.setScene(scene);
-        floatStage.show();
-        ChangePasswordUIController changePasswordUI = loader.getController();
-        changePasswordUI.setApp(this);
     }
 
     public void gotoAdminLoginUI() throws Exception {
@@ -82,6 +59,35 @@ public class Main extends Application {
         InterManageUIController interManageUI = (InterManageUIController)replaceSceneContent("fxml/InterManageUI.fxml");
         interManageUI.setApp(this);
     }
+
+    public void createConfirmWarningUI() throws Exception {
+        floatStage = new Stage();
+        floatStage.setTitle("Warning");
+        floatStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream("fxml/ConfirmWarningUI.fxml");
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource("fxml/ConfirmWarningUI.fxml"));
+        AnchorPane page;
+        try {
+            page = loader.load();
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+        floatStage.setScene(scene);
+        floatStage.show();
+        ConfirmWarningUIController confirmWarningUI= loader.getController();
+        confirmWarningUI.setApp(this);
+    }
+
+    // TODO 到详细界面
+    public void gotoStockDetailUI() throws Exception {
+        stage.setResizable(true);
+        StockDetailUIController stockDetailUI = (StockDetailUIController)replaceSceneContent("fxml/StockDetailUI.fxml");
+        stockDetailUI.setApp(this);
+    }
+
 
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
