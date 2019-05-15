@@ -4,7 +4,7 @@
 
 先创建一个表格，命名为stock，内容如下：
 
-![1](https://github.com/Great-Keith/SbockBradingBystem/raw/master/股票数据库/assets/1.png)
+![1](https://github.com/Great-Keith/SbockBradingBystem/blob/master/股票数据库/assets/1.png?raw=true)
 
 然后再右键表格：
 
