@@ -4,7 +4,7 @@
 
 先创建一个表格，命名为stock，内容如下：
 
-![1](https://imgchr.com/i/ETv5ZV)
+![](https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpggy1g322us7skrj30o404ydgr.jpg)
 
 然后再右键表格：
 
