@@ -1,7 +1,11 @@
 package StockTradingSystem.controller;
 
 import StockTradingSystem.data.Stock;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 import com.jfoenix.controls.JFXTextField;
+import com.mysql.cj.xdevapi.JsonArray;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -74,12 +78,19 @@ public class InterManageUIController extends AdminUIController {
         // TODO 连接数据库，并将stock信息放到arraylist中
 
         try {
-            // TODO 连接
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/stock_trading_system" +
+            // SSH 连接
+            JSch jsch = new JSch();
+            Session session = jsch.getSession("ubuntu","139.155.104.140",22);
+            session.setPassword("h4C4TNc6fE2Svmh");
+            session.setConfig("StrictHostKeyChecking", "no");
+            session.connect();
+            session.setPortForwardingL(3307, "localhost", 3306);
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3307/stock_trading_system" +
                     "?useSSL=false" +
                     "&serverTimezone=GMT" +
-                    "&allowPublicKeyRetrieval=true", "root","lyz5621617");
+                    "&allowPublicKeyRetrieval=true", "root","0000");
             // TODO 到数据库中查询当前股票名称
             Statement stmt = conn.createStatement();
             String sql;
@@ -97,7 +108,7 @@ public class InterManageUIController extends AdminUIController {
                 stockObservableList.add(st);
             }
             conn.close();
-        } catch (SQLException | ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException | JSchException e){
             e.printStackTrace();
         }
 
