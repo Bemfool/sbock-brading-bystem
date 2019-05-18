@@ -78,16 +78,9 @@ public class InterManageUIController extends AdminUIController {
         // TODO 连接数据库，并将stock信息放到arraylist中
 
         try {
-            // SSH 连接
-            JSch jsch = new JSch();
-            Session session = jsch.getSession("ubuntu","139.155.104.140",22);
-            session.setPassword("h4C4TNc6fE2Svmh");
-            session.setConfig("StrictHostKeyChecking", "no");
-            session.connect();
-            session.setPortForwardingL(3307, "localhost", 3306);
-
+            // TODO 加密JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3307/stock_trading_system" +
+            Connection conn= DriverManager.getConnection("jdbc:mysql://139.155.104.140:3306/stock_trading_system" +
                     "?useSSL=false" +
                     "&serverTimezone=GMT" +
                     "&allowPublicKeyRetrieval=true", "root","0000");
@@ -108,7 +101,7 @@ public class InterManageUIController extends AdminUIController {
                 stockObservableList.add(st);
             }
             conn.close();
-        } catch (SQLException | ClassNotFoundException | JSchException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
 
