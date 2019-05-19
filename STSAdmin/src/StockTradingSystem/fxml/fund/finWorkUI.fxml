@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finworkUIController">
+   <children>
+       <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <AnchorPane VBox.vgrow="NEVER">
+               <children>
+                     <MenuBar fx:id="menuBar" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" opacity="0.9" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+                        <menus>
+                            <Menu mnemonicParsing="false" text="个人">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" onAction="#personalInfo" text="个人信息" />
+                                   <MenuItem mnemonicParsing="false" onAction="#logout" text="注销" />
+                                   <MenuItem mnemonicParsing="false" onAction="#quit" text="退出" />
+                               </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="股票">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" text="暂无" />
+                               </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="指数">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" text="暂无" />
+                               </items>
+                            </Menu>
+                        </menus>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     </MenuBar>
+               </children>
+            </AnchorPane>
+              <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="960.0" VBox.vgrow="ALWAYS">
+                 <children>
+                     <AnchorPane prefHeight="536.0" prefWidth="194.0">
+                        <children>
+                        <StackPane layoutX="15.0" layoutY="8.0" prefHeight="518.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <ImageView fitHeight="72.0" fitWidth="72.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="35.0" right="35.0" top="20.0" />
+                                       </VBox.margin>
+                                       <effect>
+                                          <DropShadow height="10.5" radius="2.125" spread="0.77" width="0.0" />
+                                       </effect>
+                                       <image>
+                                          <Image url="@../../img/dummy_potrait.jpg" />
+                                       </image>
+                                    </ImageView>
+                                        <Text fx:id="welcome" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="马冬梅" textAlignment="CENTER" wrappingWidth="140.4000015258789">
+                                            <font>
+                                                <Font size="30.0" />
+                                            </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                        </Text>
+                                        <Hyperlink alignment="CENTER" onAction="#modifyPassword" prefHeight="22.0" prefWidth="152.0" text="修改密码" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" color="#4500c42f" height="36.49" radius="19.83" spread="0.66" width="44.83" />
+                           </effect>
+                        </StackPane>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="478.0" prefWidth="801.0" HBox.hgrow="ALWAYS">
+                        <children>
+                        <VBox AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <JFXButton onAction="#gotofinMainUI" ripplerFill="#3c0294" text="工作人员主界面" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <Label text="&gt;" textFill="WHITE">
+                                       <font>
+                                          <Font size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton ripplerFill="#3c0097" text="资金账户业务" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <StackPane style="-fx-background-radius: 10px; -fx-background-color: white;">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="51.0" prefWidth="738.0">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:  ">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="CostmerName" strokeType="OUTSIDE" strokeWidth="0.0" text="zhangsan@zju.edu.cn">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                </Text>
+                                                <Hyperlink text="注销" />
+                                             </children>
+                                          </HBox>
+                                          <StackPane maxHeight="240.0" minHeight="221.0" prefHeight="221.0" prefWidth="738.0">
+                                             <children>
+                                                <HBox prefHeight="382.0" prefWidth="738.0">
+                                                   <children>
+                                                      <StackPane fx:id="SearchLogBtn" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitSearchLog" onMouseMoved="#moveSearchLog" onMousePressed="#pressSearchLog" onMouseReleased="#releaseSearchLog" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="201.0" prefWidth="158.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="161.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../img/human_icon/securities.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="用户交易记录">
+                                                                     <font>
+                                                                        <Font size="22.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                      <StackPane fx:id="ChangeBalance" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitChangeBalance" onMouseMoved="#moveChangeBalance" onMousePressed="#pressChangeBalance" onMouseReleased="#releaseChangeBalance" prefHeight="210.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="418.0" prefWidth="164.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="160.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../img/human_icon/fund.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="资金存取">
+                                                                     <font>
+                                                                        <Font size="22.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" right="20.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                      <StackPane fx:id="ChangeState" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitChangeState" onMouseMoved="#moveChangeState" onMousePressed="#pressChangeState" onMouseReleased="#releaseChangeState" prefHeight="183.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="418.0" prefWidth="164.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="165.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../img/human_icon/inter_manage.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="账户冻结/解冻">
+                                                                     <font>
+                                                                        <Font size="22.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane prefHeight="222.0" prefWidth="738.0">
+                                             <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <StackPane fx:id="ChangePwd" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitChangePwd" onMouseMoved="#moveChangePwd" onMousePressed="#pressChangePwd" onMouseReleased="#releaseChangePwd" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="201.0" prefWidth="158.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="161.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../img/human_icon/securities.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="修改密码">
+                                                                     <font>
+                                                                        <Font size="22.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                      <StackPane fx:id="DeleteAccount" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitDeleteAccount" onMouseMoved="#moveDeleteAccount" onMousePressed="#pressDeleteAccount" onMouseReleased="#releaseDeleteAccount" prefHeight="183.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="418.0" prefWidth="164.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="165.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../img/human_icon/inter_manage.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label text="销户">
+                                                                     <font>
+                                                                        <Font size="22.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets right="20.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                                 </effect>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        </children>
+                     </AnchorPane>
+                 </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+              </HBox>
+          </children>
+       </VBox>
+   </children>
+</AnchorPane>

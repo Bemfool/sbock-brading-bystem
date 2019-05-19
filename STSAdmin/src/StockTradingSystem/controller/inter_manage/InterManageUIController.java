@@ -1,11 +1,8 @@
-package StockTradingSystem.controller;
+package StockTradingSystem.controller.inter_manage;
 
+import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.data.Stock;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.Session;
 import com.jfoenix.controls.JFXTextField;
-import com.mysql.cj.xdevapi.JsonArray;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package StockTradingSystem.controller;
+package StockTradingSystem.controller.utils;
 
 import StockTradingSystem.Main;
 import javafx.fxml.Initializable;

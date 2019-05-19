@@ -1,5 +1,7 @@
 package StockTradingSystem.controller;
 
+import StockTradingSystem.controller.utils.AdminUIController;
+
 public class AdminLoginUIController extends AdminUIController {
 
     public void close() {

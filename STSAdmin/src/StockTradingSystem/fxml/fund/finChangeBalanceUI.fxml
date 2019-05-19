@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background" stylesheets="@../../css/AdminLoginUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finChangeBalanceUIController">
+    <VBox layoutX="-17.0" layoutY="-102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="27.0" prefWidth="574.0" VBox.vgrow="ALWAYS">
+            <JFXButton fx:id="close" contentDisplay="RIGHT" onAction="#close" prefHeight="23.0" prefWidth="50.0" ripplerFill="RED" text="×" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                <font>
+                    <Font name="AdobeDevanagari-Regular" size="12.0" />
+                </font>
+                <padding>
+                    <Insets bottom="6.0" left="10.0" right="10.0" top="6.0" />
+                </padding>
+            </JFXButton>
+        </AnchorPane>
+        <GridPane alignment="center" hgap="10" prefHeight="378.0" prefWidth="602.0" vgap="10">
+            <padding>
+                <Insets bottom="10.0" left="25.0" right="10.0" top="150.0" />
+            </padding>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints maxWidth="146.0" minWidth="93.0" prefWidth="111.0" />
+                <ColumnConstraints maxWidth="135.0" minWidth="10.0" prefWidth="105.0" />
+                <ColumnConstraints maxWidth="95.0" minWidth="10.0" prefWidth="73.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+         <Label prefHeight="30.0" prefWidth="276.0" text="请输入变动金额" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="22.0" />
+            </font>
+         </Label>
+
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                <JFXButton id="button" fx:id="confirmBtn" onAction="#confirm" prefHeight="38.0" prefWidth="257.0" text="确定" textFill="WHITE">
+                    <font>
+                        <Font name="Microsoft YaHei Light" size="16.0" />
+                    </font>
+                    <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="WHITE" />
+                                <Stop color="#daabff" offset="0.9999999542465096" />
+                                <Stop color="#daabff" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </ripplerFill>
+                </JFXButton>
+            </HBox>
+            <JFXTextField fx:id="ChangeAmount" labelFloat="true" promptText="金额" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Microsoft YaHei Light" size="15.0" />
+                </font>
+                <GridPane.margin>
+                    <Insets bottom="10.0" />
+                </GridPane.margin>
+            </JFXTextField>
+        </GridPane>
+    </VBox>
+</AnchorPane>

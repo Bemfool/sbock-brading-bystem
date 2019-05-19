@@ -2,8 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef6e9395-7927-44c4-8f9e-d17a7f114684" name="Default Changelist" comment="整合第5模块部分，进一步规范结构">
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finChangeBalanceUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finCreateAccountUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finLoginUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finworkUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/fundMainUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/securities/SecuritiesUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/FundAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/CorporateAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/PersonalAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/SecuritiesAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/CommandDBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/FundAccountDBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/SecuritiesAccountDBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLConnect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLGen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSysDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finChangeBalanceUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finCreateAccountUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finLoginUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finWorkUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/fundMainUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/securities/SecuritiesUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/AdminLoginUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/AdminLoginUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/AdminMainUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/AdminMainUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/AdminUIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/ConfirmWarningUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/ConfirmWarningUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/ControllerUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/InterManageUIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/controller/StockDetailUIController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/fxml/InterManageUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaTest/StockTradingSystem/fxml/StockDetailUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminLoginUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminLoginUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/utils/AdminUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/ConfirmWarningUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/ConfirmWarningUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/ControllerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/utils/ControllerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/inter_manage/InterManageUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/controller/StockDetailUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/controller/inter_manage/StockDetailUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/data/Index.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/data/Index.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/fxml/InterManageUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/InterManageUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockTradingSystem/fxml/StockDetailUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/StockDetailUI.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -144,66 +188,47 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2047651630">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="fxml" value="9" />
+          <entry key="java" value="51" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="51" />
+          <entry key="XML" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="13" />
+          <entry key="fxml" value="92" />
+          <entry key="java" value="441" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="441" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="XML" value="92" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="5" column="61" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ControllerUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/InterManageUI.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2451">
-              <caret line="129" column="71" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/confirmWarningUI.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="82" column="115" lean-forward="true" selection-start-line="82" selection-start-column="115" selection-end-line="82" selection-end-column="115" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Stock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
+            <state relative-caret-position="378">
               <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -213,16 +238,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/StockDBManager.java">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/StockDetailUI.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            <state relative-caret-position="228">
+              <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Index.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Index.java">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/FundAccount.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/FundAccountDBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSysDB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -231,10 +284,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/IndexDBManager.java">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLGen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLConnect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/CommandDBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Command.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="912">
+              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -264,6 +344,9 @@
       <find>jfxstchangetv</find>
       <find>clickinto</find>
       <find>stockStatePrice</find>
+      <find>db</find>
+      <find>prepare</find>
+      <find>date</find>
     </findStrings>
     <replaceStrings>
       <replace>TODO</replace>
@@ -277,27 +360,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/javafxsample/HelloJavaFX.java" />
-        <option value="$PROJECT_DIR$/src/helloworld/HelloJavaFX.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/HelloJavaFX.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/UserInput.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/MultipleStage.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/Controller.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/ui.fxml" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/AdministratorUI.fxml" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/Login.fxml" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/UseFxml.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/AdminUI.fxml" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/LoginUIController.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/AdminUIControlller.java" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/fxml/LoginUI.fxml" />
-        <option value="$PROJECT_DIR$/src/JavaFXSample/Main.java" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/Client.fxml" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/ClientUI.fxml" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/ClientUIController.java" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/ChangePasswordUI.fxml" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/LoginUI.fxml" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/LoginUI_op.fxml" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/ClientLoginUIController.java" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/ClientLoginUI.fxml" />
@@ -315,13 +377,40 @@
         <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/AdminMainUI.fxml" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/confirmWarningUI.fxml" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/Stock.java" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/Main.java" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/confirmWarningUIController.java" />
-        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminUIController.java" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/InterManageUI.fxml" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/StockDetailUIController.java" />
         <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/SecuritiesUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/SecuritiesUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finCreateAccountUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finChangeBalanceUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finLoginUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finWorkUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finMainUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/database/finSQLConnect.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finCreateAccountUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finLoginUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finChangeBalanceUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finMainUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/ClassAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/ClassAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/SecuritiesAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/CorporateAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/PersonalAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/database/SecuritiesAccountDBManager.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/Main.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finworkUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/Command.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/controller/inter_manage/StockDetailUIController.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/StockDetailUI.fxml" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/Index.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/data/FundAccount.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/database/FundAccountDBManager.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/database/depressed/finSQLConnect.java" />
+        <option value="$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLConnect.java" />
       </list>
     </option>
   </component>
@@ -331,9 +420,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="955" />
-    <option name="width" value="980" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="1718" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -377,7 +466,24 @@
               <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="inter_manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="securities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
@@ -385,6 +491,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="SecuritiesAccount" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
@@ -402,6 +516,45 @@
             </path>
             <path>
               <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="inter_manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="securities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="human_icon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STSAdmin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StockTradingSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="psd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFXTest" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -412,14 +565,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557997504305" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558279858696" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -429,22 +582,25 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\fxml\securities" />
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\fxml\inter_manage" />
+      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\img\psd" />
+      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\img\human_icon" />
+      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\css" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="JavaFXSample.controller" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\fxml" />
-      <recent name="D:\JavaTest\src\StockTradingSystem\fxml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="StockTradingSystem.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\img\psd" />
-      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\img\human_icon" />
-      <recent name="D:\SbockBradingBystem\STSAdmin\src\StockTradingSystem\css" />
-      <recent name="D:\JavaTest\src\StockTradingSystem\fxml" />
-      <recent name="D:\JavaTest\src\JavaFXSample\fxml" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\database" />
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\fxml\fund" />
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\controller\fund" />
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\fxml" />
+      <recent name="C:\Users\Keith Lin\Desktop\SbockBradingBystem\STSAdmin\src\StockTradingSystem\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -465,7 +621,7 @@
       <module name="JavaTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StockTradingSystem.controller.*" />
+          <option name="PATTERN" value="StockTradingSystem.controller.inter_manage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -478,7 +634,7 @@
       <module name="JavaTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StockTradingSystem.controller.*" />
+          <option name="PATTERN" value="StockTradingSystem.controller.inter_manage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -491,7 +647,7 @@
       <module name="JavaTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StockTradingSystem.controller.*" />
+          <option name="PATTERN" value="StockTradingSystem.controller.inter_manage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -504,7 +660,7 @@
       <module name="JavaTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StockTradingSystem.controller.*" />
+          <option name="PATTERN" value="StockTradingSystem.controller.inter_manage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -577,6 +733,7 @@
       <workItem from="1558072476479" duration="7583000" />
       <workItem from="1558163661682" duration="10000" />
       <workItem from="1558171907153" duration="138000" />
+      <workItem from="1558264559778" duration="9467000" />
     </task>
     <task id="LOCAL-00001" summary="first update">
       <created>1557049127551</created>
@@ -687,13 +844,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106211000" />
+    <option name="totallyTimeSpent" value="115678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.022911051" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30592993" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -701,8 +858,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.61118597" weight="0.1388889" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6832884" visible="true" weight="0.3362573" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.61118597" weight="0.024853801" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6832884" visible="true" weight="0.35233918" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991228" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -751,76 +908,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="整合第5模块部分，进一步规范结构" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/com/sun/javafx/event/CompositeEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/com/sun/javafx/event/EventHandlerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="237" selection-start-line="237" selection-end-line="237" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="1669" selection-start-line="1669" selection-end-line="1669" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaFXSample/HelloJavaFX.java" />
-    <entry file="file://$PROJECT_DIR$/src/JavaFXSample/MultipleStage.java" />
-    <entry file="file://$PROJECT_DIR$/src/JavaFXSample/UserInput.java" />
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/LoginUIController.java" />
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/ClientUI.fxml" />
-    <entry file="file://$PROJECT_DIR$/.idea/.name">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-start-column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="581" selection-start-line="581" selection-end-line="581" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/LoginUI.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/ClientLoginUI.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ClientLoginUIController.java" />
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ClientUIController.java" />
-    <entry file="file://$PROJECT_DIR$/JavaTest.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/dictionaries/Keith_Lin.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/AdminUIbackup.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/img/admin_login_bg.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/img/bg.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -864,42 +951,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ChangePasswordUIController.java" />
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/AdminLoginUI.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/AasddController.java" />
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/ChangePasswordUI.fxml" />
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/AdminMainUI.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ConfirmWarningUIController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/StockDetailUI.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="120" column="68" selection-start-line="120" selection-start-column="68" selection-end-line="120" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -910,20 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/StockDetailUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/AdminUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Software/Java/jsch-0.1.55.jar!/com/jcraft/jsch/Session.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -931,43 +989,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java">
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/InterManageUI.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="61" />
+        <state relative-caret-position="2451">
+          <caret line="129" column="71" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/confirmWarningUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/securities/SecuritiesUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5225">
+          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finWorkUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finLoginUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="16" column="197" selection-start-line="16" selection-start-column="197" selection-end-line="16" selection-end-column="197" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finCreateAccountUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/finChangeBalanceUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finCreateAccountUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/ControllerUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finChangeBalanceUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state>
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/InterManageUI.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finLoginUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2451">
-          <caret line="129" column="71" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
+        <state relative-caret-position="399">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/confirmWarningUI.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/fund/fundMainUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        <state relative-caret-position="380">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -981,27 +1092,191 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/IndexDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/securities/SecuritiesUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/utils/ControllerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/SecuritiesAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/CorporateAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="43" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/SecuritiesAccount/PersonalAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/SecuritiesAccountDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3971">
+          <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/fund/fundMainUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="64" selection-start-line="64" selection-end-line="65" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="106" column="28" lean-forward="true" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/AdminMainUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/fund/finworkUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-692">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/utils/AdminUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/inter_manage/InterManageUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/inter_manage/StockDetailUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/fxml/inter_manage/StockDetailUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/CommandDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Stock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/data/FundAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/FundAccountDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSysDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/IndexDBManager.java">
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLGen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/controller/InterManageUIController.java">
+    <entry file="file://$PROJECT_DIR$/src/StockTradingSystem/database/to_be_replaced/finSQLConnect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="82" column="115" lean-forward="true" selection-start-line="82" selection-start-column="115" selection-end-line="82" selection-end-column="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="266">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
         </state>
       </provider>
     </entry>
