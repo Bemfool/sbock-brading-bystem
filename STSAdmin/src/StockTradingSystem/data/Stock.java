@@ -12,7 +12,9 @@ public class Stock {
     private DoubleProperty ceilingPrice;
     private DoubleProperty floorPrice;
     private StringProperty stockState;
-    //private boolean isselect;
+    private StringProperty stockLimit;
+    private StringProperty stockChange;
+    private boolean isselect;
 
     public Stock(String stockCode,String stockName,double stockPrice,double ceilingPrice,double floorPrice,String stockState){
         this.stockCode=new SimpleStringProperty(stockCode);
@@ -30,6 +32,8 @@ public class Stock {
         this.ceilingPrice=new SimpleDoubleProperty(0);
         this.floorPrice=new SimpleDoubleProperty(0);
         this.stockState=new SimpleStringProperty("");
+        this.stockLimit=new SimpleStringProperty("");
+        this.stockChange=new SimpleStringProperty("");
     }
 
     public void setStockCode(String stockCode) { this.stockCode.set(stockCode); }
@@ -38,7 +42,22 @@ public class Stock {
     public void setFloorPrice(double floorPrice) { this.floorPrice.set(floorPrice); }
     public void setStockPrice(double stockPrice) { this.stockPrice.set(stockPrice); }
     public void setStockState(String stockState) { this.stockState.set(stockState); }
-    //public boolean isIsselect() { return isselect; }
+    public void setStockLimit() {
+        double startprice=(ceilingPrice.get()+floorPrice.get())/2;
+        double limit=(ceilingPrice.get()-startprice)/startprice;
+        String templimit=String.valueOf(Double.parseDouble(String.format("%.2f",limit*100)))+"%";
+        this.stockLimit.set(templimit);
+    }
+    public void setStockChange() {
+        double startprice=(ceilingPrice.get()+floorPrice.get())/2;
+        double change=(stockPrice.get()-startprice)/startprice;
+        if (change*100>-0.1 && change*100<0){
+            change=0;
+        }
+        String tempchange=String.valueOf(Double.parseDouble(String.format("%.2f",change*100)))+"%";
+        this.stockChange.set(tempchange);
+    }
+    public boolean isIsselect() { return isselect; }
 
     public double getStockPrice() { return stockPrice.get(); }
     public String getStockCode() { return stockCode.get(); }
@@ -46,6 +65,8 @@ public class Stock {
     public double getCeilingPrice() { return ceilingPrice.get(); }
     public double getFloorPrice() { return floorPrice.get(); }
     public String getStockState() { return stockState.get(); }
+    public String getStockChange() { return stockChange.get(); }
+    public String getStockLimit() { return stockLimit.get(); }
 
     public DoubleProperty ceilingPriceProperty() { return ceilingPrice; }
     public StringProperty stockCodeProperty() { return stockCode; }
@@ -53,5 +74,7 @@ public class Stock {
     public DoubleProperty floorPriceProperty() { return floorPrice; }
     public DoubleProperty stockPriceProperty() { return stockPrice; }
     public StringProperty stockStateProperty() { return stockState; }
-    //public void setIsselect(boolean isselect) { this.isselect = isselect; }
+    public StringProperty stockLimitProperty() { return stockLimit; }
+    public StringProperty stockChangeProperty() { return stockChange; }
+    public void setIsselect(boolean isselect) { this.isselect = isselect; }
 }
