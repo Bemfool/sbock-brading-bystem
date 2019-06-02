@@ -15,7 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class StockDetailUIController extends AdminBasicController {
+public class StockDetailController extends AdminBasicController {
 
     @FXML private TableView<Command> commandTableView;         //指令列表视图
     @FXML private TableColumn<Command,String> timeCol;         //时间列

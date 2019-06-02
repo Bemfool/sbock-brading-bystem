@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 import java.sql.SQLException;
 
 
-public class fundMainUIController extends AdminBasicController {
+public class fundController extends AdminBasicController {
     @FXML
     private StackPane NewAccountBtn;
 

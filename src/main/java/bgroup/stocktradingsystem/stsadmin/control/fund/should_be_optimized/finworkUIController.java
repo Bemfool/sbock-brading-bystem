@@ -1,4 +1,4 @@
-package bgroup.stocktradingsystem.stsadmin.control.fund;
+package bgroup.stocktradingsystem.stsadmin.control.fund.should_be_optimized;
 
 import bgroup.stocktradingsystem.stsadmin.control.utils.AdminBasicController;
 import bgroup.stocktradingsystem.stsadmin.control.utils.ControllerUtils;

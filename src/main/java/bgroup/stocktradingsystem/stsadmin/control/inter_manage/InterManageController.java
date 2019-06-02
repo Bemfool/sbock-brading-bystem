@@ -14,7 +14,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class InterManageUIController extends AdminBasicController {
+public class InterManageController extends AdminBasicController {
     @FXML private JFXTextField setStateField;
     @FXML private JFXTextField setLimitField;
     @FXML private TableView<Stock> stockTableView;

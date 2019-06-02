@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
-public class SecuritiesUIController extends AdminBasicController {
+public class SecuritiesController extends AdminBasicController {
 
     
     SecuritiesAccountDBManager db = new SecuritiesAccountDBManager();
