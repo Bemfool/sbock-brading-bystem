@@ -1,8 +1,8 @@
 package StockTradingSystem.controller.securities;
 
 import StockTradingSystem.controller.utils.AdminUIController;
-import StockTradingSystem.data.SecuritiesAccount.SecuritiesAccount;
-import StockTradingSystem.data.SecuritiesAccount.PersonalAccount;
+import StockTradingSystem.domain.entity.securities_account.SecuritiesAccount;
+import StockTradingSystem.domain.entity.securities_account.PersonalAccount;
 import StockTradingSystem.database.SecuritiesAccountDBManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

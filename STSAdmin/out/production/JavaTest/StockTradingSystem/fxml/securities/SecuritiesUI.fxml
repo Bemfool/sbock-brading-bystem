@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.securities.SecuritiesUIController">
+   <children>
+       <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <AnchorPane VBox.vgrow="NEVER">
+               <children>
+                     <MenuBar fx:id="menuBar" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" opacity="0.9" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+                        <menus>
+                            <Menu mnemonicParsing="false" text="个人">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" onAction="#personalInfo" text="个人信息" />
+                                   <MenuItem mnemonicParsing="false" onAction="#logout" text="注销" />
+                                   <MenuItem mnemonicParsing="false" onAction="#quit" text="退出" />
+                               </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="股票">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" text="暂无" />
+                               </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="指数">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" text="暂无" />
+                               </items>
+                            </Menu>
+                        </menus>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     </MenuBar>
+               </children>
+            </AnchorPane>
+              <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="960.0" VBox.vgrow="ALWAYS">
+                 <children>
+                     <AnchorPane prefHeight="536.0" prefWidth="194.0">
+                        <children>
+                        <StackPane layoutX="15.0" layoutY="8.0" prefHeight="518.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <ImageView fitHeight="72.0" fitWidth="72.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="35.0" right="35.0" top="20.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                        <Text fx:id="welcome" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="马冬梅" textAlignment="CENTER" wrappingWidth="140.4000015258789">
+                                            <font>
+                                                <Font size="30.0" />
+                                            </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                        </Text>
+                                        <Hyperlink alignment="CENTER" onAction="#modifyPassword" prefHeight="22.0" prefWidth="152.0" text="修改密码" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" color="#4500c42f" height="36.49" radius="19.83" spread="0.66" width="44.83" />
+                           </effect>
+                        </StackPane>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane prefHeight="495.0" prefWidth="718.0" HBox.hgrow="ALWAYS">
+                        <children>
+                        <HBox layoutY="18.0">
+                           <children>
+                              <JFXButton ripplerFill="#3c0294" text="证劵账户业务" textFill="WHITE">
+                                 <font>
+                                    <Font name="Microsoft YaHei" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <StackPane fx:id="pagers" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <children>
+                              <HBox prefHeight="463.0" prefWidth="719.0">
+                                 <children>
+                                    <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                       <children>
+                                          <Button fx:id="psrs" mnemonicParsing="false" onAction="#jumppsrs" prefHeight="255.0" prefWidth="210.0" text="个人注册" />
+                                       </children>
+                                       <effect>
+                                          <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets bottom="40.0" left="20.0" top="40.0" />
+                                       </HBox.margin>
+                                    </StackPane>
+                                    <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                       <children>
+                                          <Button fx:id="cprs" mnemonicParsing="false" onAction="#jumpcprs" prefHeight="255.0" prefWidth="210.0" text="公司注册" />
+                                       </children>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="40.0" />
+                                       </HBox.margin>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                        </StackPane>
+                        <StackPane fx:id="pagechose" layoutX="7.0" layoutY="60.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                           <children>
+                              <HBox prefHeight="463.0" prefWidth="719.0">
+                                 <children>
+                                    <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                       <HBox.margin>
+                                          <Insets bottom="40.0" left="20.0" top="40.0" />
+                                       </HBox.margin>
+                                       <effect>
+                                          <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                       </effect>
+                                       <children>
+                                          <Button fx:id="rsBTN" mnemonicParsing="false" onAction="#jumprs" prefHeight="255.0" prefWidth="210.0" text="注册" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="40.0" />
+                                       </HBox.margin>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                       </effect>
+                                       <children>
+                                          <Button fx:id="frBtn" mnemonicParsing="false" onAction="#jumptofr" prefHeight="255.0" prefWidth="210.0" text="冻结/补办" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="40.0" />
+                                       </HBox.margin>
+                                       <effect>
+                                          <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                       </effect>
+                                       <children>
+                                          <Button fx:id="ccBtn" mnemonicParsing="false" onAction="#jumptocc" prefHeight="255.0" prefWidth="210.0" text="注销" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="pagepsrs" layoutX="10.0" layoutY="10.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="325.0">
+                                 <children>
+                                    <GridPane layoutX="41.0" layoutY="46.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Label text="个人股票帐户号码" />
+                                          <Label text="登记日期" GridPane.rowIndex="1" />
+                                          <Label text="姓名" GridPane.rowIndex="2" />
+                                          <TextField fx:id="psacc" GridPane.columnIndex="1" />
+                                          <TextField fx:id="psname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="性别" GridPane.rowIndex="4" />
+                                          <Label text="身份证号码" GridPane.rowIndex="3" />
+                                          <Label text="家庭地址" GridPane.rowIndex="5" />
+                                          <Label text="职业" GridPane.rowIndex="6" />
+                                          <Label text="学历" GridPane.rowIndex="7" />
+                                          <Label text="工作单位" GridPane.rowIndex="8" />
+                                          <Label text="联系电话" GridPane.rowIndex="9" />
+                                          <Label text="* 代办人身份证" GridPane.rowIndex="10" />
+                                          <TextField fx:id="psid" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="pstel" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                          <TextField fx:id="psaddr" promptText="请限制在24字内" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="prof" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="diplome" promptText="请限制在24字内" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <TextField fx:id="psjob" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                          <TextField fx:id="rppsid" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                          <RadioButton fx:id="man" mnemonicParsing="false" text="男" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="group1" />
+                                             </toggleGroup>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </RadioButton>
+                                          <Label text="(* 当有人代办时)" GridPane.rowIndex="11" />
+                                          <RadioButton fx:id="women" contentDisplay="RIGHT" mnemonicParsing="false" text="女" toggleGroup="$group1" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="50.0" />
+                                             </GridPane.margin>
+                                          </RadioButton>
+                                          <Button fx:id="psokbutton" mnemonicParsing="false" onAction="#personalregister" text="确定" GridPane.rowIndex="12">
+                                             <GridPane.margin>
+                                                <Insets left="20.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <DatePicker fx:id="date" promptText="请输入登记日期" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button fx:id="pscancelbtn" mnemonicParsing="false" onAction="#cancelBtn" text="取消" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="103.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="121.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Label fx:id="message" layoutX="17.0" layoutY="410.0" prefHeight="26.0" prefWidth="307.0" text="Label" visible="false" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="656.0" layoutY="525.0" mnemonicParsing="false" onAction="#backtoMain" text="返回主页" />
+                        <StackPane fx:id="pagecprs" layoutX="20.0" layoutY="20.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="319.0">
+                                 <children>
+                                    <GridPane layoutX="20.0" layoutY="111.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Label text="法定代表人身份证号码" />
+                                          <Label text="法人姓名" GridPane.rowIndex="1" />
+                                          <Label text="法人联系电话" GridPane.rowIndex="2" />
+                                          <Label text="法人联系地址" GridPane.rowIndex="3" />
+                                          <Label text="授权证劵交易执行人的姓名" GridPane.rowIndex="4" />
+                                          <Label text="授权人身份证号码" GridPane.rowIndex="5" />
+                                          <Label text="授权人联系电话" GridPane.rowIndex="6" />
+                                          <Label text="授权人联系地址" GridPane.rowIndex="7" />
+                                          <Button fx:id="cpregisterBtn" mnemonicParsing="false" onAction="#companyregister" text="确定" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="cpid" GridPane.columnIndex="1" />
+                                          <TextField fx:id="cpname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="cptel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="cpaddr" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="cptradername" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="cptraderaddr" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <TextField fx:id="cptradertel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="cptraderid" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Button fx:id="cpbackBtn" mnemonicParsing="false" onAction="#goback" text="返回" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="162.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="118.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Label fx:id="message1" layoutX="99.0" layoutY="377.0" prefHeight="35.0" prefWidth="118.0" text="Label" visible="false" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                        </StackPane>
+                        <StackPane fx:id="pagems" layoutX="30.0" layoutY="30.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="250.0">
+                                 <children>
+                                    <GridPane layoutX="14.0" layoutY="27.0" prefHeight="84.0" prefWidth="216.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Label fx:id="msms" text="message" />
+                                          <Label fx:id="msacc" text="Label" GridPane.rowIndex="1" />
+                                          <Button fx:id="msokBtn" mnemonicParsing="false" onAction="#backtoMain" text="确定" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="pagefr" layoutX="40.0" layoutY="40.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="292.0">
+                                 <children>
+                                    <GridPane layoutX="35.0" layoutY="133.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="35.0">
+                                       <children>
+                                          <Button fx:id="frokBtn" mnemonicParsing="false" onAction="#fronzen" text="确定" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                          <Button fx:id="frbackBtn" mnemonicParsing="false" onAction="#goBack" text="返回" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                          <Label text="身份证号" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="fridNb" GridPane.columnIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="72.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="150.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Label fx:id="frms" layoutX="5.0" layoutY="147.0" prefHeight="27.0" prefWidth="274.0" text="Label" visible="false" AnchorPane.bottomAnchor="10.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="pagecc" layoutX="50.0" layoutY="50.0" prefHeight="455.0" prefWidth="719.0" style="-fx-background-radius: 10px; -fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+                           <effect>
+                              <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
+                           </effect>
+                           <children>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="293.0">
+                                 <children>
+                                    <GridPane layoutX="43.0" layoutY="24.0">
+                                       <children>
+                                          <TextField fx:id="ccaccnb" GridPane.columnIndex="1" />
+                                          <Label text="账户" />
+                                          <Button fx:id="ccokBtn" mnemonicParsing="false" onAction="#cancelok" prefHeight="27.0" prefWidth="59.0" text="确定" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                          <Label text="身份证号" GridPane.rowIndex="1" />
+                                          <TextField fx:id="ccidNb" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Button fx:id="ccbackBtn" mnemonicParsing="false" onAction="#goback" text="返回" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Label fx:id="ccms" layoutX="64.0" layoutY="122.0" prefHeight="17.0" prefWidth="129.0" text="Label" visible="false" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        </children>
+                     </AnchorPane>
+                 </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+              </HBox>
+          </children>
+       </VBox>
+   </children>
+</AnchorPane>

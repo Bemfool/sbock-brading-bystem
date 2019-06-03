@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="288.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.PersonalInfoUIController">
+   <children>
+      <Label fx:id="managerId" layoutX="61.0" layoutY="59.0" prefHeight="20.0" prefWidth="253.0" />
+      <Label fx:id="managerName" layoutX="61.0" layoutY="96.0" prefHeight="20.0" prefWidth="253.0" />
+      <JFXButton fx:id="closeBtn" layoutX="163.0" layoutY="213.0" onAction="#close" text="确认" />
+      <Label fx:id="managerPriv" layoutX="61.0" layoutY="134.0" prefHeight="20.0" prefWidth="253.0" />
+   </children>
+</AnchorPane>

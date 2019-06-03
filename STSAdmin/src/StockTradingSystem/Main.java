@@ -99,9 +99,25 @@ public class Main extends Application {
 
     // TODO 到详细界面
     public void gotoStockDetailUI() throws Exception {
-        stage.setResizable(true);
-        StockDetailUIController stockDetailUI = (StockDetailUIController)replaceSceneContent("fxml/inter_manage/StockDetailUI.fxml");
-        stockDetailUI.setApp(this);
+        floatStage = new Stage();
+        // TODO 格式修改
+        floatStage.setTitle("Detailed");
+        floatStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream("fxml/inter_manage/StockDetailUI.fxml");
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource("fxml/inter_manage/StockDetailUI.fxml"));
+        AnchorPane page;
+        try {
+            page = loader.load();
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+        floatStage.setScene(scene);
+        floatStage.show();
+        StockDetailUIController StockDetailUI = loader.getController();
+        StockDetailUI.setApp(this);
     }
 
     public void gotoFundMainUI() throws Exception {
@@ -185,6 +201,49 @@ public class Main extends Application {
         stage.show();
     }
 
+
+    public void gotoPersonalInfoUI() throws Exception {
+        floatStage = new Stage();
+        floatStage.setTitle("个人信息");
+        floatStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream("fxml/PersonalInfoUI.fxml");
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource("fxml/PersonalInfoUI.fxml"));
+        AnchorPane page;
+        try {
+            page = loader.load();
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+        floatStage.setScene(scene);
+        floatStage.show();
+        PersonalInfoUIController personalInfoUI= loader.getController();
+        personalInfoUI.setApp(this);
+    }
+
+
+    public void gotoChangePasswordUI() throws Exception {
+        floatStage = new Stage();
+        floatStage.setTitle("更改密码");
+        floatStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream("fxml/ChangePasswordUI.fxml");
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource("fxml/ChangePasswordUI.fxml"));
+        AnchorPane page;
+        try {
+            page = loader.load();
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+        floatStage.setScene(scene);
+        floatStage.show();
+        ChangePasswordUIController changePasswordUI= loader.getController();
+        changePasswordUI.setApp(this);
+    }
 
     private Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();

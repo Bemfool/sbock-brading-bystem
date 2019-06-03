@@ -1,7 +1,7 @@
 package StockTradingSystem.database;
 
-import StockTradingSystem.data.SecuritiesAccount.CorporateAccount;
-import StockTradingSystem.data.SecuritiesAccount.PersonalAccount;
+import StockTradingSystem.domain.entity.securities_account.CorporateAccount;
+import StockTradingSystem.domain.entity.securities_account.PersonalAccount;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,10 +1,17 @@
 package StockTradingSystem.controller.utils;
 
 import StockTradingSystem.Main;
+import StockTradingSystem.http_utils.CustomResp;
+import StockTradingSystem.http_utils.HttpCommon;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static StockTradingSystem.GlobalInfo.*;
 
 public class AdminUIController implements Initializable {
     private Main application;
@@ -12,16 +19,24 @@ public class AdminUIController implements Initializable {
         this.application = app;
     }
     public Main getApp() {return this.application; }
+    @FXML
+    Text welcome;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb){}
+    public void initialize(URL url, ResourceBundle rb){
+        welcome.setText(MANAGER_NAME);
+    }
 
-    public void personalInfo() {
-        // TODO: 增加个人信息跳出窗口
+    public void personalInfo() throws Exception {
+        getApp().gotoPersonalInfoUI();
     }
 
     public void logout() throws Exception {
-        // TODO: 跳转前还需要对用户信息进行清除
+        MANAGER_ID = "";
+        MANAGER_NAME = "";
+        MANAGER_PRIV = -1;
+        MANAGER_PASSWORD = "";
+        CustomResp cr = new HttpCommon().doHttp("/admin/logout", "POST");
         application.stage.close();
         application.gotoAdminLoginUI();
     }
@@ -30,5 +45,7 @@ public class AdminUIController implements Initializable {
         application.stage.close();
     }
 
-    public void modifyPassword() { }
+    public void modifyPassword() throws Exception {
+        getApp().gotoChangePasswordUI();
+    }
 }

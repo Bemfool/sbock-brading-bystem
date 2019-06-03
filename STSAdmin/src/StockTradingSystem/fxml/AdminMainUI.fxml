@@ -74,6 +74,7 @@
                                        </VBox.margin>
                                         </Text>
                                         <Hyperlink alignment="CENTER" onAction="#modifyPassword" prefHeight="22.0" prefWidth="152.0" text="修改密码" />
+                                    <Hyperlink fx:id="personalInfoBtn" alignment="CENTER" onAction="#personalInfo" prefHeight="22.0" prefWidth="152.0" text="个人信息" />
                                  </children>
                                  <StackPane.margin>
                                     <Insets />
