@@ -133,9 +133,10 @@
                                           </HBox>
                                                         <TableView id="commandTableView" fx:id="inCmdTable" layoutX="20.0" layoutY="20.0" prefHeight="278.0" prefWidth="252.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="20.0">
                                                             <columns>
-                                                                <TableColumn id="timeCol" fx:id="inTimeCol" minWidth="0.0" prefWidth="215.20001983642578" text="时间" />
-                                                                <TableColumn id="fundIdCol" fx:id="inIdCol" maxWidth="415.19989013671875" minWidth="-1.0" prefWidth="253.59994506835938" text="资金账号" />
-                                                                <TableColumn id="stockCountCol" fx:id="inStockCountCol" maxWidth="405.5999755859375" minWidth="-1.0" prefWidth="219.20004272460938" text="股票数量" />
+                                                                <TableColumn id="timeCol" fx:id="inTimeCol" minWidth="0.0" prefWidth="119.20001983642578" text="时间" />
+                                                                <TableColumn id="fundIdCol" fx:id="inIdCol" maxWidth="415.19989013671875" minWidth="-1.0" prefWidth="199.20001220703125" text="资金账号" />
+                                                                <TableColumn id="stockCountCol" fx:id="inStockCountCol" maxWidth="447.199951171875" minWidth="-1.0" prefWidth="153.59994506835938" text="股票数量" />
+                                                <TableColumn id="stockCountCol" fx:id="inStockPriceCol" maxWidth="674.3999633789062" minWidth="-1.0" prefWidth="212.800048828125" text="股票价格" />
                                                             </columns>
                                                             <VBox.margin>
                                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
@@ -155,9 +156,10 @@
                                           </HBox>
                                                         <TableView fx:id="outCmdTable" prefHeight="266.0" prefWidth="698.0" VBox.vgrow="ALWAYS">
                                                             <columns>
-                                                                <TableColumn id="timeCol" fx:id="outTimeCol" minWidth="0.0" prefWidth="48.5" text="时间" />
-                                                                <TableColumn id="fundIdCol" fx:id="outIdCol" prefWidth="97.5" text="资金账号" />
-                                                                <TableColumn id="stockCountCol" fx:id="outStockCountCol" minWidth="0.0" prefWidth="196.80001831054688" text="股票数量" />
+                                                                <TableColumn id="timeCol" fx:id="outTimeCol" maxWidth="300.0" minWidth="-1.0" prefWidth="200.0" text="时间" />
+                                                                <TableColumn id="fundIdCol" fx:id="outIdCol" maxWidth="300.0" minWidth="-1.0" prefWidth="200.0" text="资金账号" />
+                                                                <TableColumn id="stockCountCol" fx:id="outStockCountCol" maxWidth="300.0" minWidth="-1.0" prefWidth="200.0" text="股票数量" />
+                                                <TableColumn id="stockCountCol" fx:id="outStockPriceCol" maxWidth="300.0" minWidth="-1.0" prefWidth="265.6000061035156" text="股票价格" />
                                                             </columns>
                                                             <columnResizePolicy>
                                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

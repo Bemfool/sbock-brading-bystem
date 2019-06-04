@@ -46,10 +46,12 @@ public class StockDetailUIController implements Initializable {
     @FXML private TableColumn<CommandProperty, Date> inTimeCol;
     @FXML private TableColumn<CommandProperty, Integer> inIdCol;
     @FXML private TableColumn<CommandProperty, Integer> inStockCountCol;
+    @FXML private TableColumn<CommandProperty, Double> inStockPriceCol;
     @FXML private TableView<CommandProperty> outCmdTable;
     @FXML private TableColumn<CommandProperty, Date> outTimeCol;
     @FXML private TableColumn<CommandProperty, Integer> outIdCol;
     @FXML private TableColumn<CommandProperty, Integer> outStockCountCol;
+    @FXML private TableColumn<CommandProperty, Double> outStockPriceCol;
     private ObservableList<CommandProperty> inCmdObservableList = FXCollections.observableArrayList();
     private ObservableList<CommandProperty> outCmdObservableList = FXCollections.observableArrayList();
 
@@ -97,6 +99,7 @@ public class StockDetailUIController implements Initializable {
         outTimeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
         outIdCol.setCellValueFactory(new PropertyValueFactory<>("fundId"));
         outStockCountCol.setCellValueFactory(new PropertyValueFactory<>("stockCount"));
+        outStockPriceCol.setCellValueFactory(new PropertyValueFactory<>("stockPrice"));
         outCmdTable.setItems(outCmdObservableList);
     }
 
@@ -114,6 +117,7 @@ public class StockDetailUIController implements Initializable {
         inTimeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
         inIdCol.setCellValueFactory(new PropertyValueFactory<>("fundId"));
         inStockCountCol.setCellValueFactory(new PropertyValueFactory<>("stockCount"));
+        inStockPriceCol.setCellValueFactory(new PropertyValueFactory<>("stockPrice"));
         inCmdTable.setItems(inCmdObservableList);
     }
 

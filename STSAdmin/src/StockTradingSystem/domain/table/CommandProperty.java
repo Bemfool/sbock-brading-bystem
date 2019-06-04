@@ -9,11 +9,13 @@ public class CommandProperty {
     private ObjectProperty<Date> time;
     private IntegerProperty fundId;
     private IntegerProperty stockCount;
+    private DoubleProperty stockPrice;
 
     public CommandProperty(Command cmd) {
         time = new SimpleObjectProperty<>(cmd.getTime());
         fundId = new SimpleIntegerProperty(cmd.getFundId());
         stockCount = new SimpleIntegerProperty(cmd.getStockCount());
+        stockPrice = new SimpleDoubleProperty(cmd.getStockPrice());
     }
 
     public void setTime(Date time) {
@@ -50,5 +52,17 @@ public class CommandProperty {
 
     public ObjectProperty<Date> timeProperty() {
         return time;
+    }
+
+    public double getStockPrice() {
+        return stockPrice.get();
+    }
+
+    public DoubleProperty stockPriceProperty() {
+        return stockPrice;
+    }
+
+    public void setStockPrice(double stockPrice) {
+        this.stockPrice.set(stockPrice);
     }
 }

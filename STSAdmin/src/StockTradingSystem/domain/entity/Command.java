@@ -8,6 +8,7 @@ public class Command {
     private boolean commandType;
     private String stockCode;
     private int stockCount;
+    private double stockPrice;
 
     public void setFundId(int fundId) {
         this.fundId = fundId;
@@ -47,5 +48,13 @@ public class Command {
 
     public boolean isCommandType() {
         return commandType;
+    }
+
+    public double getStockPrice() {
+        return stockPrice;
+    }
+
+    public void setStockPrice(double stockPrice) {
+        this.stockPrice = stockPrice;
     }
 }
