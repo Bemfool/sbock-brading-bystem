@@ -45,12 +45,10 @@ public class StockDetailUIController implements Initializable {
     @FXML private TableView<CommandProperty> inCmdTable;
     @FXML private TableColumn<CommandProperty, Date> inTimeCol;
     @FXML private TableColumn<CommandProperty, Integer> inIdCol;
-    @FXML private TableColumn<CommandProperty, String> inStockCodeCol;
     @FXML private TableColumn<CommandProperty, Integer> inStockCountCol;
     @FXML private TableView<CommandProperty> outCmdTable;
     @FXML private TableColumn<CommandProperty, Date> outTimeCol;
     @FXML private TableColumn<CommandProperty, Integer> outIdCol;
-    @FXML private TableColumn<CommandProperty, String> outStockCodeCol;
     @FXML private TableColumn<CommandProperty, Integer> outStockCountCol;
     private ObservableList<CommandProperty> inCmdObservableList = FXCollections.observableArrayList();
     private ObservableList<CommandProperty> outCmdObservableList = FXCollections.observableArrayList();
@@ -67,7 +65,7 @@ public class StockDetailUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        initChoiceBox();
+        ControllerUtils.initManageChoiceBox(stateChoiceBox, limitChoiceBox);
         initInCmdTable();
         initOutCmdTable();
         initStockInfo();
@@ -76,6 +74,7 @@ public class StockDetailUIController implements Initializable {
     private void initStockInfo() {
         stockCodeTxt.setText(stock.getStockCode());
         stockNameTxt.setText(stock.getStockName());
+        // TODO 修改数据库中股票项
 //        stockAmountTxt.setText("成交量: ");
         stockPriceTxt.setText("成交价: " + stock.getStockPrice());
         stockStateTxt.setText("状态: " + stock.getStockState());
@@ -83,10 +82,12 @@ public class StockDetailUIController implements Initializable {
     }
 
     private void initOutCmdTable() {
-        CustomResp cr = new HttpCommon().doHttp("/command/out", "GET", null);
+        String stockCode = gson.toJson(stock.getStockCode());
+        System.out.println(stockCode);
+        CustomResp cr = new HttpCommon().doHttp("/command/out/", "POST", stockCode);
         Result result = new Gson().fromJson(cr.getResultJSON(), Result.class);
         if(!result.isStatus()) {
-            ControllerUtils.showAlert("获取卖指令出错");
+            ControllerUtils.showAlert("获取卖指令出错\n" + result.getReasons());
             return;
         }
         Type listType = new TypeToken<ArrayList<Command>>(){}.getType();
@@ -95,16 +96,15 @@ public class StockDetailUIController implements Initializable {
         System.out.println("成功导入卖指令");
         outTimeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
         outIdCol.setCellValueFactory(new PropertyValueFactory<>("fundId"));
-        outStockCodeCol.setCellValueFactory(new PropertyValueFactory<>("stockCode"));
         outStockCountCol.setCellValueFactory(new PropertyValueFactory<>("stockCount"));
         outCmdTable.setItems(outCmdObservableList);
     }
 
     private void initInCmdTable() {
-        CustomResp cr = new HttpCommon().doHttp("/command/in", "GET", null);
+        CustomResp cr = new HttpCommon().doHttp("/command/in/", "POST", gson.toJson(stock.getStockCode()));
         Result result = new Gson().fromJson(cr.getResultJSON(), Result.class);
         if(!result.isStatus()) {
-            ControllerUtils.showAlert("获取买指令出错");
+            ControllerUtils.showAlert("获取买指令出错\n" + result.getReasons());
             return;
         }
         Type listType = new TypeToken<ArrayList<Command>>(){}.getType();
@@ -113,21 +113,54 @@ public class StockDetailUIController implements Initializable {
         System.out.println("成功导入买指令");
         inTimeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
         inIdCol.setCellValueFactory(new PropertyValueFactory<>("fundId"));
-        inStockCodeCol.setCellValueFactory(new PropertyValueFactory<>("stockCode"));
         inStockCountCol.setCellValueFactory(new PropertyValueFactory<>("stockCount"));
         inCmdTable.setItems(inCmdObservableList);
     }
 
-    private void initChoiceBox() {
-        stateChoiceBox.getItems().add("正常交易");
-        stateChoiceBox.getItems().add("暂停交易");
-        stateChoiceBox.getItems().add("停牌三天");
-        stateChoiceBox.setValue("正常交易");
-        limitChoiceBox.getItems().add("5%");
-        limitChoiceBox.getItems().add("10%");
-        limitChoiceBox.getItems().add("无限制");
-        limitChoiceBox.setValue("10%");
+    public void setStockLimit() {
+        double limit = ControllerUtils.limit2Msg(limitChoiceBox);
+        stockLimitTxt.setText("涨跌限制: " + limitChoiceBox.getValue());
+
+        // 修改数据库中的信息
+        List<Stock> stockList=new ArrayList<>();
+        stockList.add(stock);
+        String json = new Gson().toJson(stockList);
+        CustomResp cr;
+        if (limit <= 0)
+            cr = new HttpCommon().doHttp("/stock/update_list/limit/-1", "POST", json);
+        else
+            cr = new HttpCommon().doHttp("/stock/update_list/limit/"+ limit*100, "POST", json);
+        // 跳转到提示界面
+        if (cr.getResultJSON().substring(10,14).equals("true")){
+            ControllerUtils.showAlert("[成功] 修改股票涨跌幅成功！");
+        }else {
+            ControllerUtils.showAlert("[失败] 修改股票涨跌幅失败！");
+        }
+
+        System.out.println("设置涨跌幅成功");
     }
+
+    public void setStockState() {
+        String newState = stateChoiceBox.getValue();
+        String setState = ControllerUtils.state2Msg(newState);
+        stockLimitTxt.setText("状态: " + stateChoiceBox.getValue());
+
+        // 修改数据库中的信息
+        List<Stock> stockList=new ArrayList<>();
+        stockList.add(stock);
+        String json = new Gson().toJson(stockList);
+        CustomResp cr = new HttpCommon().doHttp("/stock/update_list/state/"+ setState, "POST", json);
+
+        // 跳转到提示界面
+        if (cr.getResultJSON().substring(10,14).equals("true")){
+            ControllerUtils.showAlert("[成功] 修改股票涨跌幅成功！");
+        }else {
+            ControllerUtils.showAlert("[失败] 修改股票涨跌幅失败！");
+        }
+
+        System.out.println("设置涨跌幅成功");
+    }
+
 
 
 }

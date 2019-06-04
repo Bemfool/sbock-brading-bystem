@@ -8,13 +8,11 @@ import java.util.Date;
 public class CommandProperty {
     private ObjectProperty<Date> time;
     private IntegerProperty fundId;
-    private StringProperty stockCode;
     private IntegerProperty stockCount;
 
     public CommandProperty(Command cmd) {
         time = new SimpleObjectProperty<>(cmd.getTime());
         fundId = new SimpleIntegerProperty(cmd.getFundId());
-        stockCode = new SimpleStringProperty(cmd.getStockCode());
         stockCount = new SimpleIntegerProperty(cmd.getStockCount());
     }
 
@@ -24,10 +22,6 @@ public class CommandProperty {
 
     public void setStockCount(int stockCount) {
         this.stockCount.set(stockCount);
-    }
-
-    public void setStockCode(String stockCode) {
-        this.stockCode.set(stockCode);
     }
 
     public void setFundId(int fundId) {
@@ -46,10 +40,6 @@ public class CommandProperty {
         return stockCount.get();
     }
 
-    public String getStockCode() {
-        return stockCode.get();
-    }
-
     public IntegerProperty fundIdProperty() {
         return fundId;
     }
@@ -60,9 +50,5 @@ public class CommandProperty {
 
     public ObjectProperty<Date> timeProperty() {
         return time;
-    }
-
-    public StringProperty stockCodeProperty() {
-        return stockCode;
     }
 }

@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -66,6 +67,9 @@
                                                     <effect>
                                                         <DropShadow height="10.5" radius="2.125" spread="0.77" width="0.0" />
                                                     </effect>
+                                       <image>
+                                          <Image url="@../../img/dummy_potrait.jpg" />
+                                       </image>
                                                 </ImageView>
                                                 <Text fx:id="welcome" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="马冬梅" textAlignment="CENTER" wrappingWidth="140.4000015258789">
                                                     <font>
@@ -76,6 +80,7 @@
                                                     </VBox.margin>
                                                 </Text>
                                                 <Hyperlink alignment="CENTER" onAction="#modifyPassword" prefHeight="22.0" prefWidth="152.0" text="修改密码" />
+                                    <Hyperlink alignment="CENTER" onAction="#personalInfo" prefHeight="22.0" prefWidth="152.0" text="个人信息" />
                                             </children>
                                             <StackPane.margin>
                                                 <Insets />

@@ -3,6 +3,7 @@ package StockTradingSystem.controller.utils;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
@@ -86,6 +87,50 @@ public class ControllerUtils {
             md5code = "0" + md5code;
         }
         return md5code;
+    }
+
+    public static void initManageChoiceBox(ChoiceBox<String> stateChoiceBox,
+                                           ChoiceBox<String> limitChoiceBox) {
+        stateChoiceBox.getItems().add("正常交易");
+        stateChoiceBox.getItems().add("暂停交易");
+        stateChoiceBox.getItems().add("停牌三天");
+        stateChoiceBox.setValue("正常交易");
+        limitChoiceBox.getItems().add("5%");
+        limitChoiceBox.getItems().add("10%");
+        limitChoiceBox.getItems().add("无限制");
+        limitChoiceBox.setValue("10%");
+    }
+
+    public static String state2Msg(String newState) {
+        String setState;
+        switch (newState) {
+            case "暂停交易":
+                setState = "stop";
+                break;
+            case "正常交易":
+                setState = "restore";
+                break;
+            default:
+                setState = "stop3";
+                break;
+        }
+        return setState;
+    }
+
+    public static double limit2Msg(ChoiceBox<String> choiceBoxLimit) {
+        double riseFallLimit;
+        switch (choiceBoxLimit.getValue()) {
+            case "5%":
+                riseFallLimit = 0.05;
+                break;
+            case "10%":
+                riseFallLimit = 0.1;
+                break;
+            default:
+                riseFallLimit = -1;
+                break;
+        }
+        return riseFallLimit;
     }
 
 }

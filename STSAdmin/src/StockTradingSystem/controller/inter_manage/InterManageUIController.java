@@ -1,6 +1,5 @@
 package StockTradingSystem.controller.inter_manage;
 
-import StockTradingSystem.Main;
 import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.controller.utils.ControllerUtils;
 import StockTradingSystem.domain.entity.Index;
@@ -14,7 +13,10 @@ import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.lang.reflect.Type;
@@ -70,36 +72,21 @@ public class InterManageUIController extends AdminUIController {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO 显示股票信息
         displayStock();
         bindStock();
-        // TODO 显示指数信息，但现在还没有
         displayIndex();
         bindIndex();
-        // TODO 下拉框初始化
-        setChoiceBox();
+        ControllerUtils.initManageChoiceBox(choiceBoxState, choiceBoxLimit);
         startTimerLoop();
 
         super.initialize(url, rb);
     }
 
-    public void startTimerLoop(){
-        timer.schedule(display,100,10000);
+    private void startTimerLoop(){
+        timer.schedule(display,5000,5000);
     }
 
-    public void setChoiceBox(){
-        choiceBoxState.getItems().add("正常交易");
-        choiceBoxState.getItems().add("暂停交易");
-        choiceBoxState.getItems().add("停牌三天");
-        choiceBoxState.setValue("正常交易");
-        choiceBoxLimit.getItems().add("5%");
-        choiceBoxLimit.getItems().add("10%");
-        choiceBoxLimit.getItems().add("无限制");
-        choiceBoxLimit.setValue("10%");
-    }
-
-    public void bindStock(){
-        // TODO 股票数据绑定TableView
+    private void bindStock(){
         stockNameTableView.setCellValueFactory(new PropertyValueFactory<>("stockName"));
         stockLimitTableView.setCellValueFactory(new PropertyValueFactory<>("stockLimit"));
         stockCodeTableView.setCellValueFactory(new PropertyValueFactory<>("stockCode"));
@@ -108,15 +95,13 @@ public class InterManageUIController extends AdminUIController {
         stockPriceTableView.setCellValueFactory(new PropertyValueFactory<>("stockPrice"));
         stockStateTableView.setCellValueFactory(new PropertyValueFactory<>("stockState"));
         stockChangeTableView.setCellValueFactory(new PropertyValueFactory<>("stockChange"));
-
 //        stockTableView.setVisible(true);
 //        stockTableView.setEditable(false);
 //        stockTableView.setTableMenuButtonVisible(true);
         stockTableView.setItems(stockObservableListCache);
     }
 
-    public void bindIndex(){
-        // TODO 指数数据绑定TableView
+    private void bindIndex(){
         indexNameTableView.setCellValueFactory(new PropertyValueFactory<>("indexName"));
         indexCodeTableView.setCellValueFactory(new PropertyValueFactory<>("indexCode"));
         indexNumericTableView.setCellValueFactory(new PropertyValueFactory<>("indexPrice"));
@@ -128,8 +113,8 @@ public class InterManageUIController extends AdminUIController {
     }
 
     public void clickIntoDetail(){
-        // TODO 将选中股票的isSelect状态设置为选中
-        //  单选、多选时先清空，再把选中的设置
+        // 将选中股票的isSelect状态设置为选中
+        // 单选、多选时先清空，再把选中的设置
         stockTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         List<StockProperty> stockSelected = stockTableView.getSelectionModel().getSelectedItems();
@@ -145,41 +130,29 @@ public class InterManageUIController extends AdminUIController {
         });
     }
 
-    public void setStockState() throws Exception{
-        // TODO 设置股票交易状态
-
-        // TODO 获取要修改的状态
+    public void setStockState() {
         String newState=choiceBoxState.getValue();
-        String setState;
-        if (newState.equals("暂停交易")){
-            setState="stop";
-        }else if(newState.equals("正常交易")){
-            setState="restore";
-        }else{
-            setState="stop3";
-        }
-
+        String setState = ControllerUtils.state2Msg(newState);
         List<StockProperty> stockSelected=stockTableView.getSelectionModel().getSelectedItems();
 
-        // TODO 修改显示的信息
-        for (int i=0;i<stockSelected.size();i++){
-            for (int j=0;j<stockObservableList.size();j++){
-                if (stockSelected.get(i).getStockCode().equals(stockObservableList.get(j).getStockCode())){
-                    stockObservableList.get(j).setStockState(newState);
+        for (StockProperty aStockSelected : stockSelected) {
+            for (StockProperty aStockObservableList : stockObservableList) {
+                if (aStockSelected.getStockCode().equals(aStockObservableList.getStockCode())) {
+                    aStockObservableList.setStockState(newState);
                     break;
                 }
             }
         }
 
-        // TODO 修改数据库中的信息
+        // 修改数据库中的信息
         List<Stock> stockList=new ArrayList<>();
-        for (int i=0;i<stockSelected.size();i++){
-            stockList.add(new Stock(stockSelected.get(i)));
+        for (StockProperty aStockSelected : stockSelected) {
+            stockList.add(new Stock(aStockSelected));
         }
         String json = new Gson().toJson(stockList);
         CustomResp cr = new HttpCommon().doHttp("/stock/update_list/state/"+setState, "POST", json);
 
-        // TODO 跳转到提示界面
+        // 跳转到提示界面
         if (cr.getResultJSON().substring(10,14).equals("true")){
             ControllerUtils.showAlert("[成功] 修改股票交易状态成功！");
         }else {
@@ -188,43 +161,36 @@ public class InterManageUIController extends AdminUIController {
         System.out.println("设置交易状态成功");
     }
 
-    public void setStockLimit() throws Exception{
-        // TODO 设置股票涨跌幅
+    public void setStockLimit() {
         double riseFallLimit;
-        if (choiceBoxLimit.getValue().equals("5%")){
-            riseFallLimit=0.05;
-        }else if (choiceBoxLimit.getValue().equals("10%")){
-            riseFallLimit=0.1;
-        }else{
-            riseFallLimit=-1;
-        }
+        riseFallLimit = ControllerUtils.limit2Msg(choiceBoxLimit);
         List<StockProperty> stockSelected=stockTableView.getSelectionModel().getSelectedItems();
 
-        // TODO 修改显示的信息
-        for (int i=0;i<stockSelected.size();i++){
-            for (int j=0;j<stockObservableList.size();j++){
-                if (stockSelected.get(i).getStockCode().equals(stockObservableList.get(j).getStockCode())){
-                    double highPrice,lowPrice;
-                    if (riseFallLimit<=0){
-                        // TODO 如果没有涨跌停限制，设置涨停价格为最大
-                        highPrice=-1;
-                        lowPrice=0;
-                    }else{
-                        highPrice=(1+riseFallLimit)*stockObservableList.get(j).getStockPrice();
-                        lowPrice=(1-riseFallLimit)*stockObservableList.get(j).getStockPrice();
+        // 修改显示的信息
+        for (StockProperty aStockSelected : stockSelected) {
+            for (StockProperty aStockObservableList : stockObservableList) {
+                if (aStockSelected.getStockCode().equals(aStockObservableList.getStockCode())) {
+                    double highPrice, lowPrice;
+                    if (riseFallLimit <= 0) {
+                        // 如果没有涨跌停限制，设置涨停价格为最大
+                        highPrice = -1;
+                        lowPrice = 0;
+                    } else {
+                        highPrice = (1 + riseFallLimit) * aStockObservableList.getStockPrice();
+                        lowPrice = (1 - riseFallLimit) * aStockObservableList.getStockPrice();
                     }
-                    stockObservableList.get(j).setCeilingPrice(highPrice);
-                    stockObservableList.get(j).setFloorPrice(lowPrice);
-                    stockObservableList.get(j).setStockLimit();
+                    aStockObservableList.setCeilingPrice(highPrice);
+                    aStockObservableList.setFloorPrice(lowPrice);
+                    aStockObservableList.setStockLimit();
                     break;
                 }
             }
         }
 
-        // TODO 修改数据库中的信息
+        // 修改数据库中的信息
         List<Stock> stockList=new ArrayList<>();
-        for (int i=0;i<stockSelected.size();i++) {
-            stockList.add(new Stock(stockSelected.get(i)));
+        for (StockProperty aStockSelected : stockSelected) {
+            stockList.add(new Stock(aStockSelected));
         }
         String json = new Gson().toJson(stockList);
         double riseFallLimitTemp;
@@ -235,7 +201,7 @@ public class InterManageUIController extends AdminUIController {
         }
         CustomResp cr = new HttpCommon().doHttp("/stock/update_list/limit/"+riseFallLimitTemp, "POST", json);
 
-        // TODO 跳转到提示界面
+        // 跳转到提示界面
         if (cr.getResultJSON().substring(10,14).equals("true")){
             ControllerUtils.showAlert("[成功] 修改股票涨跌幅成功！");
         }else {
@@ -259,19 +225,19 @@ public class InterManageUIController extends AdminUIController {
 //            stockTableView.getSelectionModel().selectIndices(ints[0], );
 //        }
         for(int aList : list) stockTableView.getSelectionModel().select(aList);
-        // TODO 已经放到缓存StockObservableList中，然后显示到表格里
+        // 已经放到缓存StockObservableList中，然后显示到表格里
         System.out.println("已经将股票数据导入缓存");
     }
 
-    public void displayIndex(){
+    private void displayIndex(){
         CustomResp cr = new HttpCommon().doHttp("/index/all", "GET", null);
         Type listType = new TypeToken<ArrayList<Index>>(){}.getType();
         List<Index> indexes = new Gson().fromJson(cr.getObjectJSON(), listType);
-        for (int i = 0; i < indexes.size(); i++) {
-            indexObservableList.add(new IndexProperty(indexes.get(i)));
+        for (Index indexe : indexes) {
+            indexObservableList.add(new IndexProperty(indexe));
         }
 
-        // TODO 已经放到缓存IndexObservableList中，然后显示到表格里
+        // 已经放到缓存IndexObservableList中，然后显示到表格里
         System.out.println("已经将指数数据导入到缓存");
     }
 }
