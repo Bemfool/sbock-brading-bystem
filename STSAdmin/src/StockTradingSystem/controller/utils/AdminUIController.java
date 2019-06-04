@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,7 +27,7 @@ public class AdminUIController implements Initializable {
     }
 
     public void personalInfo() throws Exception {
-        getApp().gotoPersonalInfoUI();
+        getApp().createPersonalInfoUI();
     }
 
     public void logout() throws Exception {
@@ -46,6 +45,6 @@ public class AdminUIController implements Initializable {
     }
 
     public void modifyPassword() throws Exception {
-        getApp().gotoChangePasswordUI();
+        getApp().createChangePasswordUI();
     }
 }

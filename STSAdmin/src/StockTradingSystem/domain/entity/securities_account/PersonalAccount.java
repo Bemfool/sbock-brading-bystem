@@ -2,154 +2,158 @@ package StockTradingSystem.domain.entity.securities_account;
 
 import java.sql.Date;
 
-public class PersonalAccount implements SecuritiesAccount {
-    // TODO 成员变量名字规范 e.g. businessLicenseNo
-    private int securities_id;
-    private Date register_date;
+public class PersonalAccount {
+    private int securitiesId;
+    private Date registerDate;
     private String name;
     private Boolean gender;
-    private String id_no;
-    private String family_add;
+    private String idNo;
+    private String familyAdd;
     private String career;
     private String education;
     private String organization;
-    private String phone_no;
-    private String agent_id_no=null;
+    private String phoneNo;
+    private String agentIdNo=null;
     private int state;
 
     public PersonalAccount(){}
 
+
     public PersonalAccount(Date register_date, String name, Boolean gender, String id_no, String family_add, String career, String education, String organization, String phone_no) {
-        this.register_date = register_date;
+        this.registerDate = register_date;
         this.name = name;
         this.gender = gender;
-        this.id_no = id_no;
-        this.family_add = family_add;
+        this.idNo = id_no;
+        this.familyAdd = family_add;
         this.career = career;
         this.education = education;
         this.organization = organization;
-        this.phone_no = phone_no;
+        this.phoneNo = phone_no;
 
     }
 
-    public PersonalAccount( Date register_date, String name, Boolean gender, String id_no, String family_add, String career, String education, String organization, String phone_no, String agent_id_no) {
-        this.register_date = register_date;
+    public PersonalAccount(Date register_date, String name, Boolean gender, String id_no, String family_add, String career, String education, String organization, String phone_no, String agent_id_no) {
+        this.registerDate = register_date;
         this.name = name;
         this.gender = gender;
-        this.id_no = id_no;
-        this.family_add = family_add;
+        this.idNo = id_no;
+        this.familyAdd = family_add;
         this.career = career;
         this.education = education;
         this.organization = organization;
-        this.phone_no = phone_no;
-        this.agent_id_no = agent_id_no;
+        this.phoneNo = phone_no;
+        this.agentIdNo = agent_id_no;
     }
 
-    public int getSecurities_id() {
-        return securities_id;
-    }
-
-    public void setSecurities_id(int securities_id) {
-        this.securities_id = securities_id;
-    }
-
-    public Date getRegister_date() {
-        return register_date;
-    }
-
-    public void setRegister_date(Date register_date) {
-        this.register_date = register_date;
-    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Boolean getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
-        this.gender = gender;
+    public Date getRegisterDate() {
+        return registerDate;
     }
 
-    public String getId_no() {
-        return id_no;
-    }
-
-    public void setId_no(String id_no) {
-        this.id_no = id_no;
-    }
-
-    public String getFamily_add() {
-        return family_add;
-    }
-
-    public void setFamily_add(String family_add) {
-        this.family_add = family_add;
+    public int getSecuritiesId() {
+        return securitiesId;
     }
 
     public String getCareer() {
         return career;
     }
 
-    public void setCareer(String career) {
-        this.career = career;
+    public int getState() {
+        return state;
+    }
+
+    public String getAgentIdNo() {
+        return agentIdNo;
     }
 
     public String getEducation() {
         return education;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public String getFamilyAdd() {
+        return familyAdd;
+    }
+
+    public String getIdNo() {
+        return idNo;
     }
 
     public String getOrganization() {
         return organization;
     }
 
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFamilyAdd(String familyAdd) {
+        this.familyAdd = familyAdd;
+    }
+
+    public void setSecuritiesId(int securitiesId) {
+        this.securitiesId = securitiesId;
+    }
+
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
+    }
+
+    public void setAgentIdNo(String agentIdNo) {
+        this.agentIdNo = agentIdNo;
+    }
+
+    public void setCareer(String career) {
+        this.career = career;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public void setIdNo(String idNo) {
+        this.idNo = idNo;
+    }
+
     public void setOrganization(String organization) {
         this.organization = organization;
     }
 
-    public String getPhone_no() {
-        return phone_no;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public void setPhone_no(String phone_no) {
-        this.phone_no = phone_no;
+    public void setState(int state) {
+        this.state = state;
     }
 
-    public String getAgent_id_no() {
-        return agent_id_no;
+    public void copy(PersonalAccount account) {
+        this.securitiesId = account.securitiesId;
+        this.registerDate = account.registerDate;
+        this.name = account.name;
+        this.gender = account.gender;
+        this.idNo = account.idNo;
+        this.familyAdd = account.familyAdd;
+        this.career = account.career;
+        this.education = account.education;
+        this.organization = account.organization;
+        this.phoneNo = account.phoneNo;
+        this.agentIdNo = account.agentIdNo;
+        this.state = account.state;
     }
-
-    public void setAgent_id_no(String agent_id_no) {
-        this.agent_id_no = agent_id_no;
-    }
-
-    public int getState() { return state; }
-
-    public void setState(int state) { this.state = state; }
-
-    public boolean reportLoss(){
-        return true;
-    };
-
-    public boolean reportReissue(){
-        return true;
-    };
-
-    public boolean accountCancellation(){
-        return true;
-    };
-
-    public boolean register(){
-        return true;
-    };
 }

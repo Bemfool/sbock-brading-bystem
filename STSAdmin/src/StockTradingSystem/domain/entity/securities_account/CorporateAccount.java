@@ -1,140 +1,156 @@
 package StockTradingSystem.domain.entity.securities_account;
 
-public class CorporateAccount implements SecuritiesAccount {
-    // TODO 成员变量名字规范 e.g. businessLicenseNo
-    private int securities_id;
-    private String register_no;
-    private String business_license_no;
-    private String legal_representative_id;
-    private String legal_representative_name;
-    private String legal_representative_phone_no;
-    private String legal_representative_add;
-    private String authorizer_name;
-    private String authorizer_id;
-    private String authorizer_phone_no;
-    private String authorizer_add;
+public class CorporateAccount {
+    private int securitiesId;
+    private String registerNo;
+    private String businessLicenseNo;
+    private String legalRepresentativeId;
+    private String legalRepresentativeName;
+    private String legalRepresentativePhoneNo;
+    private String legalRepresentativeAdd;
+    private String authorizerName;
+    private String authorizerId;
+    private String authorizerPhoneNo;
+    private String authorizerAdd;
     private int state;
 
     public CorporateAccount(){}
 
     public CorporateAccount(String register_no, String business_license_no, String legal_representative_id, String legal_representative_name, String legal_representative_phone_no, String legal_representative_add, String authorizer_name, String authorizer_id, String authorizer_phone_no, String authorizer_add) {
-        this.register_no = register_no;
-        this.business_license_no = business_license_no;
-        this.legal_representative_id = legal_representative_id;
-        this.legal_representative_name = legal_representative_name;
-        this.legal_representative_phone_no = legal_representative_phone_no;
-        this.legal_representative_add = legal_representative_add;
-        this.authorizer_name = authorizer_name;
-        this.authorizer_id = authorizer_id;
-        this.authorizer_phone_no = authorizer_phone_no;
-        this.authorizer_add = authorizer_add;
+        this.registerNo = register_no;
+        this.businessLicenseNo = business_license_no;
+        this.legalRepresentativeId = legal_representative_id;
+        this.legalRepresentativeName = legal_representative_name;
+        this.legalRepresentativePhoneNo = legal_representative_phone_no;
+        this.legalRepresentativeAdd = legal_representative_add;
+        this.authorizerName = authorizer_name;
+        this.authorizerId = authorizer_id;
+        this.authorizerPhoneNo = authorizer_phone_no;
+        this.authorizerAdd = authorizer_add;
     }
 
-    public int getSecurities_id() {
-        return securities_id;
+    public CorporateAccount(String register_no, String business_license_no, String legal_representative_id, String legal_representative_name, String legal_representative_phone_no, String legal_representative_add, String authorizer_name, String authorizer_id, String authorizer_phone_no, String authorizer_add, int state) {
+        this.registerNo = register_no;
+        this.businessLicenseNo = business_license_no;
+        this.legalRepresentativeId = legal_representative_id;
+        this.legalRepresentativeName = legal_representative_name;
+        this.legalRepresentativePhoneNo = legal_representative_phone_no;
+        this.legalRepresentativeAdd = legal_representative_add;
+        this.authorizerName = authorizer_name;
+        this.authorizerId = authorizer_id;
+        this.authorizerPhoneNo = authorizer_phone_no;
+        this.authorizerAdd = authorizer_add;
+        this.state = state;
     }
 
-    public void setSecurities_id(int securities_id) {
-        this.securities_id = securities_id;
+    public int getSecuritiesId() {
+        return securitiesId;
     }
 
-    public String getRegister_no() {
-        return register_no;
+    public String getAuthorizerId() {
+        return authorizerId;
     }
 
-    public void setRegister_no(String register_no) {
-        this.register_no = register_no;
+    public int getState() {
+        return state;
     }
 
-    public String getBusiness_license_no() {
-        return business_license_no;
+    public String getBusinessLicenseNo() {
+        return businessLicenseNo;
     }
 
-    public void setBusiness_license_no(String business_license_no) {
-        this.business_license_no = business_license_no;
+    public String getRegisterNo() {
+        return registerNo;
     }
 
-    public String getLegal_representative_id() {
-        return legal_representative_id;
+    public String getAuthorizerAdd() {
+        return authorizerAdd;
     }
 
-    public void setLegal_representative_id(String legal_representative_id) {
-        this.legal_representative_id = legal_representative_id;
+    public String getAuthorizerName() {
+        return authorizerName;
     }
 
-    public String getLegal_representative_name() {
-        return legal_representative_name;
+    public String getAuthorizerPhoneNo() {
+        return authorizerPhoneNo;
     }
 
-    public void setLegal_representative_name(String legal_representative_name) {
-        this.legal_representative_name = legal_representative_name;
+    public String getLegalRepresentativeId() {
+        return legalRepresentativeId;
     }
 
-    public String getLegal_representative_phone_no() {
-        return legal_representative_phone_no;
+    public String getLegalRepresentativeAdd() {
+        return legalRepresentativeAdd;
     }
 
-    public void setLegal_representative_phone_no(String legal_representative_phone_no) {
-        this.legal_representative_phone_no = legal_representative_phone_no;
+    public String getLegalRepresentativeName() {
+        return legalRepresentativeName;
     }
 
-    public String getLegal_representative_add() {
-        return legal_representative_add;
+    public String getLegalRepresentativePhoneNo() {
+        return legalRepresentativePhoneNo;
     }
 
-    public void setLegal_representative_add(String legal_representative_add) {
-        this.legal_representative_add = legal_representative_add;
+    public void setSecuritiesId(int securitiesId) {
+        this.securitiesId = securitiesId;
     }
 
-    public String getAuthorizer_name() {
-        return authorizer_name;
+    public void setBusinessLicenseNo(String businessLicenseNo) {
+        this.businessLicenseNo = businessLicenseNo;
     }
 
-    public void setAuthorizer_name(String authorizer_name) {
-        this.authorizer_name = authorizer_name;
+    public void setRegisterNo(String registerNo) {
+        this.registerNo = registerNo;
     }
 
-    public String getAuthorizer_id() {
-        return authorizer_id;
+    public void setAuthorizerAdd(String authorizerAdd) {
+        this.authorizerAdd = authorizerAdd;
     }
 
-    public void setAuthorizer_id(String authorizer_id) {
-        this.authorizer_id = authorizer_id;
+    public void setState(int state) {
+        this.state = state;
     }
 
-    public String getAuthorizer_phone_no() {
-        return authorizer_phone_no;
+    public void setAuthorizerId(String authorizerId) {
+        this.authorizerId = authorizerId;
     }
 
-    public void setAuthorizer_phone_no(String authorizer_phone_no) {
-        this.authorizer_phone_no = authorizer_phone_no;
+    public void setAuthorizerName(String authorizerName) {
+        this.authorizerName = authorizerName;
     }
 
-    public String getAuthorizer_add() {
-        return authorizer_add;
+    public void setAuthorizerPhoneNo(String authorizerPhoneNo) {
+        this.authorizerPhoneNo = authorizerPhoneNo;
     }
 
-    public void setAuthorizer_add(String authorizer_add) {
-        this.authorizer_add = authorizer_add;
+    public void setLegalRepresentativeAdd(String legalRepresentativeAdd) {
+        this.legalRepresentativeAdd = legalRepresentativeAdd;
     }
 
-    public int getState() { return state; }
+    public void setLegalRepresentativeId(String legalRepresentativeId) {
+        this.legalRepresentativeId = legalRepresentativeId;
+    }
 
-    public void setState(int state) { this.state = state; }
+    public void setLegalRepresentativeName(String legalRepresentativeName) {
+        this.legalRepresentativeName = legalRepresentativeName;
+    }
 
-    public boolean reportLoss(){
-        return true;
-    };
+    public void setLegalRepresentativePhoneNo(String legalRepresentativePhoneNo) {
+        this.legalRepresentativePhoneNo = legalRepresentativePhoneNo;
+    }
 
-    public boolean reportReissue(){
-        return true;
-    };
-
-    public boolean accountCancellation(){
-        return true;
-    };
-
-    public boolean register(){
-        return true;
-    };
+    public void copy(CorporateAccount account) {
+        this.securitiesId = account.securitiesId;
+        this.registerNo = account.registerNo;
+        this.businessLicenseNo = account.businessLicenseNo;
+        this.legalRepresentativeId = account.legalRepresentativeId;
+        this.legalRepresentativeName = account.legalRepresentativeName;
+        this.legalRepresentativePhoneNo = account.legalRepresentativePhoneNo;
+        this.legalRepresentativeAdd = account.legalRepresentativeAdd;
+        this.authorizerName = account.authorizerName;
+        this.authorizerId = account.authorizerId;
+        this.authorizerPhoneNo = account.authorizerPhoneNo;
+        this.authorizerAdd = account.authorizerAdd;
+        this.state = account.state;
+    }
 }

@@ -1,5 +1,6 @@
 package StockTradingSystem.controller.inter_manage;
 
+import StockTradingSystem.Main;
 import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.controller.utils.ControllerUtils;
 import StockTradingSystem.domain.entity.Index;
@@ -67,6 +68,8 @@ public class InterManageUIController extends AdminUIController {
         public void run() {
             displayStock();
             displayIndex();
+            if(!Main.flashStockFlag)
+                timer.cancel();
         }
     };
 
@@ -122,7 +125,7 @@ public class InterManageUIController extends AdminUIController {
             if (event.getClickCount()==2&&stockSelected.size()==1){
                 try {
                     StockDetailUIController.setStock(new Stock(stockSelected.get(0)));
-                    getApp().gotoStockDetailUI();
+                    getApp().createStockDetailUI();
                 } catch (Exception e){
                     e.printStackTrace();
                 }
