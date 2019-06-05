@@ -3,6 +3,8 @@ package StockTradingSystem.controller.utils;
 import StockTradingSystem.Main;
 import StockTradingSystem.http_utils.CustomResp;
 import StockTradingSystem.http_utils.HttpCommon;
+import StockTradingSystem.http_utils.Result;
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
@@ -18,15 +20,14 @@ public class AdminUIController implements Initializable {
         this.application = app;
     }
     public Main getApp() {return this.application; }
-    @FXML
-    Text welcome;
+    @FXML Text welcome;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
         welcome.setText(MANAGER_NAME);
     }
 
-    public void personalInfo() throws Exception {
+    public void personalInfo() {
         getApp().createPersonalInfoUI();
     }
 
@@ -36,15 +37,28 @@ public class AdminUIController implements Initializable {
         MANAGER_PRIV = -1;
         MANAGER_PASSWORD = "";
         CustomResp cr = new HttpCommon().doHttp("/admin/logout", "POST");
-        application.stage.close();
-        application.gotoAdminLoginUI();
+        Result result = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if(result.isStatus()) {
+            application.stage.close();
+            application.gotoAdminLoginUI();
+        } else {
+            ControllerUtils.showAlert("注销用户错误: " + result.getReasons());
+        }
     }
 
     public void quit() {
         application.stage.close();
     }
 
-    public void modifyPassword() throws Exception {
+    public void modifyPassword() {
         getApp().createChangePasswordUI();
+    }
+
+    public void back2AdminMainUI() {
+        try {
+            getApp().gotoAdminMainUI();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

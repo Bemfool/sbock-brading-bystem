@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.DropShadow?>
@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finLoginUIController">
+<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finLogUIController">
    <children>
        <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
@@ -101,7 +101,17 @@
                                           <Font size="28.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton ripplerFill="#3c0097" text="资金账户登录" textFill="WHITE">
+                                    <JFXButton onAction="#gotoFinWork" ripplerFill="#3c0097" text="资金账户业务" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <Label text="&gt;" textFill="WHITE">
+                                       <font>
+                                          <Font size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton text="设置存取款金额" textFill="WHITE">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -114,23 +124,17 @@
                                        <children>
                                           <GridPane alignment="CENTER" prefHeight="470.0" prefWidth="738.0">
                                             <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="176.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" prefWidth="368.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="194.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="55.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="640.0" minWidth="10.0" prefWidth="640.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="43.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="212.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="193.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="382.0" minHeight="10.0" prefHeight="372.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <JFXTextField fx:id="AccountFeild" promptText="资金账户号" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font></JFXTextField>
-                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <children>
                                                       <JFXButton fx:id="ConfirmBtn" onAction="#Confirm" prefHeight="38.0" prefWidth="198.0" style="-fx-background-color: #ea0adb;" text="确  定" textFill="WHITE">
                                                          <font>
@@ -147,16 +151,10 @@
                                                       </JFXButton>
                                                    </children>
                                                 </HBox>
-                                                <Label prefHeight="51.0" prefWidth="395.0" text="请输入账户名和密码" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="LogLabel" prefHeight="385.0" prefWidth="678.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
-                                                      <Font name="Microsoft YaHei Light" size="20.0" />
-                                                   </font>
-                                                </Label>
-                                                <JFXPasswordField fx:id="finsysPwdFeild" promptText="密码" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </JFXPasswordField>
+                                                      <Font size="16.0" />
+                                                   </font></Label>
                                              </children>
                                           </GridPane>
                                        </children>

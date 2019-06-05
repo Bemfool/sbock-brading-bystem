@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.*?>
-<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finLoginUIController">
+<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finChangePwdUIController">
    <children>
        <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
@@ -101,7 +101,7 @@
                                           <Font size="28.0" />
                                        </font>
                                     </Label>
-                                    <JFXButton ripplerFill="#3c0097" text="资金账户登录" textFill="WHITE">
+                                    <JFXButton ripplerFill="#3c0097" text="修改密码" textFill="WHITE">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -110,53 +110,47 @@
                               </HBox>
                               <StackPane style="-fx-background-radius: 10px; -fx-background-color: white;">
                                  <children>
-                                    <VBox prefHeight="733.0" prefWidth="738.0">
+                                    <VBox prefHeight="699.0" prefWidth="738.0">
                                        <children>
-                                          <GridPane alignment="CENTER" prefHeight="470.0" prefWidth="738.0">
+                                          <GridPane prefHeight="485.0" prefWidth="738.0">
                                             <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="176.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" prefWidth="368.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="194.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="168.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="388.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="182.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="251.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="212.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="193.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <JFXTextField fx:id="AccountFeild" promptText="资金账户号" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font></JFXTextField>
-                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <children>
-                                                      <JFXButton fx:id="ConfirmBtn" onAction="#Confirm" prefHeight="38.0" prefWidth="198.0" style="-fx-background-color: #ea0adb;" text="确  定" textFill="WHITE">
+                                                      <JFXButton onAction="#confirm" prefHeight="43.0" prefWidth="162.0" style="-fx-background-color: #e353ee;" text="确  认" textFill="WHITE">
                                                          <font>
-                                                            <Font name="Microsoft YaHei Light" size="18.0" />
+                                                            <Font name="Microsoft YaHei Light" size="20.0" />
                                                          </font>
                                                          <ripplerFill>
                                                             <LinearGradient endX="1.0" endY="1.0">
                                                                <stops>
                                                                   <Stop color="WHITE" />
-                                                                  <Stop color="#f300fc" offset="1.0" />
+                                                                  <Stop color="#fa6fff" offset="1.0" />
                                                                </stops>
                                                             </LinearGradient>
                                                          </ripplerFill>
                                                       </JFXButton>
                                                    </children>
-                                                </HBox>
-                                                <Label prefHeight="51.0" prefWidth="395.0" text="请输入账户名和密码" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                </VBox>
+                                                <Label text="输入新密码" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
-                                                      <Font name="Microsoft YaHei Light" size="20.0" />
+                                                      <Font size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <JFXPasswordField fx:id="finsysPwdFeild" promptText="密码" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </JFXPasswordField>
+                                                <JFXPasswordField fx:id="newPassword1" promptText="输入新密码" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <JFXPasswordField fx:id="newPassword2" promptText="再次输入密码" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                              </children>
                                           </GridPane>
                                        </children>

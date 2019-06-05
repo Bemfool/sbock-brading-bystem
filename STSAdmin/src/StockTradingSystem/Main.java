@@ -5,12 +5,16 @@ import StockTradingSystem.controller.fund.*;
 import StockTradingSystem.controller.inter_manage.InterManageUIController;
 import StockTradingSystem.controller.inter_manage.StockDetailUIController;
 import StockTradingSystem.controller.securities.SecuritiesUIController;
+import StockTradingSystem.http_utils.CustomResp;
+import StockTradingSystem.http_utils.HttpCommon;
+import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -92,24 +96,49 @@ public class Main extends Application {
         securitiesUI.setApp(this);
     }
 
-    public void gotoFundUI() throws Exception {
-//        stage.setResizable(true);
-//        FundUIController fundUI = (FundUIController)replaceSceneContent("fxml/SecuritiesUI.fxml");
-//        interManageUI.setApp(this);
+    public void FinSysWarningUI(String warning) throws Exception {
+        floatStage = new Stage();
+        floatStage.setTitle("Warning");
+        floatStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader();
+        InputStream in = Main.class.getResourceAsStream("fxml/fund/FinSysWarningUI.fxml");
+        loader.setBuilderFactory(new JavaFXBuilderFactory());
+        loader.setLocation(Main.class.getResource("fxml/fund/FinSysWarningUI.fxml"));
+        AnchorPane page;
+        try {
+            page = loader.load();
+        } finally {
+            in.close();
+        }
+        Scene scene = new Scene(page);
+
+        Text text=new Text(80,80,warning);
+        page.getChildren().add(text);
+
+        floatStage.setScene(scene);
+        floatStage.show();
+        FinSysWarningUIController FinSysWarningUI= loader.getController();
+        FinSysWarningUI.setApp(this);
     }
 
-    public void gotoInternalManageUI() throws Exception {
-        stage.setResizable(true);
-        InterManageUIController interManageUI = (InterManageUIController)replaceSceneContent("fxml/inter_manage/InterManageUI.fxml");
-        interManageUI.setApp(this);
-    }
 
-    public void gotoFundMainUI() throws Exception {
+
+    public void gotofinMainUI() throws Exception {
         stage.close();
         stage = new Stage();
         stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
-        fundMainUIController finMainUI = (fundMainUIController)replaceSceneContent("fxml/fund/fundMainUI.fxml");
+        finMainUIController finMainUI = (finMainUIController)replaceSceneContent("fxml/fund/finMainUI.fxml");
         finMainUI.setApp(this);
+        stage.show();
+    }
+
+    public void gotofinLogUI(String log) throws Exception {
+        stage.close();
+        stage = new Stage();
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finLogUIController finLogUI = (finLogUIController)replaceSceneContent("fxml/fund/finSearchLogUI.fxml");
+        finLogUI.setText(log);
+        finLogUI.setApp(this);
         stage.show();
     }
 
@@ -118,75 +147,50 @@ public class Main extends Application {
         stage.close();
         stage = new Stage();
         stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
-        finworkUIController finworkUI = (finworkUIController)replaceSceneContent("fxml/finWorkUI.fxml");
+        finworkUIController finworkUI = (finworkUIController)replaceSceneContent("fxml/fund/finWorkUI.fxml");
         finworkUI.setApp(this);
         stage.show();
     }
 
-    public void gotofinChangeBalanceUI() throws Exception {
+    public void gotofinRepoDrawUI() throws Exception {
         stage.close();
         stage = new Stage();
-        stage.setResizable(false);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        finChangeBalanceUIController ChangeBalanceUI = (finChangeBalanceUIController)replaceSceneContent("fxml/finChangeBalanceUI.fxml");
-        ChangeBalanceUI.setApp(this);
-        stage.getScene().setOnMouseDragged(event -> {
-            stage.setX(x_stage + event.getScreenX() - x0);
-            stage.setY(y_stage + event.getScreenY() - y0);
-        });
-        stage.getScene().setOnDragEntered(null);
-        stage.getScene().setOnMousePressed(event -> {
-            x0 = event.getScreenX();
-            y0 = event.getScreenY();
-            x_stage = stage.getX();
-            y_stage = stage.getY();
-        });
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finRepoDrawUIController finRepDrawUI = (finRepoDrawUIController)replaceSceneContent("fxml/fund/finRepoDrawUI.fxml");
+        finRepDrawUI.setApp(this);
         stage.show();
     }
 
-    /**
-     * @throws Exception
-     */
-    public void gotofinCreateAccountUI() throws Exception {
+    public void gotofinCreateActUI() throws Exception {
         stage.close();
         stage = new Stage();
-        stage.setResizable(false);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        finCreateAccountUIController CreateAccountUI = (finCreateAccountUIController)replaceSceneContent("fxml/finCreateAccountUI.fxml");
-        CreateAccountUI.setApp(this);
-        stage.getScene().setOnMouseDragged(event -> {
-            stage.setX(x_stage + event.getScreenX() - x0);
-            stage.setY(y_stage + event.getScreenY() - y0);
-        });
-        stage.getScene().setOnDragEntered(null);
-        stage.getScene().setOnMousePressed(event -> {
-            x0 = event.getScreenX();
-            y0 = event.getScreenY();
-            x_stage = stage.getX();
-            y_stage = stage.getY();
-        });
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finCreateActUIController finCreateActUI = (finCreateActUIController)replaceSceneContent("fxml/fund/finCreateActUI.fxml");
+        finCreateActUI.setApp(this);
+        stage.show();
+    }
+    public void gotofinChangePwdUI() throws Exception {
+        stage.close();
+        stage = new Stage();
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finChangePwdUIController finCreateActUI = (finChangePwdUIController)replaceSceneContent("fxml/fund/finChangePwdUI.fxml");
+        finCreateActUI.setApp(this);
         stage.show();
     }
 
     public void gotofinLoginUI() throws Exception {
         stage.close();
         stage = new Stage();
-        stage.setResizable(false);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        finLoginUIController CreateAccountUI = (finLoginUIController)replaceSceneContent("fxml/finLoginUI.fxml");
-        CreateAccountUI.setApp(this);
-        stage.getScene().setOnMouseDragged(event -> {
-            stage.setX(x_stage + event.getScreenX() - x0);
-            stage.setY(y_stage + event.getScreenY() - y0);
-        });
-        stage.getScene().setOnDragEntered(null);
-        stage.getScene().setOnMousePressed(event -> {
-            x0 = event.getScreenX();
-            y0 = event.getScreenY();
-            x_stage = stage.getX();
-            y_stage = stage.getY();
-        });
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finLoginUIController finLoginUI = (finLoginUIController)replaceSceneContent("fxml/fund/finLoginUI.fxml");
+        finLoginUI.setApp(this);
         stage.show();
+    }
+
+    public void gotoInternalManageUI() throws Exception {
+        stage.setResizable(true);
+        InterManageUIController interManageUI = (InterManageUIController)replaceSceneContent("fxml/inter_manage/InterManageUI.fxml");
+        interManageUI.setApp(this);
     }
 
     /* ******************************* 新建浮窗 *************************************** */

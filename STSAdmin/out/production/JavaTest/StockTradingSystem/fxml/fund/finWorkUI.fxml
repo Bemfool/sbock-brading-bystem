@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finworkUIController">
    <children>
        <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -119,21 +109,7 @@
                                  <children>
                                     <VBox>
                                        <children>
-                                          <HBox alignment="CENTER" prefHeight="51.0" prefWidth="738.0">
-                                             <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:  ">
-                                                   <font>
-                                                      <Font size="25.0" />
-                                                   </font>
-                                                </Text>
-                                                <Text fx:id="CostmerName" strokeType="OUTSIDE" strokeWidth="0.0" text="zhangsan@zju.edu.cn">
-                                                   <font>
-                                                      <Font size="25.0" />
-                                                   </font>
-                                                </Text>
-                                                <Hyperlink text="注销" />
-                                             </children>
-                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="51.0" prefWidth="738.0" />
                                           <StackPane maxHeight="240.0" minHeight="221.0" prefHeight="221.0" prefWidth="738.0">
                                              <children>
                                                 <HBox prefHeight="382.0" prefWidth="738.0">
@@ -144,7 +120,7 @@
                                                                <children>
                                                                   <ImageView fitHeight="161.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
-                                                                        <Image url="@../img/human_icon/securities.jpg" />
+                                                                        <Image url="@../../img/human_icon/securities.jpg" />
                                                                      </image>
                                                                   </ImageView>
                                                                   <Label text="用户交易记录">
@@ -168,7 +144,7 @@
                                                                <children>
                                                                   <ImageView fitHeight="160.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
-                                                                        <Image url="@../img/human_icon/fund.jpg" />
+                                                                        <Image url="@../../img/human_icon/fund.jpg" />
                                                                      </image>
                                                                   </ImageView>
                                                                   <Label text="资金存取">
@@ -192,7 +168,7 @@
                                                                <children>
                                                                   <ImageView fitHeight="165.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
-                                                                        <Image url="@../img/human_icon/inter_manage.jpg" />
+                                                                        <Image url="@../../img/human_icon/inter_manage.jpg" />
                                                                      </image>
                                                                   </ImageView>
                                                                   <Label text="账户冻结/解冻">
@@ -224,7 +200,7 @@
                                                                <children>
                                                                   <ImageView fitHeight="161.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
-                                                                        <Image url="@../img/human_icon/securities.jpg" />
+                                                                        <Image url="@../../img/human_icon/securities.jpg" />
                                                                      </image>
                                                                   </ImageView>
                                                                   <Label text="修改密码">
@@ -248,7 +224,7 @@
                                                                <children>
                                                                   <ImageView fitHeight="165.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
-                                                                        <Image url="@../img/human_icon/inter_manage.jpg" />
+                                                                        <Image url="@../../img/human_icon/inter_manage.jpg" />
                                                                      </image>
                                                                   </ImageView>
                                                                   <Label text="销户">

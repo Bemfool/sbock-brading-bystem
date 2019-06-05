@@ -2,21 +2,27 @@ package StockTradingSystem.controller.fund;
 
 import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.controller.utils.ControllerUtils;
-import StockTradingSystem.database.to_be_replaced.finSysDB;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
 public class finworkUIController extends AdminUIController {
-    @FXML private StackPane SearchLogBtn;
-    @FXML private StackPane ChangeBalance;
-    @FXML private StackPane ChangeState;
-    @FXML private StackPane ChangePwd;
-    @FXML private StackPane DeleteAccount;
-    
-    private finSysDB myDB=finSysDB.getInstence();
+	  	@FXML
+	    private StackPane SearchLogBtn;
+
+	    @FXML
+	    private StackPane ChangeBalance;
+
+	    @FXML
+	    private StackPane ChangeState;
+
+	    @FXML
+	    private StackPane ChangePwd;
+
+	    @FXML
+	    private StackPane DeleteAccount;
     @FXML
     void gotofinMainUI() throws Exception {
-    	getApp().gotoFundMainUI();
+    	getApp().gotofinMainUI();
     }
     
 
@@ -28,8 +34,11 @@ public class finworkUIController extends AdminUIController {
     public void exitSearchLog( ) { ControllerUtils.btnRelease(SearchLogBtn);    }
     public void releaseSearchLog( ) throws Exception {  
     	ControllerUtils.btnRelease(SearchLogBtn);
-    	//myDB.getDB().logSearch(myDB.getfinID());
-
+    	
+    	String result=FinsysToServer.SearchLog();
+    	System.out.println(result);
+    	
+    	getApp().gotofinLogUI(result);
     }
     
     //================ChangBalance=============
@@ -38,7 +47,7 @@ public class finworkUIController extends AdminUIController {
     public void pressChangeBalance( ) {  ControllerUtils.btnPress(ChangeBalance);  }
     public void releaseChangeBalance( ) throws Exception {
     	ControllerUtils.btnRelease(ChangeBalance);
-    	getApp().gotofinChangeBalanceUI();
+    	getApp().gotofinRepoDrawUI();
     }
 
     
@@ -49,18 +58,23 @@ public class finworkUIController extends AdminUIController {
     public void exitChangePwd( ) {ControllerUtils.btnRelease(ChangePwd);    }
     public void moveChangePwd( ) {ControllerUtils.btnMove(ChangePwd);    }
     public void pressChangePwd( ) {ControllerUtils.btnPress(ChangePwd);    }
-    public  void releaseChangePwd( ) {
+    public  void releaseChangePwd( ) throws Exception {
     	ControllerUtils.btnRelease(ChangePwd);
-    	
+    	getApp().gotofinChangePwdUI();
     }
+    
     
     
     //==================changeState===============
     public void exitChangeState( ) {ControllerUtils.btnRelease(ChangeState);    }
     public void moveChangeState( ) {ControllerUtils.btnMove(ChangeState);    }
     public void pressChangeState( ) {  ControllerUtils.btnPress(ChangeState);   }
-    public void releaseChangeState( ) {
+    public void releaseChangeState( ) throws Exception {
     	ControllerUtils.btnRelease(ChangeState);
+    	String result=FinsysToServer.ChangeState();
+    	
+    	//System.out.println("customer state: "+result);
+    	getApp().FinSysWarningUI("customer state: "+result);
     }
    
     
@@ -69,14 +83,15 @@ public class finworkUIController extends AdminUIController {
     public void moveDeleteAccount( ) {ControllerUtils.btnMove(DeleteAccount);    }
     public void exitDeleteAccount( ) {ControllerUtils.btnRelease(DeleteAccount);    }
     public void pressDeleteAccount( ) {ControllerUtils.btnPress(DeleteAccount);    }
-    public void releaseDeleteAccount( ) {
+    public void releaseDeleteAccount( ) throws Exception {
     	ControllerUtils.btnRelease(DeleteAccount);
+    	if(FinsysToServer.DeletAccount()) {
+    		getApp().FinSysWarningUI("Successfully Delete Account");
+    		getApp().gotofinMainUI();
+    	}    	
+    	
+    	
     }
-
-
-   /* public void gotofinMainUI() throws Exception {
-    	super.getApp().gotoAdminMainUI();
-    }*/
 
     
 

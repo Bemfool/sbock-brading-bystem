@@ -3,14 +3,12 @@ package StockTradingSystem.controller.fund;
 
 import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.controller.utils.ControllerUtils;
-import StockTradingSystem.database.to_be_replaced.finSysDB;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
 import java.sql.SQLException;
 
-
-public class fundMainUIController extends AdminUIController {
+public class finMainUIController extends AdminUIController {
     @FXML
     private StackPane NewAccountBtn;
 
@@ -20,27 +18,28 @@ public class fundMainUIController extends AdminUIController {
     @FXML
     private StackPane InterestBtn;
     
-    private finSysDB myDB=finSysDB.getInstence();
-    
 
     /* 按钮特效 */
     public void pressNewAccount() { ControllerUtils.btnPress(NewAccountBtn); }
     public void moveNewAccount() { ControllerUtils.btnMove(NewAccountBtn); }
     public void exitNewAccount() { ControllerUtils.btnRelease(NewAccountBtn); }
     public void releaseNewAccount() throws Exception {
-        ControllerUtils.btnRelease(NewAccountBtn);
-        getApp().gotofinCreateAccountUI();
+    	getApp().gotofinCreateActUI();
         // TODO
+    	ControllerUtils.btnRelease(NewAccountBtn);
+        
     }
     
     public void pressFinWork() { ControllerUtils.btnPress(FinWorkBtn); }
     public void moveFinWork() { ControllerUtils.btnMove(FinWorkBtn);}
     public void exitFinWork() { ControllerUtils.btnRelease(FinWorkBtn); }
     public void releaseFinWork() throws Exception {
-        ControllerUtils.btnRelease(FinWorkBtn);
-        getApp().gotofinLoginUI();
+    	getApp().gotofinLoginUI();
+    	ControllerUtils.btnRelease(FinWorkBtn);
+        
         // TODO
     }
+    
     
     
     public void pressInterest() { ControllerUtils.btnPress(InterestBtn); }
@@ -49,9 +48,16 @@ public class fundMainUIController extends AdminUIController {
     public void releaseInterest() throws SQLException {
         ControllerUtils.btnRelease(InterestBtn);
         System.out.println("Adding Interests, this may take a few minutes....");
-        myDB.getDB().calcInterest();
-        System.out.println("Finished adding Interest");
+        FinsysToServer.calcInterests();
+        System.out.println("Finish Adding Interest");
     }
+    
+    @FXML
+    void exitFinsys() throws Exception {
+    	getApp().gotoAdminMainUI();
+    }
+
+
 
 
 }

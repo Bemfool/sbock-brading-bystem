@@ -102,7 +102,7 @@
                                     <children>
                                         <HBox>
                                             <children>
-                                                <JFXButton ripplerFill="#3c0294" text="工作人员主界面" textFill="WHITE">
+                                                <JFXButton onAction="#back2AdminMainUI" ripplerFill="#3c0294" text="工作人员主界面" textFill="WHITE">
                                                     <font>
                                                         <Font size="18.0" />
                                                     </font>
