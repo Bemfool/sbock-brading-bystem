@@ -24,6 +24,8 @@ import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.*;
 
+import static StockTradingSystem.GlobalInfo.MANAGER_PRIV;
+
 /**
  * Class InterManageUIController extend from AdminUIController.
  * The setApp method is used to set application.
@@ -67,7 +69,7 @@ public class InterManageUIController extends AdminUIController {
         @Override
         public void run() {
             displayStock();
-            displayIndex();
+            //displayIndex();
             if(!Main.flashStockFlag)
                 timer.cancel();
         }
@@ -100,7 +102,7 @@ public class InterManageUIController extends AdminUIController {
         stockChangeTableView.setCellValueFactory(new PropertyValueFactory<>("stockChange"));
 //        stockTableView.setVisible(true);
 //        stockTableView.setEditable(false);
-//        stockTableView.setTableMenuButtonVisible(true);
+        stockTableView.setTableMenuButtonVisible(true);
         stockTableView.setItems(stockObservableListCache);
     }
 
@@ -217,7 +219,7 @@ public class InterManageUIController extends AdminUIController {
     private void displayStock(){
         List<Integer> list = new ArrayList<>(stockTableView.getSelectionModel().getSelectedIndices());
         stockObservableList.clear();
-        CustomResp cr = new HttpCommon().doHttp("/stock/all", "GET", null);
+        CustomResp cr = new HttpCommon().doHttp("/stock/"+MANAGER_PRIV, "GET", null);
         Type listType = new TypeToken<ArrayList<Stock>>(){}.getType();
         List<Stock> stocks = new Gson().fromJson(cr.getObjectJSON(), listType);
         for (Stock stock : stocks)

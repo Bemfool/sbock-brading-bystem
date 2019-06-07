@@ -15,6 +15,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -224,6 +225,8 @@ public class Main extends Application {
     public void createPersonalInfoUI() {
         AnchorPane page = new AnchorPane();
         floatStage = new Stage();
+        floatStage.setAlwaysOnTop(true);
+        floatStage.initModality(Modality.APPLICATION_MODAL);
         floatStage.setTitle("管理员 - 个人信息 Administrator Personal Information");
         floatStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader();
@@ -235,6 +238,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
         Scene scene = new Scene(page);
+
         floatStage.setScene(scene);
         floatStage.show();
         PersonalInfoUIController personalInfoUI= loader.getController();
@@ -247,6 +251,8 @@ public class Main extends Application {
     public void createChangePasswordUI() {
         AnchorPane page = new AnchorPane();
         floatStage = new Stage();
+        floatStage.setAlwaysOnTop(true);
+        floatStage.initModality(Modality.APPLICATION_MODAL);
         floatStage.setTitle("管理员 - 更改密码 Administrator - Change Password");
         floatStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader();

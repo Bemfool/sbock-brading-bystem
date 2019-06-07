@@ -57,7 +57,7 @@
                            <children>
                               <VBox>
                                  <children>
-                                    <ImageView fitHeight="72.0" fitWidth="72.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
+                                    <ImageView fitHeight="72.0" fitWidth="72.0" nodeOrientation="INHERIT" onMouseReleased="#personInfoImage" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
                                        <VBox.margin>
                                           <Insets bottom="20.0" left="35.0" right="35.0" top="20.0" />
                                        </VBox.margin>

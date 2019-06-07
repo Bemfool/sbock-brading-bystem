@@ -1,5 +1,6 @@
 #background {
 	-fx-background-image: url("../img/ClientLoginBg.jpg");
+	-fx-background-repeat: no-repeat;
 }
 
 #button {

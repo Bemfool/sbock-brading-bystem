@@ -66,9 +66,9 @@ public class AdminLoginUIController implements Initializable {
             MANAGER_PASSWORD =getAccount.getPassword();
             getApp().gotoAdminMainUI();
         }
-        else
+        else {
             loginBtn.setText("账号或密码错误,请重试");
-
+        }
 
 
     }

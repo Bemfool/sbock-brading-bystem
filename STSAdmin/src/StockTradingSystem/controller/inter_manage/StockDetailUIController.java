@@ -147,7 +147,7 @@ public class StockDetailUIController implements Initializable {
     public void setStockState() {
         String newState = stateChoiceBox.getValue();
         String setState = ControllerUtils.state2Msg(newState);
-        stockLimitTxt.setText("状态: " + stateChoiceBox.getValue());
+        stockStateTxt.setText("状态: " + stateChoiceBox.getValue());
 
         // 修改数据库中的信息
         List<Stock> stockList=new ArrayList<>();

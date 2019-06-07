@@ -61,7 +61,7 @@
                                           <Image url="@../../img/dummy_potrait.jpg" />
                                        </image>
                                     </ImageView>
-                                        <Text fx:id="welcome" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="马冬梅" textAlignment="CENTER" wrappingWidth="140.4000015258789">
+                                        <Text fx:id="welcome" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="马冬梅" onMouseReleased="#personInfoImage" textAlignment="CENTER" wrappingWidth="140.4000015258789">
                                             <font>
                                                 <Font size="30.0" />
                                             </font>

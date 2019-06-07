@@ -31,6 +31,8 @@ public class AdminUIController implements Initializable {
         getApp().createPersonalInfoUI();
     }
 
+    public void personInfoImage(){getApp().createPersonalInfoUI();}
+
     public void logout() throws Exception {
         MANAGER_ID = "";
         MANAGER_NAME = "";
