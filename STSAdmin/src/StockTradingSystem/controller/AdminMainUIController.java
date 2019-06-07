@@ -5,6 +5,9 @@ import StockTradingSystem.controller.utils.ControllerUtils;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 
+import static StockTradingSystem.GlobalInfo.MANAGER_PRIV;
+import static StockTradingSystem.controller.utils.ControllerUtils.showAlert;
+
 public class AdminMainUIController extends AdminUIController {
     @FXML private StackPane securitiesBusinessBtn;
     @FXML private StackPane fundBusinessBtn;
@@ -29,8 +32,13 @@ public class AdminMainUIController extends AdminUIController {
         getApp().gotofinMainUI();
     }
     public void releaseInterManage() throws Exception {
-        ControllerUtils.btnRelease(interManageBtn);
-        getApp().gotoInternalManageUI();
+        if (MANAGER_PRIV!=0){
+            ControllerUtils.btnRelease(interManageBtn);
+            getApp().gotoInternalManageUI();
+        }else{
+            showAlert("[警告]您没有进入内部管理的权限！");
+        }
+
     }
 
 
