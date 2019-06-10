@@ -56,6 +56,9 @@ public class InterManageUIController extends AdminUIController {
     @FXML private TableColumn<StockProperty,Double> stockPriceTableView;    //股票价格列
     @FXML private TableColumn<StockProperty,String> stockStateTableView;    //股票交易状态列
     @FXML private TableColumn<StockProperty,String> stockChangeTableView;    //股票涨跌幅（现）列
+    @FXML private TableColumn<StockProperty,Double> stockCloseTableView;    //股票最新收盘价列
+    @FXML private TableColumn<StockProperty,Integer> stockAmountTableView;    //股票交易量列
+    @FXML private TableColumn<StockProperty,Double> stockTotalTableView;    //股票交易总额列
     @FXML private TableView<IndexProperty> indexTableView;
     @FXML private TableColumn<IndexProperty,String> indexNameTableView;    //指数名称列
     @FXML private TableColumn<IndexProperty,String> indexCodeTableView;    //指数代码列
@@ -100,6 +103,9 @@ public class InterManageUIController extends AdminUIController {
         stockPriceTableView.setCellValueFactory(new PropertyValueFactory<>("stockPrice"));
         stockStateTableView.setCellValueFactory(new PropertyValueFactory<>("stockState"));
         stockChangeTableView.setCellValueFactory(new PropertyValueFactory<>("stockChange"));
+        stockCloseTableView.setCellValueFactory(new PropertyValueFactory<>("closingPrice"));
+        stockAmountTableView.setCellValueFactory(new PropertyValueFactory<>("stockAmount"));
+        stockTotalTableView.setCellValueFactory(new PropertyValueFactory<>("stockTotal"));
 //        stockTableView.setVisible(true);
 //        stockTableView.setEditable(false);
         stockTableView.setTableMenuButtonVisible(true);
@@ -175,18 +181,9 @@ public class InterManageUIController extends AdminUIController {
         for (StockProperty aStockSelected : stockSelected) {
             for (StockProperty aStockObservableList : stockObservableList) {
                 if (aStockSelected.getStockCode().equals(aStockObservableList.getStockCode())) {
-                    double highPrice, lowPrice;
-                    if (riseFallLimit <= 0) {
-                        // 如果没有涨跌停限制，设置涨停价格为最大
-                        highPrice = -1;
-                        lowPrice = 0;
-                    } else {
-                        highPrice = (1 + riseFallLimit) * aStockObservableList.getStockPrice();
-                        lowPrice = (1 - riseFallLimit) * aStockObservableList.getStockPrice();
-                    }
-                    aStockObservableList.setCeilingPrice(highPrice);
-                    aStockObservableList.setFloorPrice(lowPrice);
-                    aStockObservableList.setStockLimit();
+                    aStockObservableList.setStockLimit(riseFallLimit);
+                    aStockObservableList.setCeilingPrice();
+                    aStockObservableList.setFloorPrice();
                     break;
                 }
             }

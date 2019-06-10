@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.inter_manage.InterManageUIController">
+<AnchorPane id="background" prefHeight="593.0" prefWidth="1054.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.inter_manage.InterManageUIController">
     <children>
         <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -125,14 +125,17 @@
                                                     <children>
                                                         <TableView fx:id="stockTableView" layoutX="20.0" layoutY="20.0" onMouseReleased="#clickIntoDetail" prefHeight="310.0" prefWidth="740.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="20.0">
                                                             <columns>
-                                                                <TableColumn fx:id="stockNameTableView" prefWidth="88.0" text="股票名称" />
-                                                                <TableColumn fx:id="stockCodeTableView" prefWidth="96.0" text="股票代码" />
-                                                                <TableColumn fx:id="stockChangeTableView" prefWidth="79.0" text="涨跌幅" />
-                                                                <TableColumn fx:id="stockLimitTableView" prefWidth="78.0" text="最大涨跌幅" />
-                                                                <TableColumn fx:id="stockPriceTableView" prefWidth="78.0" text="交易价格" />
+                                                                <TableColumn fx:id="stockNameTableView" prefWidth="63.0" text="股票名称" />
+                                                                <TableColumn fx:id="stockCodeTableView" prefWidth="85.0" text="股票代码" />
+                                                                <TableColumn fx:id="stockChangeTableView" prefWidth="53.0" text="涨跌幅" />
+                                                                <TableColumn fx:id="stockLimitTableView" prefWidth="72.0" text="最大涨跌幅" />
+                                                                <TableColumn fx:id="stockPriceTableView" prefWidth="64.0" text="交易价格" />
                                                                 <TableColumn fx:id="stockCeilTableView" prefWidth="73.0" text="涨停价格" />
-                                                                <TableColumn fx:id="stockFloorTableView" prefWidth="73.0" text="跌停价格" />
-                                                                <TableColumn fx:id="stockStateTableView" prefWidth="69.0" text="交易状态" />
+                                                                <TableColumn fx:id="stockFloorTableView" prefWidth="67.0" text="跌停价格" />
+                                                                <TableColumn fx:id="stockStateTableView" prefWidth="70.0" text="交易状态" />
+                                                <TableColumn fx:id="stockCloseTableView" prefWidth="81.0" text="最新收盘价" />
+                                                <TableColumn fx:id="stockAmountTableView" prefWidth="62.0" text="交易量" />
+                                                <TableColumn fx:id="stockTotalTableView" prefWidth="74.0" text="交易总额" />
                                                             </columns>
                                                             <VBox.margin>
                                                                 <Insets left="20.0" right="20.0" top="20.0" />
@@ -140,19 +143,19 @@
                                                         </TableView>
                                                         <HBox prefHeight="46.0" prefWidth="400.0">
                                                             <children>
-                                                                <AnchorPane prefHeight="40.0" prefWidth="741.0">
+                                                                <AnchorPane prefHeight="40.0" prefWidth="800.0">
                                                                     <children>
-                                                                        <JFXButton id="button" fx:id="setLimitButton" alignment="CENTER" buttonType="RAISED" layoutX="233.0" layoutY="3.0" onAction="#setStockLimit" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
+                                                                        <JFXButton id="button" fx:id="setLimitButton" alignment="CENTER" buttonType="RAISED" layoutX="250.0" layoutY="3.0" onAction="#setStockLimit" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
                                                                             <font>
                                                                                 <Font size="18.0" />
                                                                             </font>
                                                                         </JFXButton>
-                                                                        <JFXButton id="button" fx:id="setStateButton" alignment="CENTER" buttonType="RAISED" layoutX="571.0" onAction="#setStockState" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
+                                                                        <JFXButton id="button" fx:id="setStateButton" alignment="CENTER" buttonType="RAISED" layoutX="644.0" layoutY="1.0" onAction="#setStockState" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
                                                                             <font>
                                                                                 <Font size="18.0" />
                                                                             </font>
                                                                         </JFXButton>
-                                                                        <ChoiceBox fx:id="choiceBoxState" accessibleRole="CHECK_BOX" layoutX="403.0" layoutY="7.0" prefWidth="150.0" />
+                                                                        <ChoiceBox fx:id="choiceBoxState" accessibleRole="CHECK_BOX" layoutX="450.0" layoutY="8.0" prefWidth="150.0" />
                                                                         <ChoiceBox fx:id="choiceBoxLimit" layoutX="61.0" layoutY="7.0" prefWidth="150.0" />
                                                                     </children>
                                                                 </AnchorPane>

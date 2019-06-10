@@ -1,10 +1,7 @@
 package StockTradingSystem.domain.table;
 
 import StockTradingSystem.domain.entity.Stock;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class StockProperty {
     private StringProperty stockCode;
@@ -13,30 +10,37 @@ public class StockProperty {
     private DoubleProperty ceilingPrice;
     private DoubleProperty floorPrice;
     private StringProperty stockState;
-    private StringProperty stockLimit;
+    private DoubleProperty stockLimit;
     private StringProperty stockChange;
+    private DoubleProperty closingPrice;
+    private IntegerProperty stockAmount;
+    private DoubleProperty stockTotal;
 
     public StockProperty(Stock st){
         this.stockCode=new SimpleStringProperty(st.getStockCode());
         this.stockName=new SimpleStringProperty(st.getStockName());
         this.stockPrice=new SimpleDoubleProperty(st.getStockPrice());
-        this.ceilingPrice=new SimpleDoubleProperty(st.getCeilingPrice());
-        this.floorPrice=new SimpleDoubleProperty(st.getFloorPrice());
+        this.ceilingPrice=new SimpleDoubleProperty();
+        this.floorPrice=new SimpleDoubleProperty();
         this.stockState=new SimpleStringProperty(st.getStockState());
-        this.stockLimit=new SimpleStringProperty(st.getStockLimit());
-        this.stockChange=new SimpleStringProperty(st.getStockChange());
+        this.stockLimit=new SimpleDoubleProperty(st.getStockLimit());
+        this.stockChange=new SimpleStringProperty();
+        this.closingPrice=new SimpleDoubleProperty(st.getClosingPrice());
+        this.stockAmount=new SimpleIntegerProperty(st.getStockAmount());
+        this.stockTotal=new SimpleDoubleProperty(st.getStockTotal());
         this.setStockChange();
-        this.setStockLimit();
-        this.setCeilingPrice(st.getCeilingPrice());
-        this.setFloorPrice(st.getFloorPrice());
+        this.setCeilingPrice();
+        this.setFloorPrice();
     }
-    public StockProperty(String stockCode,String stockName,double stockPrice,double ceilingPrice,double floorPrice,String stockState){
+    public StockProperty(String stockCode,String stockName,double stockPrice,double ceilingPrice,double floorPrice,String stockState,Integer stockAmount,double stockTotal){
         this.stockCode=new SimpleStringProperty(stockCode);
         this.stockName=new SimpleStringProperty(stockName);
         this.stockPrice=new SimpleDoubleProperty(stockPrice);
         this.ceilingPrice=new SimpleDoubleProperty(ceilingPrice);
         this.floorPrice=new SimpleDoubleProperty(floorPrice);
         this.stockState=new SimpleStringProperty(stockState);
+        this.stockAmount=new SimpleIntegerProperty(stockAmount);
+        this.stockTotal=new SimpleDoubleProperty(stockTotal);
     }
 
     public StockProperty(){
@@ -46,28 +50,35 @@ public class StockProperty {
         this.ceilingPrice=new SimpleDoubleProperty(0);
         this.floorPrice=new SimpleDoubleProperty(0);
         this.stockState=new SimpleStringProperty("");
-        this.stockLimit=new SimpleStringProperty("");
+        this.stockLimit=new SimpleDoubleProperty(0);
         this.stockChange=new SimpleStringProperty("");
+        this.stockAmount=new SimpleIntegerProperty(0);
+        this.stockTotal=new SimpleDoubleProperty(0);
     }
 
     public void setStockCode(String stockCode) { this.stockCode.set(stockCode); }
     public void setStockName(String stockName) { this.stockName.set(stockName); }
-    public void setCeilingPrice(double ceilingPrice) {
-        this.ceilingPrice.set(Double.parseDouble(String.format("%.3f",ceilingPrice)));
+    public void setCeilingPrice() {
+        if (getStockLimit()<0){
+            this.ceilingPrice.set(-1);
+        }else{
+            double tempPrice=getClosingPrice()*(1+getStockLimit());
+            this.ceilingPrice.set(Double.parseDouble(String.format("%.3f",tempPrice)));
+        }
     }
-    public void setFloorPrice(double floorPrice) {
-        this.floorPrice.set(Double.parseDouble(String.format("%.3f",floorPrice)));
+    public void setFloorPrice() {
+        if (getStockLimit()<0){
+            this.floorPrice.set(0);
+        }else{
+            double tempPrice=getClosingPrice()*(1-getStockLimit());
+            this.floorPrice.set(Double.parseDouble(String.format("%.3f",tempPrice)));
+        }
     }
     public void setStockPrice(double stockPrice) { this.stockPrice.set(stockPrice); }
     public void setStockState(String stockState) { this.stockState.set(stockState); }
-    public void setStockLimit() {
-        double startPrice=(Double.valueOf(ceilingPrice.get())+floorPrice.get())/2;
-        double limit=(Double.valueOf(ceilingPrice.get())-startPrice)/startPrice;
-        String tempLimit=Double.parseDouble(String.format("%.2f",limit*100))+"%";
-        this.stockLimit.set(tempLimit);
-    }
+    public void setStockLimit(double stockLimit) { this.stockLimit.set(stockLimit); }
     public void setStockChange() {
-        double startprice=(Double.valueOf(ceilingPrice.get())+floorPrice.get())/2;
+        double startprice=getClosingPrice();
         double change=(stockPrice.get()-startprice)/startprice;
         if (change*100>-0.1 && change*100<0){
             change=0;
@@ -75,6 +86,9 @@ public class StockProperty {
         String tempChange=Double.parseDouble(String.format("%.2f",change*100))+"%";
         this.stockChange.set(tempChange);
     }
+    public void setClosingPrice(double closingPrice) { this.closingPrice.set(closingPrice); }
+    public void setStockAmount(Integer stockAmount) { this.stockAmount.set(stockAmount); }
+    public void setStockTotal(double stockTotal) { this.stockTotal.set(stockTotal); }
 
     public double getStockPrice() { return stockPrice.get(); }
     public String getStockCode() { return stockCode.get(); }
@@ -83,7 +97,10 @@ public class StockProperty {
     public double getFloorPrice() { return floorPrice.get(); }
     public String getStockState() { return stockState.get(); }
     public String getStockChange() { return stockChange.get(); }
-    public String getStockLimit() { return stockLimit.get(); }
+    public double getStockLimit() { return stockLimit.get(); }
+    public double getClosingPrice() { return closingPrice.get(); }
+    public Integer getStockAmount() { return stockAmount.get(); }
+    public double getStockTotal() { return stockTotal.get(); }
 
     public DoubleProperty ceilingPriceProperty() { return ceilingPrice; }
     public StringProperty stockCodeProperty() { return stockCode; }
@@ -91,6 +108,9 @@ public class StockProperty {
     public DoubleProperty floorPriceProperty() { return floorPrice; }
     public DoubleProperty stockPriceProperty() { return stockPrice; }
     public StringProperty stockStateProperty() { return stockState; }
-    public StringProperty stockLimitProperty() { return stockLimit; }
+    public DoubleProperty stockLimitProperty() { return stockLimit; }
     public StringProperty stockChangeProperty() { return stockChange; }
+    public DoubleProperty closingPriceProperty() { return closingPrice; }
+    public IntegerProperty stockAmountProperty() { return stockAmount; }
+    public DoubleProperty stockTotalProperty() { return stockTotal; }
 }
