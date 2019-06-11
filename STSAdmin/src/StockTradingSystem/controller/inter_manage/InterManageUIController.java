@@ -92,7 +92,7 @@ public class InterManageUIController extends AdminUIController {
     }
 
     private void startTimerLoop(){
-        timer.schedule(display,2000,2000);
+        timer.schedule(display,200,2000);
     }
 
     private void bindStock(){

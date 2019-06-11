@@ -120,7 +120,7 @@
                                                 </JFXButton>
                                             </children>
                                         </HBox>
-                                        <StackPane style="-fx-background-radius: 10px; -fx-background-color: white;">
+                                        <StackPane style="-fx-background-radius: 10px; -fx-background-color: white;" VBox.vgrow="ALWAYS">
                                             <children>
                                                 <VBox>
                                                     <children>
