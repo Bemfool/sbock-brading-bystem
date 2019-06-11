@@ -10,6 +10,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -123,6 +124,22 @@
                                             <children>
                                                 <VBox>
                                                     <children>
+                                          <HBox prefHeight="46.0" prefWidth="400.0">
+                                             <children>
+                                                <TextField fx:id="searchField" prefHeight="30.0" prefWidth="161.0" promptText="输入股票名称或代码" />
+                                                <JFXButton id="button" alignment="CENTER" buttonType="RAISED" onAction="#displayStock" prefHeight="36.0" prefWidth="96.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="搜索" textAlignment="CENTER" textFill="WHITE">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="20.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
                                                         <TableView fx:id="stockTableView" layoutX="20.0" layoutY="20.0" onMouseReleased="#clickIntoDetail" prefHeight="310.0" prefWidth="740.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="20.0">
                                                             <columns>
                                                                 <TableColumn fx:id="stockNameTableView" prefWidth="63.0" text="股票名称" />
@@ -138,25 +155,25 @@
                                                 <TableColumn fx:id="stockTotalTableView" prefWidth="74.0" text="交易总额" />
                                                             </columns>
                                                             <VBox.margin>
-                                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                                                <Insets bottom="5.0" left="20.0" right="20.0" top="10.0" />
                                                             </VBox.margin>
                                                         </TableView>
                                                         <HBox prefHeight="46.0" prefWidth="400.0">
                                                             <children>
                                                                 <AnchorPane prefHeight="40.0" prefWidth="800.0">
                                                                     <children>
-                                                                        <JFXButton id="button" fx:id="setLimitButton" alignment="CENTER" buttonType="RAISED" layoutX="250.0" layoutY="3.0" onAction="#setStockLimit" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE">
+                                                                        <JFXButton id="button" fx:id="setLimitButton" alignment="CENTER" buttonType="RAISED" layoutX="250.0" layoutY="3.0" onAction="#setStockLimit" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置涨跌幅" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="5.0">
                                                                             <font>
-                                                                                <Font size="18.0" />
+                                                                                <Font size="15.0" />
                                                                             </font>
                                                                         </JFXButton>
-                                                                        <JFXButton id="button" fx:id="setStateButton" alignment="CENTER" buttonType="RAISED" layoutX="644.0" layoutY="1.0" onAction="#setStockState" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE">
+                                                                        <JFXButton id="button" fx:id="setStateButton" alignment="CENTER" buttonType="RAISED" layoutX="644.0" layoutY="1.0" onAction="#setStockState" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #65F; -fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" text="设置状态" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="5.0">
                                                                             <font>
-                                                                                <Font size="18.0" />
+                                                                                <Font size="15.0" />
                                                                             </font>
                                                                         </JFXButton>
                                                                         <ChoiceBox fx:id="choiceBoxState" accessibleRole="CHECK_BOX" layoutX="450.0" layoutY="8.0" prefWidth="150.0" />
-                                                                        <ChoiceBox fx:id="choiceBoxLimit" layoutX="61.0" layoutY="7.0" prefWidth="150.0" />
+                                                                        <ChoiceBox fx:id="choiceBoxLimit" layoutX="61.0" layoutY="7.0" prefWidth="150.0" AnchorPane.rightAnchor="588.6" />
                                                                     </children>
                                                                 </AnchorPane>
                                                             </children>
@@ -171,7 +188,7 @@
                                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                                             </columnResizePolicy>
                                                             <VBox.margin>
-                                                                <Insets bottom="20.0" left="20.0" right="20.0" />
+                                                                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                                                             </VBox.margin>
                                                         </TableView>
                                                     </children>

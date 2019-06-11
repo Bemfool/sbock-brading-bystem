@@ -10,8 +10,8 @@ import java.net.URL;
 
 
 public class HttpCommon {
-    //public static String url = "http://localhost:8010";
-    public static String url = "http://139.155.104.140:8010";
+    public static String url = "http://localhost:8010";
+//    public static String url = "http://139.155.104.140:8010";
     private static String cookie = null;
 
     public HttpCommon() {

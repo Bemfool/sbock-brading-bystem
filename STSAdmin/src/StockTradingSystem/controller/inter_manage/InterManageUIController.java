@@ -14,11 +14,10 @@ import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -66,6 +65,8 @@ public class InterManageUIController extends AdminUIController {
     private ObservableList<StockProperty> stockObservableList = FXCollections.observableArrayList();
     private ObservableList<StockProperty> stockObservableListCache = FXCollections.observableArrayList();
     private ObservableList<IndexProperty> indexObservableList = FXCollections.observableArrayList();
+    @FXML private TextField searchField;
+    String textTemp;
 
     private Timer timer = new Timer();
     private TimerTask display = new TimerTask() {
@@ -91,7 +92,7 @@ public class InterManageUIController extends AdminUIController {
     }
 
     private void startTimerLoop(){
-        timer.schedule(display,5000,5000);
+        timer.schedule(display,2000,2000);
     }
 
     private void bindStock(){
@@ -178,16 +179,16 @@ public class InterManageUIController extends AdminUIController {
         List<StockProperty> stockSelected=stockTableView.getSelectionModel().getSelectedItems();
 
         // 修改显示的信息
-        for (StockProperty aStockSelected : stockSelected) {
-            for (StockProperty aStockObservableList : stockObservableList) {
-                if (aStockSelected.getStockCode().equals(aStockObservableList.getStockCode())) {
-                    aStockObservableList.setStockLimit(riseFallLimit);
-                    aStockObservableList.setCeilingPrice();
-                    aStockObservableList.setFloorPrice();
-                    break;
-                }
-            }
-        }
+//        for (StockProperty aStockSelected : stockSelected) {
+//            for (StockProperty aStockObservableList : stockObservableList) {
+//                if (aStockSelected.getStockCode().equals(aStockObservableList.getStockCode())) {
+//                    aStockObservableList.setStockLimit(riseFallLimit);
+//                    aStockObservableList.setCeilingPrice();
+//                    aStockObservableList.setFloorPrice();
+//                    break;
+//                }
+//            }
+//        }
 
         // 修改数据库中的信息
         List<Stock> stockList=new ArrayList<>();
@@ -213,19 +214,29 @@ public class InterManageUIController extends AdminUIController {
         System.out.println("设置涨跌幅成功");
     }
 
-    private void displayStock(){
+    public void displayStock(){
         List<Integer> list = new ArrayList<>(stockTableView.getSelectionModel().getSelectedIndices());
+        Map<String, Integer> positions = null;
+        if(!stockObservableListCache.isEmpty() && textTemp.equals(searchField.getText())) {
+            positions = getPositions(stockObservableList, stockObservableListCache);
+        }
+        System.out.println(positions);
         stockObservableList.clear();
-        CustomResp cr = new HttpCommon().doHttp("/stock/"+MANAGER_PRIV, "GET", null);
+        CustomResp cr;
+        if(searchField.getText().isEmpty())
+            cr = new HttpCommon().doHttp("/stock/"+MANAGER_PRIV, "GET", null);
+        else
+            cr = new HttpCommon().doHttp("/stock/"+MANAGER_PRIV+"/like", "POST", new Gson().toJson(searchField.getText()));
         Type listType = new TypeToken<ArrayList<Stock>>(){}.getType();
         List<Stock> stocks = new Gson().fromJson(cr.getObjectJSON(), listType);
         for (Stock stock : stocks)
             stockObservableList.add(new StockProperty(stock));
-        stockObservableListCache.setAll(stockObservableList);
-//        if(!list.isEmpty()) {
-//            Integer[] ints = list.toArray(new Integer[0]);
-//            stockTableView.getSelectionModel().selectIndices(ints[0], );
-//        }
+        if(positions!=null)
+            stockObservableListCache.setAll(setPositions(stockObservableList, positions));
+        else {
+            stockObservableListCache.setAll(stockObservableList);
+        }
+        textTemp = searchField.getText();
         for(int aList : list) stockTableView.getSelectionModel().select(aList);
         // 已经放到缓存StockObservableList中，然后显示到表格里
         System.out.println("已经将股票数据导入缓存");
@@ -242,4 +253,24 @@ public class InterManageUIController extends AdminUIController {
         // 已经放到缓存IndexObservableList中，然后显示到表格里
         System.out.println("已经将指数数据导入到缓存");
     }
+
+    private Map<String, Integer> getPositions(ObservableList<StockProperty> oldList,
+                                              ObservableList<StockProperty> newList) {
+        Map<String, Integer> positionsMap = new HashMap<>();
+        for(StockProperty aOldList : oldList)
+            positionsMap.computeIfAbsent(aOldList.getStockCode(), k->newList.indexOf(aOldList));
+        return positionsMap;
+    }
+
+    private ObservableList<StockProperty> setPositions(ObservableList<StockProperty> oldList, Map<String, Integer> positions) {
+        ObservableList<StockProperty> newList = FXCollections.observableArrayList();
+        newList.setAll(oldList);
+        for (StockProperty anOldList : oldList)
+            if (positions.containsKey(anOldList.getStockCode()))
+                newList.set(positions.get(anOldList.getStockCode()), anOldList);
+            else
+                newList.add(anOldList);
+        return newList;
+    }
+
 }
