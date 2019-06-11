@@ -7,12 +7,15 @@ import StockTradingSystem.domain.entity.securities_account.PersonalAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class SecuritiesUIController extends AdminUIController {
+import static StockTradingSystem.controller.utils.ControllerUtils.showAlert;
+
+public class SecuritiesUIController extends ControllerUtilsforButton {
     private SecuritiesAccountDBManager db = new SecuritiesAccountDBManager();
 
     @FXML
@@ -93,6 +96,21 @@ public class SecuritiesUIController extends AdminUIController {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        pstel.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                pstel.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        cptel.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cptel.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+        cptradertel.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cptradertel.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
         //
     }
 
@@ -161,8 +179,7 @@ public class SecuritiesUIController extends AdminUIController {
 
         PersonalAccount temp = new PersonalAccount();
         if(db.getPersonalAccount(psid.getText(), temp)){
-            message.setText("您已经注册过证券账户！");
-            message.setVisible(true);
+            showAlert("您已经注册过证券账户！");
             return;
         }
 
@@ -177,12 +194,14 @@ public class SecuritiesUIController extends AdminUIController {
             PersonalAccount account1= new PersonalAccount(java.sql.Date.valueOf(date.getValue()), psname.getText(), sex, psid.getText(), psaddr.getText(), prof.getText(), diplome.getText(), psjob.getText(), pstel.getText(), rppsid.getText());
             db.newPersonalAccount(account1);
             db.getPersonalAccount(psid.getText(), account1);
-            this.goToMessage("恭喜注册成功",String.valueOf(account1.getSecuritiesId()));
+            showAlert("恭喜注册成功，"+"您的账号："+String.valueOf(account1.getSecuritiesId()));
+            gotoMain();
         }else{
             PersonalAccount account1= new PersonalAccount(java.sql.Date.valueOf(date.getValue()), psname.getText(), sex, psid.getText(), psaddr.getText(), prof.getText(), diplome.getText(), psjob.getText(), pstel.getText());
             db.newPersonalAccount(account1);
             db.getPersonalAccount(psid.getText(), account1);
-            this.goToMessage("恭喜注册成功", String.valueOf(account1.getSecuritiesId()));
+            showAlert1("恭喜注册成功，"+"您的账号："+String.valueOf(account1.getSecuritiesId()));
+
         }
     }
 
@@ -233,7 +252,7 @@ public class SecuritiesUIController extends AdminUIController {
     @FXML
     private TextField cprpid;
 
-    public void companyClear(){
+    public void AllClear(){
         cpid.clear();
         cptradername.clear();
         cprpid.clear();
@@ -244,6 +263,20 @@ public class SecuritiesUIController extends AdminUIController {
         cptraderid.clear();
         cptradertel.clear();
         cptel.clear();
+        prof.clear();
+        diplome.clear();
+        psaddr.clear();
+        psid.clear();
+        psjob.clear();
+        psname.clear();
+        pstel.clear();
+        rppsid.clear();
+        man.setSelected(false);
+        women.setSelected(false);
+        ccidNb.clear();
+        ccaccnb.clear();
+        fridNb.clear();
+
     }
 
     public boolean companycheck(){
@@ -337,21 +370,20 @@ public class SecuritiesUIController extends AdminUIController {
         }
         CorporateAccount temp = new CorporateAccount();
         if(db.getCorporateAccount(cpid.getText(), temp)){
-            message1.setText("该法人注册账号已经注册过证券账户！");
-            message1.setVisible(true);
+            showAlert("该法人注册账号已经注册过证券账户！");
             return ;
         }
         //todo还需验证账户存在等问题
         temp = new CorporateAccount(cpid.getText(),cplicence.getText(), cprpid.getText(),cpname.getText(), cptel.getText(),  cpaddr.getText(), cptradername.getText(), cptraderid.getText(), cptradertel.getText(), cptraderaddr.getText());
         db.newCorporateAccount(temp);
         db.getCorporateAccount(cpid.getText(), temp);
-        this.goToMessage("恭喜注册成功", String.valueOf(temp.getSecuritiesId()));
+        showAlert1("恭喜注册成功"+"您的账号："+String.valueOf(temp.getSecuritiesId()));
+
     }
 
     @FXML
     void goback(ActionEvent event) {
         pagecprs.setVisible(false);
-        this.companyClear();
         pagechose.setVisible(true);
     }
 
@@ -363,7 +395,8 @@ public class SecuritiesUIController extends AdminUIController {
     private Button psrs;
 
     @FXML
-    void jumppsrs(ActionEvent event) {
+    void jumppsrs() {
+        btnRelease(psrs);
         this.initTime();
         pagepsrs.setVisible(true);
         pagers.setVisible(false);
@@ -373,7 +406,8 @@ public class SecuritiesUIController extends AdminUIController {
     }
 
     @FXML
-    void jumpcprs(ActionEvent event) {
+    void jumpcprs() {
+        btnRelease(cprs);
         pagecprs.setVisible(true);
         pagers.setVisible(false);
         cpressuieBtn.setVisible(false);
@@ -395,25 +429,33 @@ public class SecuritiesUIController extends AdminUIController {
     private Button ressuieBtn;
 
     @FXML
-    void jumprs(ActionEvent event) {
+    void jumprs() {
+        AllClear();
+        btnRelease(rsBtn);
         pagechose.setVisible(false);
         pagers.setVisible(true);
     }
 
     @FXML
-    void jumptofr(ActionEvent event) {
+    void jumptofr() {
+        AllClear();
+        btnRelease(frBtn);
         pagechose.setVisible(false);
         pagefr.setVisible(true);
     }
 
     @FXML
-    void jumptocc(ActionEvent event) {
+    void jumptocc() {
+        AllClear();
+        btnRelease(ccBTn);
         pagechose.setVisible(false);
         pagecc.setVisible(true);
     }
 
     @FXML
-    void jumptoressuie(ActionEvent event) {
+    void jumptoressuie() {
+        AllClear();
+        btnRelease(ressuieBtn);
         pagechose.setVisible(false);
         pageressui.setVisible(true);
     }
@@ -459,8 +501,7 @@ public class SecuritiesUIController extends AdminUIController {
         PersonalAccount personal_temp = new PersonalAccount();
         CorporateAccount corporate_temp = new CorporateAccount();
         if(db.getSecuritiesStock(Integer.valueOf( ccaccnb.getText()))){
-            ccms.setText("您有证劵未卖出，无法注销");
-            ccms.setVisible(true);
+            showAlert("您有证劵未卖出，无法注销");
             return ;
         }
 
@@ -468,16 +509,14 @@ public class SecuritiesUIController extends AdminUIController {
             flag = 1; // 法人账户不存在
         }else{
             if(corporate_temp.getState() == 1){
-                ccms.setText("该账户目前已被冻结，请选择补办");
-                ccms.setVisible(true);
+                showAlert("该账户目前已被冻结，请选择补办");
                 return;
             }
             boolean delete_result = db.deleteCorporateAccount(ccidNb.getText());
             if(delete_result == false){
-                ccms.setText("删除失败！");
-                ccms.setVisible(true);
+                showAlert("删除失败！");
             }else{
-                this.goToMessage("恭喜删除成功", String.valueOf(corporate_temp.getSecuritiesId()));
+                showAlert1("恭喜删除成功"+"您的账号："+String.valueOf(corporate_temp.getSecuritiesId()));
             }
             return ;
         }
@@ -485,24 +524,21 @@ public class SecuritiesUIController extends AdminUIController {
             flag = 2; // 个人账户不存在
         }else{
             if(personal_temp.getState() == 1){
-                ccms.setText("该账户目前已被冻结，请选择补办");
-                ccms.setVisible(true);
+                showAlert("该账户目前已被冻结，请选择补办");
                 return;
             }
             boolean delete_result = db.deletePersonalAccount(ccidNb.getText());
             if(delete_result == false){
-                ccms.setText("删除失败！");
-                ccms.setVisible(true);
+                showAlert("删除失败！");
             }else{
-                this.goToMessage("恭喜删除成功", String.valueOf(personal_temp.getSecuritiesId()));
+                showAlert1("恭喜删除成功" +"您的账号："+String.valueOf(personal_temp.getSecuritiesId()));
             }
             return ;
         }
 
 
         if(flag == 1 || flag == 2){
-            ccms.setText("该账号不存在");
-            ccms.setVisible(true);
+            showAlert("该账号不存在");
             return;
         }
         //todo还需验证账户存在等问题
@@ -543,21 +579,20 @@ public class SecuritiesUIController extends AdminUIController {
             flag = 1; // 法人账户不存在
         }else{
             db.modifyCorporateState(fridNb.getText(), 1);
-            this.goToMessage("冻结成功",String.valueOf(corporate_temp.getSecuritiesId()));
+            showAlert1("冻结成功"+"您的账号："+String.valueOf(corporate_temp.getSecuritiesId()));
             return ;
         }
         if(!db.getPersonalAccount(fridNb.getText(), personal_temp)){
             flag = 2; // 个人账户不存在
         }else{
             db.modifyPersonalState(fridNb.getText(), 1);
-            this.goToMessage("冻结成功",String.valueOf(personal_temp.getSecuritiesId()));
+            showAlert1("冻结成功"+"您的账号："+String.valueOf(personal_temp.getSecuritiesId()));
             return ;
         }
 
 
         if(flag == 1 || flag == 2){
-            frms.setText("账户不存在");
-            frms.setVisible(true);
+            showAlert("账户不存在");
             return;
         }
         //todo
@@ -616,7 +651,8 @@ public class SecuritiesUIController extends AdminUIController {
     private Button cpressuieBtn;
 
     @FXML
-    void jumppsrs1(ActionEvent event) {
+    void jumppsrs1() {
+        btnRelease(psrs1);
         this.initTime();
         pagepsrs.setVisible(true);
         pageressui.setVisible(false);
@@ -626,7 +662,8 @@ public class SecuritiesUIController extends AdminUIController {
     }
 
     @FXML
-    void jumpcprs1(ActionEvent event) {
+    void jumpcprs1() {
+        btnRelease(cprs1);
         pagecprs.setVisible(true);
         pageressui.setVisible(false);
         cpressuieBtn.setVisible(true);
@@ -642,13 +679,11 @@ public class SecuritiesUIController extends AdminUIController {
         account = new CorporateAccount(cpid.getText(),cplicence.getText(), cprpid.getText(),cpname.getText(), cptel.getText(),  cpaddr.getText(), cptradername.getText(), cptraderid.getText(), cptradertel.getText(), cptraderaddr.getText());
         CorporateAccount old_account = new CorporateAccount();
         if(!db.getCorporateAccount(account.getRegisterNo(), old_account)){
-            message1.setText("您还没有注册过证券账户！");
-            message1.setVisible(true);
+            showAlert("您还没有注册过证券账户！");
             return;
         }else{
             if(old_account.getState() == 0){
-                message1.setText("您的账户目前是正常状态，无须补办！");
-                message1.setVisible(true);
+                showAlert("您的账户目前是正常状态，无须补办！");
                 return;
             }else {
                 db.deleteCorporateAccount(old_account.getRegisterNo());
@@ -656,7 +691,7 @@ public class SecuritiesUIController extends AdminUIController {
                 CorporateAccount temp = new CorporateAccount();
                 db.getCorporateAccount(account.getRegisterNo(), temp);
                 db.modifySecuritiesFunds(old_account.getSecuritiesId(), temp.getSecuritiesId());
-                this.goToMessage("恭喜补办成功",String.valueOf(temp.getSecuritiesId()));
+                showAlert1("恭喜补办成功"+"您的账号："+String.valueOf(temp.getSecuritiesId()));
             }
         }
         //todo
@@ -686,13 +721,12 @@ public class SecuritiesUIController extends AdminUIController {
         }
         PersonalAccount old_account = new PersonalAccount();
         if(!db.getPersonalAccount(account.getIdNo(), old_account)){
-            message.setText("您还没有注册过证券账户！");
-            message.setVisible(true);
+            showAlert("您还没有注册过证券账户！");
             return;
         }else{
             if(old_account.getState() == 0){
-                message.setText("您的账户目前是正常状态，无须补办！");
-                message.setVisible(true);
+               showAlert("您的账户目前是正常状态，无须补办！");
+
                 return;
             }else {
                 db.deletePersonalAccount(old_account.getIdNo());
@@ -700,11 +734,44 @@ public class SecuritiesUIController extends AdminUIController {
                 PersonalAccount temp = new PersonalAccount();
                 db.getPersonalAccount(account.getIdNo(), temp);
                 db.modifySecuritiesFunds(old_account.getSecuritiesId(), temp.getSecuritiesId());
-                this.goToMessage("恭喜补办成功",String.valueOf(temp.getSecuritiesId()));
+                showAlert1("恭喜补办成功"+"您的账号："+String.valueOf(temp.getSecuritiesId()));
             }
         }
 
         //todo
+    }
+    //动画效果
+    public void BtnMoved(MouseEvent event){  Object obj=event.getSource();
+        if(obj instanceof Button){
+            Button btn=(Button)obj;
+            btnMove(btn);
+
+        }
+        return;
+    }
+    public void Btnpressed(MouseEvent event){Object obj=event.getSource();
+        if(obj instanceof Button){
+            Button btn=(Button)obj;
+            btnPress(btn);
+        }
+        return;
+    }
+    public void BtnExited(MouseEvent event){Object obj=event.getSource();
+        if(obj instanceof Button){
+            Button btn=(Button)obj;
+            btnRelease(btn);
+        }}
+
+    public void gotoMain(){
+        pagechose.setVisible(true);
+        pagefr.setVisible(false);
+        pagecc.setVisible(false);
+        pagepsrs.setVisible(false);
+        pagecprs.setVisible(false);
+    }
+    public void showAlert1(String str){
+        showAlert(str);
+        gotoMain();
     }
 
 
