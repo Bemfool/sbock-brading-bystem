@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -25,7 +33,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.securities.SecuritiesUIController">
+<AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.securities.SecuritiesUIController">
    <children>
       <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -121,7 +129,7 @@
                                  <children>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                        <children>
-                                          <Button fx:id="psrs1" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumppsrs1" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="个人补办">
+                                          <Button fx:id="psrs1" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumppsrs1" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="个人补办">
                                              <graphic>
                                                 <ImageView fitHeight="200.0" fitWidth="200.0">
                                                    <image>
@@ -140,7 +148,7 @@
                                     </StackPane>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                        <children>
-                                          <Button fx:id="cprs1" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumpcprs1" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="法人补办">
+                                          <Button fx:id="cprs1" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumpcprs1" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="法人补办">
                                              <graphic>
                                                 <ImageView fitHeight="200.0" fitWidth="200.0">
                                                    <image>
@@ -387,7 +395,7 @@
                                  <children>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" prefHeight="240.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Button fx:id="rsBTN" contentDisplay="TOP" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#jumprs" prefHeight="240.0" prefWidth="150.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="注册">
+                                          <Button fx:id="rsBtn" contentDisplay="TOP" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumprs" prefHeight="240.0" prefWidth="150.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="注册">
                                              <graphic>
                                                 <ImageView fitHeight="213.0" fitWidth="130.0" smooth="false">
                                                    <image>
@@ -403,7 +411,7 @@
                                     </StackPane>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" prefHeight="240.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Button fx:id="ccBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumptocc" prefHeight="283.0" prefWidth="223.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="注销">
+                                          <Button fx:id="ccBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumptocc" prefHeight="283.0" prefWidth="223.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="注销">
                                              <graphic>
                                                 <ImageView fitHeight="213.0" fitWidth="130.0" smooth="false">
                                                    <image>
@@ -419,7 +427,7 @@
                                     </StackPane>
                                     <StackPane layoutX="233.0" layoutY="17.0" maxHeight="247.0" maxWidth="229.0" prefHeight="240.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Button fx:id="frBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumptofr" prefHeight="297.0" prefWidth="192.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="冻结">
+                                          <Button fx:id="frBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumptofr" prefHeight="297.0" prefWidth="192.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="冻结">
                                              <graphic>
                                                 <ImageView fitHeight="213.0" fitWidth="130.0" smooth="false">
                                                    <image>
@@ -438,7 +446,7 @@
                                     </StackPane>
                                     <StackPane layoutX="524.0" layoutY="20.0" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" prefHeight="240.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Button fx:id="ressuieBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumptoressuie" prefHeight="280.0" prefWidth="288.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="补办">
+                                          <Button fx:id="ressuieBtn" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumptoressuie" prefHeight="280.0" prefWidth="288.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="补办">
                                              <graphic>
                                                 <ImageView fitHeight="213.0" fitWidth="130.0" smooth="false">
                                                    <image>
@@ -465,7 +473,7 @@
                                  <children>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                        <children>
-                                          <Button fx:id="psrs" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumppsrs" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="个人注册">
+                                          <Button fx:id="psrs" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumppsrs" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="个人注册">
                                              <graphic>
                                                 <ImageView fitHeight="200.0" fitWidth="200.0">
                                                    <image>
@@ -484,7 +492,7 @@
                                     </StackPane>
                                     <StackPane maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                                        <children>
-                                          <Button fx:id="cprs" contentDisplay="TOP" mnemonicParsing="false" onAction="#jumpcprs" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="公司注册">
+                                          <Button fx:id="cprs" contentDisplay="TOP" mnemonicParsing="false" onMouseExited="#BtnExited" onMouseMoved="#BtnMoved" onMousePressed="#Btnpressed" onMouseReleased="#jumpcprs" prefHeight="255.0" prefWidth="210.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="公司注册">
                                              <graphic>
                                                 <ImageView fitHeight="200.0" fitWidth="200.0">
                                                    <image>

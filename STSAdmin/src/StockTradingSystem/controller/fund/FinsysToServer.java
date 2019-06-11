@@ -5,6 +5,8 @@ import StockTradingSystem.domain.entity.TransactionLog;
 import StockTradingSystem.http_utils.CustomResp;
 import StockTradingSystem.http_utils.HttpCommon;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
@@ -15,12 +17,14 @@ public class FinsysToServer {
 	private static FundAccount customer = new FundAccount();
 	static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 
+	private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
+
 	static boolean FinsysLogin(Long customerID, String pwd) throws IOException{
 		FundAccount user=new FundAccount();
 		user.setFundId(customerID.intValue());
 		user.setPassword(pwd);
 		
-		String json=new Gson().toJson(user);
+		String json=gson.toJson(user);
 		
 		System.out.println(json);
 
@@ -40,7 +44,7 @@ public class FinsysToServer {
 	
 	static long CreateAccount(String stockID, String password, double money) {
 		FundAccount newaccount=new FundAccount(-1,Integer.valueOf(stockID),password,money,0,true);
-		String json=new Gson().toJson(newaccount);
+		String json=gson.toJson(newaccount);
 		System.out.println("JSON: " + json);
 		CustomResp cr = new HttpCommon().doHttp("/fund/new", "POST", json);
 		String res=cr.getResultJSON();
@@ -48,7 +52,7 @@ public class FinsysToServer {
 	    System.out.println(res);
 	    System.out.println(cr.getObjectJSON());
 	    if(resStatus.equals("true")) {
-			int id = new Gson().fromJson(cr.getObjectJSON(), int.class);
+			int id = gson.fromJson(cr.getObjectJSON(), int.class);
 			System.out.println("新ID: " + id);
 	    	customer.setFundId(id);
 	    	customer.setPassword(password);
@@ -61,7 +65,7 @@ public class FinsysToServer {
 	static String SearchLog() {
 		
 		
-		String json=new Gson().toJson(customer);
+		String json=gson.toJson(customer);
 		CustomResp cr = new HttpCommon().doHttp("/fund/"+customer.getFundId(), "GET", json);
 		String res=cr.getResultJSON();
 		
@@ -85,7 +89,7 @@ public class FinsysToServer {
 		log.setChangeAmount(amount);
 		log.setComment("transaction");
 		log.setActionTime(new Date(System.currentTimeMillis()));
-		String json=new Gson().toJson(log);
+		String json=gson.toJson(log);
 		CustomResp cr = new HttpCommon().doHttp("/fund/transfer/", "POST", json);
 		String res=cr.getResultJSON();
 		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
@@ -132,7 +136,7 @@ public class FinsysToServer {
 			return "ERROR";
 		}
 		
-		String json=new Gson().toJson(customer);
+		String json=gson.toJson(customer);
 		CustomResp cr = new HttpCommon().doHttp("/fund/change/state/"+customer.getFundId(), "POST", json);
 		String res=cr.getResultJSON();
 		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
@@ -150,7 +154,7 @@ public class FinsysToServer {
 		if(customer.getFundId()==-1) {
 			return false;
 		}
-		String json=new Gson().toJson(customer);
+		String json=gson.toJson(customer);
 		CustomResp cr = new HttpCommon().doHttp("/fund/delete/"+customer.getFundId(), "POST", json);
 		String res=cr.getResultJSON();
 		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
@@ -185,8 +189,6 @@ public class FinsysToServer {
 		
 		
 	}
-	
-	
 	
 	
 }
