@@ -133,12 +133,12 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void gotofinLogUI(String log) throws Exception {
+    public void gotofinLogUI() throws Exception {
         stage.close();
         stage = new Stage();
         stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
         finLogUIController finLogUI = (finLogUIController)replaceSceneContent("fxml/fund/finSearchLogUI.fxml");
-        finLogUI.setText(log);
+        finLogUI.initialize();
         finLogUI.setApp(this);
         stage.show();
     }

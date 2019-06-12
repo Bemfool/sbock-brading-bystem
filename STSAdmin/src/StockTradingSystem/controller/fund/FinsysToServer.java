@@ -6,11 +6,12 @@ import StockTradingSystem.http_utils.CustomResp;
 import StockTradingSystem.http_utils.HttpCommon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
-
+import java.util.*;
 
 public class FinsysToServer {
 
@@ -186,9 +187,50 @@ public class FinsysToServer {
 		else {
 			return "CANNOT GET CUSTOMER INFO";
 		}
-		
-		
 	}
 
-	
+	public static FundAccount GetUserInfo() {
+
+		String json=gson.toJson(customer);
+		CustomResp cr = new HttpCommon().doHttp("/fund/"+customer.getFundId(), "GET", json);
+		String res=cr.getResultJSON();
+
+		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
+		System.out.println(res);
+		String info=cr.getObjectJSON();
+		System.out.println(info);
+		FundAccount userinfo= new Gson().fromJson(info ,FundAccount.class);
+		if(resStatus.equals("true")) {
+			return userinfo;
+		}
+		else
+			return null;
+	}
+
+	static List<TransactionLog> GetTranscationLog(){
+		//获取交易记录的url：/fund/transaction_log/{fundId} 方法：get
+		CustomResp cr = new HttpCommon().doHttp("/fund/transaction_log/"+customer.getFundId(), "GET",null);
+		String res=cr.getResultJSON();
+		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
+		System.out.println(res+"  "+resStatus);
+
+		if(resStatus.equals("true")){
+			String logstring=cr.getObjectJSON();
+			System.out.println(logstring);
+			List<TransactionLog> logs= gson.fromJson(logstring, new TypeToken<List<TransactionLog>>() {}.getType());
+			System.out.println("ActionID  FundID  changeAmount  Actiontime  Comment");
+			for(TransactionLog i:logs){
+				System.out.println(i.getActionId()+"  "+i.getFundId()+"  "+i.getChangeAmount()+"  "+i.getActionTime()+"  "+i.getComment());
+			}
+			return logs;
+		}
+		else {
+			System.out.println("ERROR: Invalid Server Response");
+			return null;
+		}
+
+	}
+
+
+
 }

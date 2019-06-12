@@ -2,8 +2,11 @@ package StockTradingSystem.controller.fund;
 
 import StockTradingSystem.controller.utils.AdminUIController;
 import StockTradingSystem.controller.utils.ControllerUtils;
+import StockTradingSystem.domain.entity.FundAccount;
+import StockTradingSystem.domain.entity.TransactionLog;
 import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
+import java.util.List;
 
 public class finworkUIController extends AdminUIController {
 	  	@FXML
@@ -34,11 +37,9 @@ public class finworkUIController extends AdminUIController {
     public void exitSearchLog( ) { ControllerUtils.btnRelease(SearchLogBtn);    }
     public void releaseSearchLog( ) throws Exception {  
     	ControllerUtils.btnRelease(SearchLogBtn);
+
     	
-    	String result=FinsysToServer.SearchLog();
-    	System.out.println(result);
-    	
-    	getApp().gotofinLogUI(result);
+    	getApp().gotofinLogUI();
     }
     
     //================ChangBalance=============
@@ -71,10 +72,10 @@ public class finworkUIController extends AdminUIController {
     public void pressChangeState( ) {  ControllerUtils.btnPress(ChangeState);   }
     public void releaseChangeState( ) throws Exception {
     	ControllerUtils.btnRelease(ChangeState);
-    	String result=FinsysToServer.ChangeState();
-    	
+    	FinsysToServer.ChangeState();
+        FundAccount userinfo=FinsysToServer.GetUserInfo();
     	//System.out.println("customer state: "+result);
-    	getApp().FinSysWarningUI("customer state: "+result);
+    	getApp().FinSysWarningUI("customer state: "+ userinfo.isState());
     }
    
     

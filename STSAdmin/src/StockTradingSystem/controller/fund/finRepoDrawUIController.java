@@ -2,6 +2,7 @@ package StockTradingSystem.controller.fund;
 
 
 import StockTradingSystem.controller.utils.AdminUIController;
+import StockTradingSystem.domain.entity.FundAccount;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -29,8 +30,10 @@ public class finRepoDrawUIController extends AdminUIController {
 		
     	String Amount=MoneyFeild.getText();
     	FinsysToServer.Reposit_Withdraw(Double.valueOf(Amount));
+    	FundAccount user= FinsysToServer.GetUserInfo();
 		System.out.println("Transaction amount: "+Amount);
-		getApp().FinSysWarningUI("Transaction amount: "+Amount);
+
+		getApp().FinSysWarningUI("Transaction amount: "+Amount+"\n Current money in FundSystem: "+user.getBalance());
     	getApp().gotofinworkUI();
     }
 
