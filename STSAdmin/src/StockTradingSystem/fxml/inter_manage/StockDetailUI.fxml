@@ -55,7 +55,7 @@
                                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                             </rowConstraints>
                                                             <children>
-                                                                <Text fx:id="stockCountTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="成交量" />
+                                                                <Text fx:id="stockAmountTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="成交量" />
                                                                 <Text fx:id="stockPriceTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="成交价" GridPane.rowIndex="1" />
                                                                 <Text fx:id="stockStateTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="状态" GridPane.rowIndex="2" />
                                                                 <Text fx:id="stockLimitTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="涨跌幅" GridPane.rowIndex="3" />

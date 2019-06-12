@@ -76,8 +76,7 @@ public class StockDetailUIController implements Initializable {
     private void initStockInfo() {
         stockCodeTxt.setText(stock.getStockCode());
         stockNameTxt.setText(stock.getStockName());
-        // TODO 修改数据库中股票项
-//        stockAmountTxt.setText("成交量: ");
+        stockAmountTxt.setText("成交量: " + stock.getStockAmount());
         stockPriceTxt.setText("成交价: " + stock.getStockPrice());
         stockStateTxt.setText("状态: " + stock.getStockState());
         stockLimitTxt.setText("涨跌限制: " + stock.getStockLimit());
