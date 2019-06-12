@@ -423,7 +423,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
     private Button frBtn;
 
     @FXML
-    private Button ccBTn;
+    private Button ccBtn;
 
     @FXML
     private Button ressuieBtn;
@@ -447,7 +447,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
     @FXML
     void jumptocc() {
         AllClear();
-        btnRelease(ccBTn);
+        btnRelease(ccBtn);
         pagechose.setVisible(false);
         pagecc.setVisible(true);
     }
