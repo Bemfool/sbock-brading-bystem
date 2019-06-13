@@ -27,6 +27,11 @@ public class finCreateActUIController extends AdminUIController {
 		String password=Password.getText();
     	
     	System.out.println("creating new account....");
+		if(password.length()<6){
+			getApp().FinSysWarningUI("password is too short");
+			return;
+		}
+
     	long newFinID =FinsysToServer.CreateAccount(stockid, password, Double.valueOf(money));
     	
  

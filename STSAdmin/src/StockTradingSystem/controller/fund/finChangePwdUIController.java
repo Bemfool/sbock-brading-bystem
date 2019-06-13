@@ -23,6 +23,11 @@ public class finChangePwdUIController extends AdminUIController {
     	String password2=newPassword2.getText();
     	
     	if(password1.equals(password2)) {
+
+			if(password1.length()<6){
+				getApp().FinSysWarningUI("password is too short");
+				return;
+			}
     		if(FinsysToServer.changePassword(password1))
     			getApp().gotofinworkUI();
     			

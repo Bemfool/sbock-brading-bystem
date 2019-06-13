@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane id="background" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 10px;" stylesheets="@../../css/InterManageUI.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockTradingSystem.controller.fund.finMainUIController">
    <children>
        <VBox AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -110,111 +120,151 @@
                                     </JFXButton>
                                  </children>
                               </HBox>
-                              <StackPane style="-fx-background-radius: 10px; -fx-background-color: white;">
+                              <StackPane prefHeight="480.0" prefWidth="738.0" style="-fx-background-radius: 10px; -fx-background-color: white;">
                                  <effect>
                                     <DropShadow color="#5309de50" height="40.07" radius="20.130000000000003" spread="0.34" width="42.45" />
                                  </effect>
                                  <children>
-                                    <HBox prefHeight="744.0" prefWidth="737.0">
+                                    <VBox prefHeight="342.0" prefWidth="714.0">
                                        <children>
-                                          <StackPane fx:id="NewAccountBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMouseExited="#exitNewAccount" onMouseMoved="#moveNewAccount" onMousePressed="#pressNewAccount" onMouseReleased="#releaseNewAccount" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-                                             <HBox.margin>
-                                                <Insets bottom="40.0" left="20.0" top="40.0" />
-                                             </HBox.margin>
+                                          <StackPane prefHeight="202.0" prefWidth="738.0">
                                              <children>
-                                                <VBox>
+                                                <HBox prefHeight="744.0" prefWidth="737.0">
                                                    <children>
-                                                      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                         <VBox.margin>
-                                                            <Insets left="5.0" top="5.0" />
-                                                         </VBox.margin>
-                                                         <image>
-                                                            <Image url="@../../img/human_icon/securities.jpg" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <Label alignment="CENTER" prefHeight="15.0" prefWidth="219.0" text="注册账户">
-                                                         <font>
-                                                            <Font name="Microsoft YaHei Light" size="24.0" />
-                                                         </font>
-                                                         <VBox.margin>
-                                                            <Insets bottom="10.0" />
-                                                         </VBox.margin>
-                                                      </Label>
+                                                      <StackPane fx:id="NewAccountBtn" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitNewAccount" onMouseMoved="#moveNewAccount" onMousePressed="#pressNewAccount" onMouseReleased="#releaseNewAccount" prefHeight="197.0" prefWidth="192.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <HBox.margin>
+                                                            <Insets bottom="30.0" left="20.0" top="20.0" />
+                                                         </HBox.margin>
+                                                         <children>
+                                                            <VBox alignment="CENTER">
+                                                               <children>
+                                                                  <ImageView fitHeight="152.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <VBox.margin>
+                                                                        <Insets left="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                     <image>
+                                                                        <Image url="@../../img/human_icon/securities.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label alignment="CENTER" prefHeight="0.0" prefWidth="210.0" text="注册账户">
+                                                                     <font>
+                                                                        <Font name="Microsoft YaHei Light" size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                                         </effect>
+                                                      </StackPane>
+                                                      <StackPane fx:id="FinWorkBtn" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitFinWork" onMouseMoved="#moveFinWork" onMousePressed="#pressFinWork" onMouseReleased="#releaseFinWork" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" top="20.0" />
+                                                         </HBox.margin>
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="179.0" prefWidth="169.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="154.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../img/human_icon/fund.jpg" />
+                                                                     </image>
+                                                                     <VBox.margin>
+                                                                        <Insets left="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </ImageView>
+                                                                  <Label alignment="CENTER" prefHeight="64.0" prefWidth="219.0" text="资金账户业务">
+                                                                     <font>
+                                                                        <Font name="Microsoft YaHei Light" size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <StackPane.margin>
+                                                                  <Insets />
+                                                               </StackPane.margin>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                                         </effect>
+                                                      </StackPane>
+                                                      <StackPane fx:id="InterestBtn" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitInterest" onMouseMoved="#moveInterest" onMousePressed="#pressInterest" onMouseReleased="#releaseInterest" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="278.0" prefWidth="220.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="163.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../img/human_icon/fund.jpg" />
+                                                                     </image>
+                                                                     <VBox.margin>
+                                                                        <Insets left="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </ImageView>
+                                                                  <Label alignment="CENTER" prefHeight="64.0" prefWidth="219.0" text="结息">
+                                                                     <font>
+                                                                        <Font name="Microsoft YaHei Light" size="24.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                               <StackPane.margin>
+                                                                  <Insets />
+                                                               </StackPane.margin>
+                                                            </VBox>
+                                                         </children>
+                                                         <effect>
+                                                            <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
+                                                         </effect>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" right="20.0" top="20.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
                                                    </children>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                             <effect>
-                                                <DropShadow color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
-                                             </effect>
                                           </StackPane>
-                                          <StackPane fx:id="FinWorkBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMouseExited="#exitFinWork" onMouseMoved="#moveFinWork" onMousePressed="#pressFinWork" onMouseReleased="#releaseFinWork" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-                                             <HBox.margin>
-                                                <Insets left="20.0" top="40.0" />
-                                             </HBox.margin>
+                                          <StackPane prefHeight="203.0" prefWidth="738.0">
                                              <children>
-                                                <VBox prefHeight="278.0" prefWidth="220.0">
+                                                <HBox prefHeight="225.0" prefWidth="738.0">
                                                    <children>
-                                                      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../../img/human_icon/fund.jpg" />
-                                                         </image>
-                                                         <VBox.margin>
-                                                            <Insets left="5.0" top="5.0" />
-                                                         </VBox.margin>
-                                                      </ImageView>
-                                                      <Label alignment="CENTER" prefHeight="64.0" prefWidth="219.0" text="资金账户业务">
-                                                         <font>
-                                                            <Font name="Microsoft YaHei Light" size="24.0" />
-                                                         </font>
-                                                         <VBox.margin>
-                                                            <Insets bottom="10.0" />
-                                                         </VBox.margin>
-                                                      </Label>
+                                                      <StackPane fx:id="ReclaimBtn" maxHeight="200.0" maxWidth="210.0" minHeight="200.0" minWidth="210.0" onMouseExited="#exitReclaim" onMouseMoved="#moveReclaim" onMousePressed="#pressReclaim" onMouseReleased="#releaseReclaim" prefHeight="195.0" prefWidth="228.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                         <effect>
+                                                            <DropShadow />
+                                                         </effect>
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
+                                                               <children>
+                                                                  <ImageView fitHeight="154.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../img/human_icon/securities.jpg" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Label contentDisplay="CENTER" text="找回账户">
+                                                                     <font>
+                                                                        <Font name="Microsoft YaHei Light" size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </StackPane>
                                                    </children>
-                                                   <StackPane.margin>
-                                                      <Insets />
-                                                   </StackPane.margin>
-                                                </VBox>
+                                                </HBox>
                                              </children>
-                                             <effect>
-                                                <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
-                                             </effect>
-                                          </StackPane>
-                                          <StackPane fx:id="InterestBtn" maxHeight="240.0" maxWidth="210.0" minHeight="240.0" minWidth="210.0" onMouseExited="#exitInterest" onMouseMoved="#moveInterest" onMousePressed="#pressInterest" onMouseReleased="#releaseInterest" prefHeight="240.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-                                             <children>
-                                                <VBox prefHeight="278.0" prefWidth="220.0">
-                                                   <children>
-                                                      <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../../img/human_icon/fund.jpg" />
-                                                         </image>
-                                                         <VBox.margin>
-                                                            <Insets left="5.0" top="5.0" />
-                                                         </VBox.margin>
-                                                      </ImageView>
-                                                      <Label alignment="CENTER" prefHeight="64.0" prefWidth="219.0" text="结息">
-                                                         <font>
-                                                            <Font name="Microsoft YaHei Light" size="24.0" />
-                                                         </font>
-                                                         <VBox.margin>
-                                                            <Insets bottom="10.0" />
-                                                         </VBox.margin>
-                                                      </Label>
-                                                   </children>
-                                                   <StackPane.margin>
-                                                      <Insets />
-                                                   </StackPane.margin>
-                                                </VBox>
-                                             </children>
-                                             <effect>
-                                                <DropShadow blurType="GAUSSIAN" color="#0000004d" height="30.0" radius="14.5" spread="0.03" width="30.0" />
-                                             </effect>
-                                             <HBox.margin>
-                                                <Insets left="20.0" right="20.0" top="40.0" />
-                                             </HBox.margin>
                                           </StackPane>
                                        </children>
-                                    </HBox>
+                                    </VBox>
                                  </children>
                               </StackPane>
                            </children>
