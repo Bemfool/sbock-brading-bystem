@@ -162,6 +162,15 @@ public class Main extends Application {
         stage.show();
     }
 
+    public void gotofinReclaimActUI() throws Exception {
+        stage.close();
+        stage = new Stage();
+        stage.setTitle("资金账户系统(管理员) Finance System(Admin) - B");
+        finReclaimActUIController finReclaimActUI = (finReclaimActUIController)replaceSceneContent("fxml/fund/finReclaimActUI.fxml");
+        finReclaimActUI.setApp(this);
+        stage.show();
+    }
+
     public void gotofinCreateActUI() throws Exception {
         stage.close();
         stage = new Stage();

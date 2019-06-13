@@ -17,7 +17,10 @@ public class finMainUIController extends AdminUIController {
 
     @FXML
     private StackPane InterestBtn;
-    
+    @FXML
+    private StackPane ReclaimBtn;
+
+
 
     /* 按钮特效 */
     public void pressNewAccount() { ControllerUtils.btnPress(NewAccountBtn); }
@@ -45,13 +48,24 @@ public class finMainUIController extends AdminUIController {
     public void pressInterest() { ControllerUtils.btnPress(InterestBtn); }
     public void moveInterest() { ControllerUtils.btnMove(InterestBtn);}
     public void exitInterest() { ControllerUtils.btnRelease(InterestBtn);}
-    public void releaseInterest() throws SQLException {
+    public void releaseInterest() {
         ControllerUtils.btnRelease(InterestBtn);
         System.out.println("Adding Interests, this may take a few minutes....");
         FinsysToServer.calcInterests();
         System.out.println("Finish Adding Interest");
     }
-    
+
+
+    public void exitReclaim() {   ControllerUtils.btnRelease(ReclaimBtn); }
+    public void moveReclaim() {   ControllerUtils.btnMove(ReclaimBtn);  }
+    public void pressReclaim() {   ControllerUtils.btnPress(ReclaimBtn);   }
+    public void releaseReclaim() throws Exception {
+        ControllerUtils.btnRelease(ReclaimBtn);
+        getApp().gotofinReclaimActUI();
+    }
+
+
+
     @FXML
     void exitFinsys() throws Exception {
     	getApp().gotoAdminMainUI();

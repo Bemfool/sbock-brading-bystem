@@ -7,6 +7,7 @@ import StockTradingSystem.http_utils.HttpCommon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -62,25 +63,7 @@ public class FinsysToServer {
 	    else
 	    	return (long)-1;
 	}
-	
-	static String SearchLog() {
-		
-		
-		String json=gson.toJson(customer);
-		CustomResp cr = new HttpCommon().doHttp("/fund/"+customer.getFundId(), "GET", json);
-		String res=cr.getResultJSON();
-		
-		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
-	    System.out.println(res);
-	    System.out.println(cr.getObjectJSON());
-	    if(resStatus.equals("true")) {
-	    	return cr.getObjectJSON();
-	    }	
-	    else
-	    	return "ERROR";
-	}
-	
-	
+
 	static double Reposit_Withdraw(double amount) {
 		if(customer.getFundId()==-1) {
 			return -1;
@@ -130,8 +113,7 @@ public class FinsysToServer {
 	    else 
 	    	return false;   
 	}
-	
-	
+
 	public static String ChangeState() {
 		if(customer.getFundId()==-1) {
 			return "ERROR";
@@ -149,7 +131,6 @@ public class FinsysToServer {
 	    else 
 	    	return "ERROR";   
 	}
-	
 
 	public static boolean DeletAccount() {
 		if(customer.getFundId()==-1) {
@@ -173,7 +154,6 @@ public class FinsysToServer {
 	    }
 	    
 	}
-	
 	
 	public static String CustomerInfo() {
 		if(customer.getFundId()==-1) {
@@ -207,7 +187,7 @@ public class FinsysToServer {
 			return null;
 	}
 
-	static List<TransactionLog> GetTranscationLog(){
+	public static List<TransactionLog> GetTranscationLog(){
 		//获取交易记录的url：/fund/transaction_log/{fundId} 方法：get
 		CustomResp cr = new HttpCommon().doHttp("/fund/transaction_log/"+customer.getFundId(), "GET",null);
 		String res=cr.getResultJSON();
@@ -231,6 +211,9 @@ public class FinsysToServer {
 
 	}
 
-
+	public static void setCustomer(int accountnumber){
+		customer=new FundAccount();
+		customer.setFundId(accountnumber);
+	}
 
 }
