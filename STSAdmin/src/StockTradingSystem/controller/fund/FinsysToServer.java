@@ -7,12 +7,11 @@ import StockTradingSystem.http_utils.HttpCommon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.sql.Date;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class FinsysToServer {
 

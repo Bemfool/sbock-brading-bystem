@@ -6,22 +6,22 @@ import java.util.List;
 
 public class Result {
     private boolean status;
-    private List<String> reasons;
+    private String reason;
     public Result(){
         this.status = true;
-        this.reasons = null;
+        this.reason = null;
     }
-    public Result(String... reasons){
+    public Result(String reason){
         this.status = false;
-        this.reasons = Arrays.asList(reasons);
+        this.reason = reason;
     }
 
-    public List<String> getReasons() {
-        return reasons;
+    public String getReasons() {
+        return reason;
     }
 
-    public void setReasons(List<String> reasons) {
-        this.reasons = reasons;
+    public void setReasons(String reasons) {
+        this.reason = reasons;
     }
 
     public boolean isStatus() {
@@ -30,12 +30,6 @@ public class Result {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public void addReason(String reason){
-        this.status = false;
-        this.reasons = new ArrayList<>();
-        reasons.add(reason);
     }
 
 
