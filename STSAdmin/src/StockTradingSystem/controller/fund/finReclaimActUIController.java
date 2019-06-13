@@ -23,8 +23,15 @@ public class finReclaimActUIController extends AdminUIController {
         String pwd1=newPassword1.getText();
         String pwd2=newPassword2.getText();
         if(pwd1.equals(pwd2)){
-            if(pwd1.length()<6){
-                getApp().FinSysWarningUI("password is too short");
+            int numberflag = 0, letterflag=0;
+            for(int i=0;i<pwd1.length();i++){
+                if(pwd1.charAt(i) >= '0' && pwd1.charAt(i) <= '9') numberflag++;
+                if((pwd1.charAt(i) >= 'a' && pwd1.charAt(i) <= 'z') ||  (pwd1.charAt(i) >= 'A' && pwd1.charAt(i) <= 'Z')) letterflag++;
+            }
+
+
+            if(pwd1.length()<6 || numberflag<=0 || letterflag<=0){
+                getApp().FinSysWarningUI("密码不符合要求！");
                 return;
             }
             FinsysToServer.setCustomer(Integer.valueOf(accountnumber));

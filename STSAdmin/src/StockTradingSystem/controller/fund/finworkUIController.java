@@ -38,7 +38,6 @@ public class finworkUIController extends AdminUIController {
     public void releaseSearchLog( ) throws Exception {  
     	ControllerUtils.btnRelease(SearchLogBtn);
 
-    	
     	getApp().gotofinLogUI();
     }
     
@@ -47,6 +46,10 @@ public class finworkUIController extends AdminUIController {
     public void moveChangeBalance( ) { ControllerUtils.btnMove(ChangeBalance); }
     public void pressChangeBalance( ) {  ControllerUtils.btnPress(ChangeBalance);  }
     public void releaseChangeBalance( ) throws Exception {
+        if(!FinsysToServer.getState()){
+            getApp().FinSysWarningUI("用户已被冻结");
+            return;
+        }
     	ControllerUtils.btnRelease(ChangeBalance);
     	getApp().gotofinRepoDrawUI();
     }
@@ -86,8 +89,13 @@ public class finworkUIController extends AdminUIController {
     public void pressDeleteAccount( ) {ControllerUtils.btnPress(DeleteAccount);    }
     public void releaseDeleteAccount( ) throws Exception {
     	ControllerUtils.btnRelease(DeleteAccount);
+        if(!FinsysToServer.getState()){
+            getApp().FinSysWarningUI("用户已被冻结");
+            return;
+        }
+
     	if(FinsysToServer.DeletAccount()) {
-    		getApp().FinSysWarningUI("Successfully Delete Account");
+    		getApp().FinSysWarningUI("已经成功删除账户");
     		getApp().gotofinMainUI();
     	}    	
     	

@@ -29,11 +29,16 @@ public class finRepoDrawUIController extends AdminUIController {
 	public void Confirm() throws Exception {
 		
     	String Amount=MoneyFeild.getText();
+        if(!FinsysToServer.getState()){
+            getApp().FinSysWarningUI("用户已被冻结");
+            return;
+        }
+
     	FinsysToServer.Reposit_Withdraw(Double.valueOf(Amount));
     	FundAccount user= FinsysToServer.GetUserInfo();
-		System.out.println("Transaction amount: "+Amount);
+		System.out.println("转账金额: "+Amount);
 
-		getApp().FinSysWarningUI("Transaction amount: "+Amount+"\n Current money in FundSystem: "+user.getBalance());
+		getApp().FinSysWarningUI("转账金额: "+Amount+"\n 当前余额: "+user.getBalance());
     	getApp().gotofinworkUI();
     }
 

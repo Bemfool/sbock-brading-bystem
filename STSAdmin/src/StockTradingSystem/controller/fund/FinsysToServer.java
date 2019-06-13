@@ -68,6 +68,7 @@ public class FinsysToServer {
 		if(customer.getFundId()==-1) {
 			return -1;
 		}
+
 		TransactionLog log=new TransactionLog();
 		log.setFundId(customer.getFundId());
 		log.setChangeAmount(amount);
@@ -214,6 +215,11 @@ public class FinsysToServer {
 	public static void setCustomer(int accountnumber){
 		customer=new FundAccount();
 		customer.setFundId(accountnumber);
+	}
+
+	public static boolean getState(){
+		FundAccount user=GetUserInfo();
+		return user.isState();
 	}
 
 }

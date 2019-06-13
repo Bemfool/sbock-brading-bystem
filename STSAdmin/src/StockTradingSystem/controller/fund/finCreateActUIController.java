@@ -27,8 +27,15 @@ public class finCreateActUIController extends AdminUIController {
 		String password=Password.getText();
     	
     	System.out.println("creating new account....");
-		if(password.length()<6){
-			getApp().FinSysWarningUI("password is too short");
+    	int numberflag = 0, letterflag=0;
+    	for(int i=0;i<password.length();i++){
+    		if(password.charAt(i) >= '0' && password.charAt(i) <= '9') numberflag++;
+    		if((password.charAt(i) >= 'a' && password.charAt(i) <= 'z') ||  (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z')) letterflag++;
+		}
+
+
+		if(password.length()<6 || numberflag<=0 || letterflag<=0){
+			getApp().FinSysWarningUI("密码不符合要求！");
 			return;
 		}
 

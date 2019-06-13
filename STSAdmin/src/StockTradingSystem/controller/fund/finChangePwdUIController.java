@@ -21,14 +21,27 @@ public class finChangePwdUIController extends AdminUIController {
     public void confirm() throws Exception {
     	String password1=newPassword1.getText();
     	String password2=newPassword2.getText();
-    	
+
+    	if(!FinsysToServer.getState()){
+    		getApp().FinSysWarningUI("用户已被冻结");
+    		return;
+		}
+
     	if(password1.equals(password2)) {
 
-			if(password1.length()<6){
-				getApp().FinSysWarningUI("password is too short");
+			int numberflag = 0, letterflag=0;
+			for(int i=0;i<password1.length();i++){
+				if(password1.charAt(i) >= '0' && password1.charAt(i) <= '9') numberflag++;
+				if((password1.charAt(i) >= 'a' && password1.charAt(i) <= 'z') ||  (password1.charAt(i) >= 'A' && password1.charAt(i) <= 'Z')) letterflag++;
+			}
+
+
+			if(password1.length()<6 || numberflag<=0 || letterflag<=0){
+				getApp().FinSysWarningUI("密码不符合要求！");
 				return;
 			}
-    		if(FinsysToServer.changePassword(password1))
+
+			if(FinsysToServer.changePassword(password1))
     			getApp().gotofinworkUI();
     			
     		else
