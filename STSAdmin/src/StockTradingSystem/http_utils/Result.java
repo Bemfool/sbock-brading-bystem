@@ -1,27 +1,23 @@
 package StockTradingSystem.http_utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Result {
     private boolean status;
-    private String reason;
+    private String cause;
     public Result(){
         this.status = true;
-        this.reason = null;
+        this.cause = null;
     }
-    public Result(String reason){
+    public Result(String cause){
         this.status = false;
-        this.reason = reason;
+        this.cause = cause;
     }
 
     public String getReasons() {
-        return reason;
+        return cause;
     }
 
     public void setReasons(String reasons) {
-        this.reason = reasons;
+        this.cause = reasons;
     }
 
     public boolean isStatus() {

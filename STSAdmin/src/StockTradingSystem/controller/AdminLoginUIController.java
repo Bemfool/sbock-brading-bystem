@@ -5,6 +5,7 @@ import StockTradingSystem.controller.utils.ControllerUtils;
 import StockTradingSystem.domain.entity.AdminAccount;
 import StockTradingSystem.http_utils.CustomResp;
 import StockTradingSystem.http_utils.HttpCommon;
+import StockTradingSystem.http_utils.Result;
 import com.google.gson.Gson;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -51,6 +52,14 @@ public class AdminLoginUIController implements Initializable {
         // 登陆时先获得文本框中用户输入的信息
         id=managerId.getText();
         password=managerPassword.getText();
+        if(id.isEmpty()) {
+            loginBtn.setText("账号名不能为空");
+            return;
+        }
+        if(password.isEmpty()) {
+            loginBtn.setText("密码不能为空");
+            return;
+        }
 
         AdminAccount adminAccount = new AdminAccount(id, ControllerUtils.md5(password));
         String json = new Gson().toJson(adminAccount);
@@ -67,7 +76,10 @@ public class AdminLoginUIController implements Initializable {
             getApp().gotoAdminMainUI();
         }
         else {
-            loginBtn.setText("账号或密码错误,请重试");
+//            loginBtn.setText("账号或密码错误,请重试");
+            Result result = new Gson().fromJson(cr.getResultJSON(), Result.class);
+            loginBtn.setText(result.getReasons());
+            System.out.println(result.isStatus());
         }
 
 
