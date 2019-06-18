@@ -111,6 +111,11 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
                 cptradertel.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+        ccaccnb.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                ccaccnb.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
         //
     }
 
@@ -178,6 +183,12 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
         }//todo还需验证账户是否存在以及删除等情况
 
         PersonalAccount temp = new PersonalAccount();
+        if(!db.getPersonalAccount(psid.getText(), temp)) {
+            if (db.getMsg().startsWith("数据库异常")) {
+                showAlert(db.getMsg());
+                return;
+            }
+        }
         if(db.getPersonalAccount(psid.getText(), temp)){
             showAlert("您已经注册过证券账户！");
             return;
@@ -192,14 +203,26 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
 
         if(checktextField(rppsid)){
             PersonalAccount account1= new PersonalAccount(java.sql.Date.valueOf(date.getValue()), psname.getText(), sex, psid.getText(), psaddr.getText(), prof.getText(), diplome.getText(), psjob.getText(), pstel.getText(), rppsid.getText());
-            db.newPersonalAccount(account1);
-            db.getPersonalAccount(psid.getText(), account1);
+            if(!db.newPersonalAccount(account1)){
+                showAlert(db.getMsg());
+                return;
+            }
+            if(!db.getPersonalAccount(psid.getText(), account1)){
+                showAlert(db.getMsg());
+                return;
+            }
             showAlert("恭喜注册成功，"+"您的账号："+String.valueOf(account1.getSecuritiesId()));
             gotoMain();
         }else{
             PersonalAccount account1= new PersonalAccount(java.sql.Date.valueOf(date.getValue()), psname.getText(), sex, psid.getText(), psaddr.getText(), prof.getText(), diplome.getText(), psjob.getText(), pstel.getText());
-            db.newPersonalAccount(account1);
-            db.getPersonalAccount(psid.getText(), account1);
+            if(!db.newPersonalAccount(account1)){
+                showAlert(db.getMsg());
+                return;
+            }
+            if(!db.getPersonalAccount(psid.getText(), account1)){
+                showAlert(db.getMsg());
+                return;
+            }
             showAlert1("恭喜注册成功，"+"您的账号："+String.valueOf(account1.getSecuritiesId()));
 
         }
@@ -342,6 +365,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
         }
 
         if(cptraderid.getText().length()!=18){
+            cptraderid.clear();
             message1.setText("请输入正确的授权人有效身份证号");
             message1.setVisible(true);
             return false;
@@ -369,14 +393,26 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
             return;
         }
         CorporateAccount temp = new CorporateAccount();
+        if(!db.getCorporateAccount(cpid.getText(), temp)) {
+            if (db.getMsg().startsWith("数据库异常")) {
+                showAlert(db.getMsg());
+                return;
+            }
+        }
         if(db.getCorporateAccount(cpid.getText(), temp)){
             showAlert("该法人注册账号已经注册过证券账户！");
             return ;
         }
         //todo还需验证账户存在等问题
         temp = new CorporateAccount(cpid.getText(),cplicence.getText(), cprpid.getText(),cpname.getText(), cptel.getText(),  cpaddr.getText(), cptradername.getText(), cptraderid.getText(), cptradertel.getText(), cptraderaddr.getText());
-        db.newCorporateAccount(temp);
-        db.getCorporateAccount(cpid.getText(), temp);
+        if(!db.newCorporateAccount(temp)) {
+            showAlert(db.getMsg());
+            return;
+        }
+        if(!db.getCorporateAccount(cpid.getText(), temp)) {
+            showAlert(db.getMsg());
+            return;
+        }
         showAlert1("恭喜注册成功"+"您的账号："+String.valueOf(temp.getSecuritiesId()));
 
     }
@@ -500,6 +536,12 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
         int flag = 0;
         PersonalAccount personal_temp = new PersonalAccount();
         CorporateAccount corporate_temp = new CorporateAccount();
+        if(!db.getSecuritiesStock(Integer.valueOf( ccaccnb.getText()))) {
+            if (db.getMsg().startsWith("数据库异常")) {
+                showAlert(db.getMsg());
+                return;
+            }
+        }
         if(db.getSecuritiesStock(Integer.valueOf( ccaccnb.getText()))){
             showAlert("您有证劵未卖出，无法注销");
             return ;
@@ -514,7 +556,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
             }
             boolean delete_result = db.deleteCorporateAccount(ccidNb.getText());
             if(delete_result == false){
-                showAlert("删除失败！");
+                showAlert(db.getMsg());
             }else{
                 showAlert1("恭喜删除成功"+"您的账号："+String.valueOf(corporate_temp.getSecuritiesId()));
             }
@@ -529,7 +571,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
             }
             boolean delete_result = db.deletePersonalAccount(ccidNb.getText());
             if(delete_result == false){
-                showAlert("删除失败！");
+                showAlert(db.getMsg());
             }else{
                 showAlert1("恭喜删除成功" +"您的账号："+String.valueOf(personal_temp.getSecuritiesId()));
             }
@@ -538,7 +580,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
 
 
         if(flag == 1 || flag == 2){
-            showAlert("该账号不存在");
+            showAlert(db.getMsg());
             return;
         }
         //todo还需验证账户存在等问题
@@ -592,7 +634,7 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
 
 
         if(flag == 1 || flag == 2){
-            showAlert("账户不存在");
+            showAlert(db.getMsg());
             return;
         }
         //todo
@@ -676,6 +718,12 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
             return;
         }
         CorporateAccount account = new CorporateAccount();
+        if(!db.getCorporateAccount(psid.getText(), account)) {
+            if (db.getMsg().startsWith("数据库异常")) {
+                showAlert(db.getMsg());
+                return;
+            }
+        }
         account = new CorporateAccount(cpid.getText(),cplicence.getText(), cprpid.getText(),cpname.getText(), cptel.getText(),  cpaddr.getText(), cptradername.getText(), cptraderid.getText(), cptradertel.getText(), cptraderaddr.getText());
         CorporateAccount old_account = new CorporateAccount();
         if(!db.getCorporateAccount(account.getRegisterNo(), old_account)){
@@ -712,6 +760,12 @@ public class SecuritiesUIController extends ControllerUtilsforButton {
 
         int flag = 0;
         PersonalAccount account = new PersonalAccount();
+        if(!db.getPersonalAccount(psid.getText(), account)) {
+            if (db.getMsg().startsWith("数据库异常")) {
+                showAlert(db.getMsg());
+                return;
+            }
+        }
         if(checktextField(rppsid)){
             account= new PersonalAccount(java.sql.Date.valueOf(date.getValue()), psname.getText(), sex, psid.getText(), psaddr.getText(), prof.getText(), diplome.getText(), psjob.getText(), pstel.getText(), rppsid.getText());
             flag = 0;

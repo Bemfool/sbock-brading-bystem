@@ -278,7 +278,6 @@
                                           <TextField fx:id="cpaddr" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                           <TextField fx:id="cptradername" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <TextField fx:id="cptraderid" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <TextField fx:id="cptraderid2" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                           <TextField fx:id="cptradertel" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                           <TextField fx:id="cptraderaddr" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                           <TextField fx:id="cplicence" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="8" />

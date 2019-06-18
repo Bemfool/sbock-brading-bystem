@@ -20,11 +20,16 @@ public class SecuritiesAccountDBManager {
      * @param account 个人账户注册信息
      * @return 操作是否成功
      */
+    private String msg="";
+    public String getMsg(){
+        return msg;
+    }
     public boolean newPersonalAccount(PersonalAccount account) {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
         String json = gson.toJson(account);
         CustomResp cr = new HttpCommon().doHttp("/securities/new/personal", "POST", json);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if(!res.isStatus()) msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -37,6 +42,7 @@ public class SecuritiesAccountDBManager {
         String json = new Gson().toJson(account);
         CustomResp cr = new HttpCommon().doHttp("/securities/new/corporate", "POST", json);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if(!res.isStatus()) msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -50,8 +56,10 @@ public class SecuritiesAccountDBManager {
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create();
         CustomResp cr = new HttpCommon().doHttp("/securities/personal/" + id_no, "GET", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
-        if (res.isStatus())
-            account.copy(gson.fromJson(cr.getObjectJSON(), PersonalAccount.class));
+        if(res.getReasons()==null) System.out.println("hjh");
+        if (res.isStatus()){
+            account.copy(gson.fromJson(cr.getObjectJSON(), PersonalAccount.class));}
+        if(!res.isStatus()){  msg =res.getReasons().substring(0,res.getReasons().length());}
         return res.isStatus();
     }
 
@@ -64,8 +72,11 @@ public class SecuritiesAccountDBManager {
     public boolean getCorporateAccount(String register_no, CorporateAccount account) {
         CustomResp cr = new HttpCommon().doHttp("/securities/corporate/" + register_no, "GET", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
-        if (res.isStatus())
+        if (res.isStatus()) {
             account.copy(new Gson().fromJson(cr.getObjectJSON(), CorporateAccount.class));
+        } else {
+            msg = res.getReasons().substring(0, res.getReasons().length());
+        }
         return res.isStatus();
     }
 
@@ -74,9 +85,13 @@ public class SecuritiesAccountDBManager {
      * @param securities_id 证券账户ID
      * @return 返回关联的资金账号ID
      */
-    public List<String> getSecuritiesFund(int securities_id) {
+    public String getSecuritiesFund(int securities_id) {
         CustomResp cr = new HttpCommon().doHttp("/securities/fund_connected/" + securities_id, "GET", null);
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+        Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
+
         return new Gson().fromJson(cr.getObjectJSON(), listType);
     }
 
@@ -89,6 +104,11 @@ public class SecuritiesAccountDBManager {
         CustomResp cr = new HttpCommon().doHttp("/securities/stock_connected/" + securities_id, "GET", null);
         Type listType = new TypeToken<ArrayList<Stock>>() {}.getType();
         List<Stock> connectedStock = new Gson().fromJson(cr.getObjectJSON(), listType);
+        Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus()) {
+            msg =res.getReasons().substring(0,res.getReasons().length());
+            return false;
+        }
         return !connectedStock.isEmpty();
     }
 
@@ -101,6 +121,8 @@ public class SecuritiesAccountDBManager {
     public boolean modifyPersonalState(String id_no, int state) {
         CustomResp cr = new HttpCommon().doHttp("/securities/update/personal/state/" + id_no + "/" + state, "POST", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -113,6 +135,8 @@ public class SecuritiesAccountDBManager {
     public boolean modifyCorporateState(String register_no, int state) {
         CustomResp cr = new HttpCommon().doHttp("/securities/update/corporate/state/" + register_no + "/" + state, "POST", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -125,6 +149,8 @@ public class SecuritiesAccountDBManager {
     public boolean modifySecuritiesFunds(int oldID, int newID) {
         CustomResp cr = new HttpCommon().doHttp("/securities/alter/personal/" + oldID + "/" + newID, "POST", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -136,6 +162,8 @@ public class SecuritiesAccountDBManager {
     public boolean deletePersonalAccount(String id_no) {
         CustomResp cr = new HttpCommon().doHttp("/securities/delete/personal/" + id_no, "POST", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 
@@ -147,6 +175,8 @@ public class SecuritiesAccountDBManager {
     public boolean deleteCorporateAccount(String register_no) {
         CustomResp cr = new HttpCommon().doHttp("/securities/delete/corporate/" + register_no, "POST", null);
         Result res = new Gson().fromJson(cr.getResultJSON(), Result.class);
+        if (!res.isStatus())
+            msg =res.getReasons().substring(0,res.getReasons().length());
         return res.isStatus();
     }
 }
