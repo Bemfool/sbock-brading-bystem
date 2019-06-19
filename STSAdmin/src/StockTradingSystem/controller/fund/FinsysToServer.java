@@ -86,7 +86,7 @@ public class FinsysToServer {
 	}
 	
 	public static boolean calcInterests() {
-		CustomResp cr = new HttpCommon().doHttp("/fund/update/balance", "POST");
+		CustomResp cr = new HttpCommon().doHttp("/fund/settle_interest", "POST");
 		String res=cr.getResultJSON();
 		String resStatus = res.substring(res.lastIndexOf("\"status\":")+9, res.indexOf(','));
 	    System.out.println(res);

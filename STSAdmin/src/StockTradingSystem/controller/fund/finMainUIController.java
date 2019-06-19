@@ -51,7 +51,9 @@ public class finMainUIController extends AdminUIController {
     public void releaseInterest() {
         ControllerUtils.btnRelease(InterestBtn);
         System.out.println("Adding Interests, this may take a few minutes....");
-        FinsysToServer.calcInterests();
+        if(FinsysToServer.calcInterests()) {
+            ControllerUtils.showAlert("结息成功");
+        }
         System.out.println("Finish Adding Interest");
     }
 

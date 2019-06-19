@@ -1,6 +1,7 @@
 package StockTradingSystem.controller.fund;
 
 import StockTradingSystem.controller.utils.AdminUIController;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
@@ -11,7 +12,7 @@ public class finCreateActUIController extends AdminUIController {
 	@FXML
 	private JFXTextField InitialMoney;
 	@FXML
-	private JFXTextField Password;
+	private JFXPasswordField Password;
 
 	
     @FXML
